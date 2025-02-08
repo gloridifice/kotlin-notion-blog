@@ -83,11 +83,11 @@
         <div class="page_description">
           <h1 class="title">🦆 延迟渲染管线、微表面 BRDF、法线变换、物体继承树 UI｜Wgpu PBR 开发日志 #0002</h1>
           <div class="sub_info">
-            <p class="date">2025-01-25</p>
+            <p class="date">2025-01-29</p>
           </div>
         </div>
         <div class="page_content">
-          <div class="image_wrapper"><img src="/devLog/1837e342-f5b5-80bc-a170-e6627eae379b/img_1867e342-f5b5-8075-965e-e7160149866c.gif">
+          <div class="image_wrapper"><img src="/devLog/1837e342-f5b5-80bc-a170-e6627eae379b/img_18a7e342-f5b5-8005-a58e-f6a43d8ecd5f.gif">
             <div class="caption"></div>
           </div>
           <h1 id="heading1_0">
@@ -450,41 +450,44 @@ fn vs_main(
                   <tr>
                     <td class="table_header">Parameter</td>
                     <td>Type &amp; Range</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td class="table_header">BaseColor</td>
                     <td>Linear RGB [0, 1]</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td class="table_header">Roughness</td>
                     <td>Scalar [0, 1]</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td class="table_header">Reflectance</td>
                     <td>Scalar [0, 1]</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td class="table_header">Metallic</td>
                     <td>Scalar [0, 1]</td>
-                    <td></td>
                   </tr>
                 </table>
               </div>
             </div>
             <div class="column">
               <p>
-                <t>其中 BaseColor, Reflectance, Metallic 共同决定了 f0 项，Reflectance, Metallic 目前也只影响 f0 项</t>
+                <t>其中 BaseColor, Reflectance, Metallic 共同决定了 f0 项，Reflectance, Metallic 目前也只影响 f0 项，diffuse 会也会受 metallic 影响。此外，为了让 roughness 的视觉变换更符合直觉，roughness 可以平方处理一下。</t>
               </p>
               <div class="code_block">
                 <div class="code_part">
                   <div class="code_lang">rust</div>
-                  <pre><code class="language-rust">vec3 f0 = 0.16 * reflectance * reflectance * (1.0 - metallic) + baseColor * metallic;</code></pre>
+                  <pre><code class="language-rust">let f0 = 0.16 * reflectance * reflectance * (1.0 - metallic) + baseColor * metallic;
+let diffuse_color = (1.0 - metallic) * base_color;
+...
+fn perceptual_roughness_to_roughness(perceptual_roughness: f32) -&gt; f32 {
+    let clamped = clamp(perceptual_roughness, 0.089, 1.0);
+    return clamped * clamped;
+}</code></pre>
                 </div>
-                <div class="caption"></div>
+                <div class="caption">
+                  <t>wgsl</t>
+                </div>
               </div>
             </div>
           </div>
@@ -497,7 +500,7 @@ fn vs_main(
           <h1 id="heading1_4">
             <t>更好的 Editor UI</t>
           </h1>
-          <div class="image_wrapper"><img src="/devLog/1837e342-f5b5-80bc-a170-e6627eae379b/img_1867e342-f5b5-80d9-9e09-e1ef7575220c.png">
+          <div class="image_wrapper"><img src="/devLog/1837e342-f5b5-80bc-a170-e6627eae379b/img_18a7e342-f5b5-802d-98e8-c2b846f8647e.png">
             <div class="caption"></div>
           </div>
           <p>
