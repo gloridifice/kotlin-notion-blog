@@ -17,6 +17,7 @@
 }
 .project .info p {
   color: var(--text-color-1);
+  font-family: sans-serif;
   font-weight: 200;
 }
 .project .link {

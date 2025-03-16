@@ -34,34 +34,34 @@
         <div>
           <ul>
             <li class="h1"><a href="#heading1_0">
-                <t>渲染管线重构</t>
+                <t class="">渲染管线重构</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>Target</t>
+                <t class="">Target</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>用于快速书写 BindGroup 的宏</t>
+                <t class="">用于快速书写 BindGroup 的宏</t>
               </a></li>
             <li class="h3"><a href="#heading3_0">
-                <t>BindGroupLayout</t>
+                <t class="">BindGroupLayout</t>
               </a></li>
             <li class="h3"><a href="#heading3_1">
-                <t>BindGroup</t>
+                <t class="">BindGroup</t>
               </a></li>
             <li class="h1"><a href="#heading1_1">
-                <t>简单的输入 Input</t>
+                <t class="">简单的输入 Input</t>
               </a></li>
             <li class="h1"><a href="#heading1_2">
-                <t>Egui Tiles</t>
+                <t class="">Egui Tiles</t>
               </a></li>
             <li class="h1"><a href="#heading1_3">
-                <t>Shadow Mapping</t>
+                <t class="">Shadow Mapping</t>
               </a></li>
             <li class="h1"><a href="#heading1_4">
-                <t>Still a lot of problem</t>
+                <t class="">Still a lot of problem</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>Next Station</t>
+                <t class="">Next Station</t>
               </a></li>
           </ul>
         </div>
@@ -80,18 +80,17 @@
         <div class="page_content">
           <div class="image_wrapper"><img src="/devLog/1457e342-f5b5-80c3-95af-c27733f92489/img_1647e342-f5b5-80c4-98d5-f0040db5da82.png">
             <div class="caption">
-              <t>模型 </t>
-              <t class="href" onclick="window.open('https://sketchfab.com/3d-models/mkr-lykken-91b274a40ebe46cd931235ac32ae0492')">https://sketchfab.com/3d-models/mkr-lykken-91b274a40ebe46cd931235ac32ae0492</t>
-            </div>
+              <t class="">模型 </t>
+<a class="link" href="https://sketchfab.com/3d-models/mkr-lykken-91b274a40ebe46cd931235ac32ae0492">https://sketchfab.com/3d-models/mkr-lykken-91b274a40ebe46cd931235ac32ae0492</a></div>
           </div>
           <p>
-            <t>箭头代表平行光的位置和方向（黑紫色的材质说明 Default Material 正常工作）。</t>
+            <t class="">箭头代表平行光的位置和方向（黑紫色的材质说明 Default Material 正常工作）。</t>
           </p>
           <h1 id="heading1_0">
-            <t>渲染管线重构</t>
+            <t class="">渲染管线重构</t>
           </h1>
           <p>
-            <t>原来的 Bind Group 管理有很大的问题。在我的电脑上 Bind Grop 最多有 4 个。 重构的第一件事是让 Bind Group 的安排变得更接近现代游戏引擎了。现在的 Bind Group 如下表。</t>
+            <t class="">原来的 Bind Group 管理有很大的问题。在我的电脑上 Bind Grop 最多有 4 个。 重构的第一件事是让 Bind Group 的安排变得更接近现代游戏引擎了。现在的 Bind Group 如下表。</t>
           </p>
           <div class="table">
             <table>
@@ -122,19 +121,19 @@
             </table>
           </div>
           <h2 id="heading2_0">
-            <t>Target</t>
+            <t class="">Target</t>
           </h2>
           <p>
-            <t>现在渲染的图像输出到了一张贴图上，用 Bevy 中的 Resource 管理。也因此能实现渲染到 Egui 的图像上。目前渲染的 Target 分两张 Color 和 Depth.</t>
+            <t class="">现在渲染的图像输出到了一张贴图上，用 Bevy 中的 Resource 管理。也因此能实现渲染到 Egui 的图像上。目前渲染的 Target 分两张 Color 和 Depth.</t>
           </p>
           <h2 id="heading2_1">
-            <t>用于快速书写 BindGroup 的宏</t>
+            <t class="">用于快速书写 BindGroup 的宏</t>
           </h2>
           <p>
-            <t>为了快速书写 BindGroup 和 BindGroupLayout，写了两个声明宏。</t>
+            <t class="">为了快速书写 BindGroup 和 BindGroupLayout，写了两个声明宏。</t>
           </p>
           <h3 id="heading3_0">
-            <t>BindGroupLayout</t>
+            <t class="">BindGroupLayout</t>
           </h3>
           <div class="code_block">
             <div class="code_part">
@@ -154,7 +153,7 @@ macro_rules! bg_layout_descriptor {
 }</code></pre>
             </div>
             <div class="caption">
-              <t>实现</t>
+              <t class="">实现</t>
             </div>
           </div>
           <div class="code_block">
@@ -168,18 +167,18 @@ macro_rules! bg_layout_descriptor {
 )));</code></pre>
             </div>
             <div class="caption">
-              <t>使用</t>
+              <t class="">使用</t>
             </div>
           </div>
           <p>
-            <t>其中，为了便于书写，我将 </t>
+            <t class="">其中，为了便于书写，我将 </t>
             <t class="code">BindGroupEntry</t>
-            <t> 封装成了一个枚举类型 </t>
+            <t class=""> 封装成了一个枚举类型 </t>
             <t class="code">BGLEntry</t>
-            <t> 。</t>
+            <t class=""> 。</t>
           </p>
           <h3 id="heading3_1">
-            <t>BindGroup</t>
+            <t class="">BindGroup</t>
           </h3>
           <div class="code_block">
             <div class="code_part">
@@ -201,7 +200,7 @@ macro_rules! bg_descriptor {
 }</code></pre>
             </div>
             <div class="caption">
-              <t>实现</t>
+              <t class="">实现</t>
             </div>
           </div>
           <div class="code_block">
@@ -217,14 +216,14 @@ macro_rules! bg_descriptor {
 )));</code></pre>
             </div>
             <div class="caption">
-              <t>使用</t>
+              <t class="">使用</t>
             </div>
           </div>
           <h1 id="heading1_1">
-            <t>简单的输入 Input</t>
+            <t class="">简单的输入 Input</t>
           </h1>
           <p>
-            <t>现在实现了一个简单的输入封装，由一个叫 Input 的 Resource 管理。可以用 Unity Input 的风格来检测键盘输入、鼠标位移、鼠标位置和鼠标按键。</t>
+            <t class="">现在实现了一个简单的输入封装，由一个叫 Input 的 Resource 管理。可以用 Unity Input 的风格来检测键盘输入、鼠标位移、鼠标位置和鼠标按键。</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -242,7 +241,7 @@ macro_rules! bg_descriptor {
             <div class="caption"></div>
           </div>
           <p>
-            <t>用起来是这样：</t>
+            <t class="">用起来是这样：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -267,17 +266,17 @@ macro_rules! bg_descriptor {
     }</code></pre>
             </div>
             <div class="caption">
-              <t>相机控制的部分代码</t>
+              <t class="">相机控制的部分代码</t>
             </div>
           </div>
           <p>
-            <t>我们的 render 和各类 update 函数调用发生在在 winit 中的 </t>
+            <t class="">我们的 render 和各类 update 函数调用发生在在 winit 中的 </t>
             <t class="code">RedrawRequested</t>
-            <t> 事件时，而各类输入事件与 </t>
+            <t class=""> 事件时，而各类输入事件与 </t>
             <t class="code">RedrawRequested</t>
-            <t> 事件同属于一个枚举，它们可能在两次 </t>
+            <t class=""> 事件同属于一个枚举，它们可能在两次 </t>
             <t class="code">RedrawRequested</t>
-            <t> 中间。因此如果我们想保证在 update 中使用 Input 是稳定的，我们的 Input 一部分需要在事件更新中更新（WindowEvent），一部分要在各种 update 中更新。如下表。</t>
+            <t class=""> 中间。因此如果我们想保证在 update 中使用 Input 是稳定的，我们的 Input 一部分需要在事件更新中更新（WindowEvent），一部分要在各种 update 中更新。如下表。</t>
           </p>
           <div class="table">
             <table>
@@ -301,25 +300,23 @@ macro_rules! bg_descriptor {
           </div>
           <p></p>
           <h1 id="heading1_2">
-            <t>Egui Tiles</t>
+            <t class="">Egui Tiles</t>
           </h1>
           <div class="image_wrapper"><img src="/devLog/1457e342-f5b5-80c3-95af-c27733f92489/img_1647e342-f5b5-8023-b696-c0b4869365c6.png">
             <div class="caption">
-              <t>图来自官方 github 页 </t>
-              <t class="href" onclick="window.open('https://github.com/rerun-io/egui_tiles')">https://github.com/rerun-io/egui_tiles</t>
-            </div>
+              <t class="">图来自官方 github 页 </t>
+<a class="link" href="https://github.com/rerun-io/egui_tiles">https://github.com/rerun-io/egui_tiles</a></div>
           </div>
-          <p>
-            <t class="href" onclick="window.open('https://github.com/rerun-io/egui_tiles')">egui_tiles</t>
-            <t> 是一个为 egui GUI 库实现标签页功能的库。与之功能类似的库还有 </t>
-            <t class="href" onclick="window.open('https://github.com/Adanos020/egui_dock')">egui_dock</t>
-            <t>，我此前使用过，感觉不错。为了尝试新的库，还是在这个项目使用了 egui_tiles. 使用下来感觉还是 egui_dock 更好上手一些，提供的功能也更丰富。</t>
+          <p><a class="link" href="https://github.com/rerun-io/egui_tiles">egui_tiles</a>
+            <t class=""> 是一个为 egui GUI 库实现标签页功能的库。与之功能类似的库还有 </t>
+<a class="link" href="https://github.com/Adanos020/egui_dock">egui_dock</a>
+            <t class="">，我此前使用过，感觉不错。为了尝试新的库，还是在这个项目使用了 egui_tiles. 使用下来感觉还是 egui_dock 更好上手一些，提供的功能也更丰富。</t>
           </p>
           <p>
-            <t>在本开发日志的头图上你已经可以看到程序有侧边栏和标签页用于控制相机和灯光的参数了。</t>
+            <t class="">在本开发日志的头图上你已经可以看到程序有侧边栏和标签页用于控制相机和灯光的参数了。</t>
           </p>
           <p>
-            <t>egui_tiles 将每一个有内容的部分称为 Pane，将标签页称为 Tab，每个标签页有不同的布局。而整个标签页的树的上下文称为 Behavior. Behavior 同时是一个 trait，我们每个 Pane 的 ui 行为要在其实现中书写。我们可以枚举的方式声明 Pane. 例如：</t>
+            <t class="">egui_tiles 将每一个有内容的部分称为 Pane，将标签页称为 Tab，每个标签页有不同的布局。而整个标签页的树的上下文称为 Behavior. Behavior 同时是一个 trait，我们每个 Pane 的 ui 行为要在其实现中书写。我们可以枚举的方式声明 Pane. 例如：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -332,9 +329,9 @@ macro_rules! bg_descriptor {
             <div class="caption"></div>
           </div>
           <p>
-            <t>我们在实现 Behavior 需要确定 Pane 泛型（下面的示例中为 </t>
+            <t class="">我们在实现 Behavior 需要确定 Pane 泛型（下面的示例中为 </t>
             <t class="code">MyPane</t>
-            <t>）。</t>
+            <t class="">）。</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -362,7 +359,7 @@ impl&lt;'a&gt; egui_tiles::Behavior&lt;MyPane&gt; for MyBehavior&lt;'a&gt; {
             <div class="caption"></div>
           </div>
           <p>
-            <t>同时我们还需要定义我们的标签页们的树结构：</t>
+            <t class="">同时我们还需要定义我们的标签页们的树结构：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -386,7 +383,7 @@ impl&lt;'a&gt; egui_tiles::Behavior&lt;MyPane&gt; for MyBehavior&lt;'a&gt; {
             <div class="caption"></div>
           </div>
           <p>
-            <t>最后在需要的位置调用渲染就可以了：</t>
+            <t class="">最后在需要的位置调用渲染就可以了：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -400,34 +397,32 @@ tree.ui(&amp;mut behavior, ui);
             <div class="caption"></div>
           </div>
           <p>
-            <t>更多使用案例见 egui_tiles github 页的 </t>
-            <t class="href" onclick="window.open('https://github.com/rerun-io/egui_tiles/tree/main/examples')">examples</t>
-            <t>.</t>
+            <t class="">更多使用案例见 egui_tiles github 页的 </t>
+<a class="link" href="https://github.com/rerun-io/egui_tiles/tree/main/examples">examples</a>
+            <t class="">.</t>
           </p>
           <p></p>
           <h1 id="heading1_3">
-            <t>Shadow Mapping</t>
+            <t class="">Shadow Mapping</t>
           </h1>
           <p>
-            <t>Shadow Mapping 的基本原理是在前一 Pass 从灯光的视角渲染一张深度图，再在主 Pass 中通过用这张深度图采样，获得从灯光看向世界时的片源的最浅深度。将这个最浅深度与某个片源在灯光空间的实际深度对比。如果实际深度更深说明其在阴影中。理论和实践都可以参考该文章：</t>
-            <t class="href" onclick="window.open('https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping')">https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping</t>
+            <t class="">Shadow Mapping 的基本原理是在前一 Pass 从灯光的视角渲染一张深度图，再在主 Pass 中通过用这张深度图采样，获得从灯光看向世界时的片源的最浅深度。将这个最浅深度与某个片源在灯光空间的实际深度对比。如果实际深度更深说明其在阴影中。理论和实践都可以参考该文章：</t>
+<a class="link" href="https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping">https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping</a></p>
+          <p>
+            <t class="">简单说一下我的实践过程和踩的坑。</t>
           </p>
           <p>
-            <t>简单说一下我的实践过程和踩的坑。</t>
-          </p>
-          <p>
-            <t>首先要为管线增加一个新的 Pass 渲染灯光空间的深度图，在这个 Pass 使用灯光的矩阵和物体的 Transform Buffer. 这个过程需要计算灯光的变换矩阵（View Projection 后文简称 VP），我踩了第一个坑。我用的数学库 cgmath 是为 OpenGL 设计的，在 OpenGL 中矩阵是 column major 的，但是 wgpu 的矩阵默认是 row major 的。这导致我传入着色器的矩阵始终是有问题的。好在最后发现了，转置一下即可。</t>
+            <t class="">首先要为管线增加一个新的 Pass 渲染灯光空间的深度图，在这个 Pass 使用灯光的矩阵和物体的 Transform Buffer. 这个过程需要计算灯光的变换矩阵（View Projection 后文简称 VP），我踩了第一个坑。我用的数学库 cgmath 是为 OpenGL 设计的，在 OpenGL 中矩阵是 column major 的，但是 wgpu 的矩阵默认是 row major 的。这导致我传入着色器的矩阵始终是有问题的。好在最后发现了，转置一下即可。</t>
           </p>
           <blockquote>
-            <t>关于计算机矩阵表达的 Column Major 和 Row Major 可以见这篇文章：</t>
-            <t class="href" onclick="window.open('http://davidlively.com/programming/graphics/opengl-matrices/row-major-vs-column-major/')">http://davidlively.com/programming/graphics/opengl-matrices/row-major-vs-column-major/</t>
-          </blockquote>
+            <t class="">关于计算机矩阵表达的 Column Major 和 Row Major 可以见这篇文章：</t>
+<a class="link" href="http://davidlively.com/programming/graphics/opengl-matrices/row-major-vs-column-major/">http://davidlively.com/programming/graphics/opengl-matrices/row-major-vs-column-major/</a></blockquote>
           <p>
-            <t>接着就是在主 Pass 中渲染 Shadow 了。除了要传 Shadow Map 的贴图和 Sampler 外，还有传灯光的表换矩阵。我在 </t>
+            <t class="">接着就是在主 Pass 中渲染 Shadow 了。除了要传 Shadow Map 的贴图和 Sampler 外，还有传灯光的表换矩阵。我在 </t>
             <t class="code">VertexOutput</t>
-            <t> 中新增一个字段 </t>
+            <t class=""> 中新增一个字段 </t>
             <t class="code">light_space_clip_pos</t>
-            <t>.</t>
+            <t class="">.</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -437,13 +432,13 @@ out.light_space_clip_pos = light.view_proj * vec4&lt;f32&gt;(out.world_pos, 1.0)
 ...</code></pre>
             </div>
             <div class="caption">
-              <t>vertex shader of main pass</t>
+              <t class="">vertex shader of main pass</t>
             </div>
           </div>
           <p>
-            <t>然后在片源着色器中，可以通过 </t>
+            <t class="">然后在片源着色器中，可以通过 </t>
             <t class="code">light_space_clip_pos</t>
-            <t> 计算出采样 Shadow Map 的 uv 和当前片源在灯光空间的深度。</t>
+            <t class=""> 计算出采样 Shadow Map 的 uv 和当前片源在灯光空间的深度。</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -459,53 +454,51 @@ var shadow = textureSampleCompare(tex_shadow_map, samp_shadow_map, uv, proj_coor
 ...</code></pre>
             </div>
             <div class="caption">
-              <t>fragment shader of main pass</t>
+              <t class="">fragment shader of main pass</t>
             </div>
           </div>
           <p>
-            <t>这里需要 flip_correction 将 y 反转，这是我踩第二个坑的地方。因为 NDC 的原点在左下角 y 朝上，而材质 uv 的原点是从左上角，y 朝下，因此需要反转一下。乘 0.5 和加 0.5 将 NDC 的 xy 范围 [-1,1] 映射 uv 的范围 [0,1]. Wgpu 的 NDC 的 z 的范围是 [0,1]，因此不需要做额外处理。将其处以 w 后的值作为当前片源在相机空间下的深度。</t>
+            <t class="">这里需要 flip_correction 将 y 反转，这是我踩第二个坑的地方。因为 NDC 的原点在左下角 y 朝上，而材质 uv 的原点是从左上角，y 朝下，因此需要反转一下。乘 0.5 和加 0.5 将 NDC 的 xy 范围 [-1,1] 映射 uv 的范围 [0,1]. Wgpu 的 NDC 的 z 的范围是 [0,1]，因此不需要做额外处理。将其处以 w 后的值作为当前片源在相机空间下的深度。</t>
           </p>
           <p>
-            <t>有关管线、采样器、深度贴图的配置等，Wgpu 的 example 提供了 shadow 实现，可以阅读： </t>
-            <t class="href" onclick="window.open('https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow')">https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow</t>
-          </p>
+            <t class="">有关管线、采样器、深度贴图的配置等，Wgpu 的 example 提供了 shadow 实现，可以阅读： </t>
+<a class="link" href="https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow">https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow</a></p>
           <h1 id="heading1_4">
-            <t>Still a lot of problem</t>
+            <t class="">Still a lot of problem</t>
           </h1>
           <p>
-            <t>我本以为 Shadow Mapping 是早发明且成熟的技术，结果发现想要实现效果好还是要做很多工作。目前我只实现了平行光的 Shadow Mapping. 后续还要优化，列一下我还需要做的内容：</t>
+            <t class="">我本以为 Shadow Mapping 是早发明且成熟的技术，结果发现想要实现效果好还是要做很多工作。目前我只实现了平行光的 Shadow Mapping. 后续还要优化，列一下我还需要做的内容：</t>
           </p>
           <ul>
             <li>
-              <t>Cascaded Shadow Mapping (CSM)：
+              <t class="">Cascaded Shadow Mapping (CSM)：
 CSM 将玩家能看到的视野范围分为多个部分，这些部分分别用单独的 Shadow Map 覆盖。旨在解决平行光 Shadow Mapping 的视角问题、利用率问题和精度问题。
 </t>
-              <t class="href" onclick="window.open('https://learnopengl.com/Guest-Articles/2021/CSM')">https://learnopengl.com/Guest-Articles/2021/CSM</t>
-            </li>
+<a class="link" href="https://learnopengl.com/Guest-Articles/2021/CSM">https://learnopengl.com/Guest-Articles/2021/CSM</a></li>
           </ul>
           <ul>
             <li>
-              <t>多光源 Shadow Mapping：
+              <t class="">多光源 Shadow Mapping：
 用 texture array 实现就好了，每个光源对应一张 Shadow Map. Wgpu 的 </t>
-              <t class="href" onclick="window.open('https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow')">examples 中的 shadow</t>
-              <t> 就是一个多光源实现，很好的参考。</t>
+<a class="link" href="https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow">examples 中的 shadow</a>
+              <t class=""> 就是一个多光源实现，很好的参考。</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>多光源类型：
+              <t class="">多光源类型：
 各种光源类型下的投影矩阵如何设置也是件需要花一些时间研究的事。</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>Percentage-Closer Soft Shadows (PCSS):
+              <t class="">Percentage-Closer Soft Shadows (PCSS):
 随距离变化的软阴影。</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>反走样：
+              <t class="">反走样：
 目前我还没有太多了解，之后会查一些资料。实践后切身认识到 Shadow Mapping 的反走样重要性，目前的程序时常走样地可怕。</t>
               <div class="image_wrapper"><img src="/devLog/1457e342-f5b5-80c3-95af-c27733f92489/img_1647e342-f5b5-808c-bcbc-ffdada5a1e5b.png">
                 <div class="caption"></div>
@@ -514,12 +507,12 @@ CSM 将玩家能看到的视野范围分为多个部分，这些部分分别用�
           </ul>
           <p></p>
           <h2 id="heading2_2">
-            <t>Next Station</t>
+            <t class="">Next Station</t>
           </h2>
           <p>
-            <t>不过我在 Shadow Mapping 上耗费了太多精力（因为一些对库和矩阵不熟悉导致的问题）。打算先放一放，做一些其它工作换换口味比较好。最近的想法是先将 SSAO (Screen Space Ambient Occlusion) 实现了吧！如果可以，也修一下法线变换问题吧 [</t>
-            <t class="href" onclick="window.open('https://terathon.com/blog/transforming-normals.html')">Transforming Normal</t>
-            <t>]，修完法线后说不定可以把 HBAO (Horizon-Based Ambient Occlusion) 实现了。做 SSAO 要写一下后处理管线，那么之后可以把 MSAA 实现了。</t>
+            <t class="">不过我在 Shadow Mapping 上耗费了太多精力（因为一些对库和矩阵不熟悉导致的问题）。打算先放一放，做一些其它工作换换口味比较好。最近的想法是先将 SSAO (Screen Space Ambient Occlusion) 实现了吧！如果可以，也修一下法线变换问题吧 [</t>
+<a class="link" href="https://terathon.com/blog/transforming-normals.html">Transforming Normal</a>
+            <t class="">]，修完法线后说不定可以把 HBAO (Horizon-Based Ambient Occlusion) 实现了。做 SSAO 要写一下后处理管线，那么之后可以把 MSAA 实现了。</t>
           </p>
         </div>
       </div>

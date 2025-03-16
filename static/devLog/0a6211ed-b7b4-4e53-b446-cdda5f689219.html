@@ -34,13 +34,13 @@
         <div>
           <ul>
             <li class="h1"><a href="#heading1_0">
-                <t>ECS 库</t>
+                <t class="">ECS 库</t>
               </a></li>
             <li class="h1"><a href="#heading1_1">
-                <t>terre-core</t>
+                <t class="">terre-core</t>
               </a></li>
             <li class="h1"><a href="#heading1_2">
-                <t>介绍 Bevy Rendering 的资料</t>
+                <t class="">介绍 Bevy Rendering 的资料</t>
               </a></li>
           </ul>
         </div>
@@ -58,21 +58,21 @@
         </div>
         <div class="page_content">
           <h1 id="heading1_0">
-            <t>ECS 库</t>
+            <t class="">ECS 库</t>
           </h1>
           <p>
-            <t>翻阅过一些 ECS 的文章，也试图自己写一个 ECS 系统。但是我发现其涉及的内容太多（例如反射、trait object 的类型转换、多线程等等），我的 rust 水平暂时不足以支撑我完成这项工作。在我寻找参考资料的过程中，我发现了这个库：</t>
-            <t class="href" onclick="window.open('https://github.com/Ralith/hecs')">hecs</t>
-            <t> - 这是一个轻量化的 ECS 库，提供了最基本的高效的 ECS 架构。</t>
+            <t class="">翻阅过一些 ECS 的文章，也试图自己写一个 ECS 系统。但是我发现其涉及的内容太多（例如反射、trait object 的类型转换、多线程等等），我的 rust 水平暂时不足以支撑我完成这项工作。在我寻找参考资料的过程中，我发现了这个库：</t>
+<a class="link" href="https://github.com/Ralith/hecs">hecs</a>
+            <t class=""> - 这是一个轻量化的 ECS 库，提供了最基本的高效的 ECS 架构。</t>
           </p>
           <p>
-            <t>于是我想先使用这个库，边使用边学习。另外，看该项目的 readme，比较喜欢这个库的作者，ta 贴心地在 readme 中写清了 ECS 不适合做什么，还推荐了其它 ECS 库。对于我这样的入门者很有帮助。</t>
+            <t class="">于是我想先使用这个库，边使用边学习。另外，看该项目的 readme，比较喜欢这个库的作者，ta 贴心地在 readme 中写清了 ECS 不适合做什么，还推荐了其它 ECS 库。对于我这样的入门者很有帮助。</t>
           </p>
           <h1 id="heading1_1">
-            <t>terre-core</t>
+            <t class="">terre-core</t>
           </h1>
           <p>
-            <t>最近一直在苦恼怎样更新和渲染模型，以及我需要让我编写渲染管线更加灵活一些。同时，我还苦恼于自己的项目结构越理越乱。于是我开始参考别人的项目，翻了 bevy_render，虽然给了我一些想法，但项目比较大，并不是很好阅读。想起之前的一个博客中，引用了一个 rust 游戏引擎 baryon：</t>
+            <t class="">最近一直在苦恼怎样更新和渲染模型，以及我需要让我编写渲染管线更加灵活一些。同时，我还苦恼于自己的项目结构越理越乱。于是我开始参考别人的项目，翻了 bevy_render，虽然给了我一些想法，但项目比较大，并不是很好阅读。想起之前的一个博客中，引用了一个 rust 游戏引擎 baryon：</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://github.com/kvark/baryon/tree/main')">
@@ -80,35 +80,33 @@
               <div class="url">https://github.com/kvark/baryon/tree/main</div>
             </div>
             <div class="caption">
-              <t>Baryon</t>
+              <t class="">Baryon</t>
             </div>
           </div>
           <p>
-            <t>看了看 baryon 是怎样实现游戏引擎的，很有帮助。参照 baryon，我决定将游戏核心部分分出</t>
+            <t class="">看了看 baryon 是怎样实现游戏引擎的，很有帮助。参照 baryon，我决定将游戏核心部分分出</t>
             <t class="code">terre-core</t>
-            <t> </t>
-            <t class="href" onclick="window.open('https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html')">子项目</t>
-            <t>。</t>
+            <t class=""> </t>
+<a class="link" href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html">子项目</a>
+            <t class="">。</t>
           </p>
           <p></p>
           <h1 id="heading1_2">
-            <t>介绍 Bevy Rendering 的资料</t>
+            <t class="">介绍 Bevy Rendering 的资料</t>
           </h1>
           <p>
-            <t>Bevy 的渲染部分也是重要的参考资料。整理在这里。</t>
+            <t class="">Bevy 的渲染部分也是重要的参考资料。整理在这里。</t>
           </p>
           <ul>
             <li>
               <t class="bold">Bevy Rendering: </t>
-              <t class="href" onclick="window.open('https://taintedcoders.com/bevy/rendering/')">https://taintedcoders.com/bevy/rendering/</t>
-            </li>
+<a class="link" href="https://taintedcoders.com/bevy/rendering/">https://taintedcoders.com/bevy/rendering/</a></li>
           </ul>
           <ul>
             <li>
               <t class="bold">Bevy Render (GPU) Framework:</t>
-              <t> </t>
-              <t class="href" onclick="window.open('https://bevy-cheatbook.github.io/gpu.html')">https://bevy-cheatbook.github.io/gpu.html</t>
-            </li>
+              <t class=""> </t>
+<a class="link" href="https://bevy-cheatbook.github.io/gpu.html">https://bevy-cheatbook.github.io/gpu.html</a></li>
           </ul>
           <p></p>
         </div>

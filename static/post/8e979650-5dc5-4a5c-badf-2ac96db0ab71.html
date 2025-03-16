@@ -34,55 +34,55 @@
         <div>
           <ul>
             <li class="h1"><a href="#heading1_0">
-                <t>前言</t>
+                <t class="">前言</t>
               </a></li>
             <li class="h1"><a href="#heading1_1">
-                <t>〇、自己的 UI 设计流程</t>
+                <t class="">〇、自己的 UI 设计流程</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>1. 在平面设计软件制作 UI 保真图</t>
+                <t class="">1. 在平面设计软件制作 UI 保真图</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>2. 导出 UI 所需的图像素材</t>
+                <t class="">2. 导出 UI 所需的图像素材</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>3. 在 Unity 中制作 UI</t>
+                <t class="">3. 在 Unity 中制作 UI</t>
               </a></li>
             <li class="h1"><a href="#heading1_2">
-                <t>一、在 Unity 中制作 UI（UGUI）</t>
+                <t class="">一、在 Unity 中制作 UI（UGUI）</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>Unity 中 GUI 对象管理</t>
+                <t class="">Unity 中 GUI 对象管理</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>自定义 UI 组件 与 CustomEditor 与 预制体</t>
+                <t class="">自定义 UI 组件 与 CustomEditor 与 预制体</t>
               </a></li>
             <li class="h3"><a href="#heading3_0">
-                <t>编写自己的 UI 组件</t>
+                <t class="">编写自己的 UI 组件</t>
               </a></li>
             <li class="h3"><a href="#heading3_1">
-                <t>自定义 Inspector ( CustomEditor ) 方便地修改预制体参数</t>
+                <t class="">自定义 Inspector ( CustomEditor ) 方便地修改预制体参数</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>资源文件管理</t>
+                <t class="">资源文件管理</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>精灵图的注意事项</t>
+                <t class="">精灵图的注意事项</t>
               </a></li>
             <li class="h1"><a href="#heading1_3">
-                <t>二、动效</t>
+                <t class="">二、动效</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>1. DoTween：功能完整、使用方便</t>
+                <t class="">1. DoTween：功能完整、使用方便</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>2. 自己写个 Tweener：灵活可控，支持打断动画</t>
+                <t class="">2. 自己写个 Tweener：灵活可控，支持打断动画</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>3. 无限趋近式：编写快捷、适应性高</t>
+                <t class="">3. 无限趋近式：编写快捷、适应性高</t>
               </a></li>
             <li class="h1"><a href="#heading1_4">
-                <t>后记：</t>
+                <t class="">后记：</t>
               </a></li>
           </ul>
         </div>
@@ -104,43 +104,43 @@
         </div>
         <div class="page_content">
           <h1 id="heading1_0">
-            <t>前言</t>
+            <t class="">前言</t>
           </h1>
           <blockquote>
-            <t>自己是一名游戏开发进修中的学生，被朋友提醒，决定总结一下自己做游戏开发中的 UI 设计和开发经验，供自己快速回顾，也给在苦恼相同问题的伙伴一些参考。自己没有从业经验，本篇文章请当做无专业性的文章看待。如果有前辈能够给予指点，不甚感激。</t>
+            <t class="">自己是一名游戏开发进修中的学生，被朋友提醒，决定总结一下自己做游戏开发中的 UI 设计和开发经验，供自己快速回顾，也给在苦恼相同问题的伙伴一些参考。自己没有从业经验，本篇文章请当做无专业性的文章看待。如果有前辈能够给予指点，不甚感激。</t>
           </blockquote>
           <p></p>
           <p>
-            <t>本篇聚焦于视觉交互设计，包含 GUI 及其动效的设计和开发。 </t>
+            <t class="">本篇聚焦于视觉交互设计，包含 GUI 及其动效的设计和开发。 </t>
           </p>
           <h1 id="heading1_1">
-            <t>〇、自己的 UI 设计流程</t>
+            <t class="">〇、自己的 UI 设计流程</t>
           </h1>
           <h2 id="heading2_0">
-            <t>1. 在平面设计软件制作 UI 保真图</t>
+            <t class="">1. 在平面设计软件制作 UI 保真图</t>
           </h2>
           <ul>
             <li>
-              <t>在这个阶段与伙伴敲定一个可用的版本</t>
+              <t class="">在这个阶段与伙伴敲定一个可用的版本</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>一些草图杂乱，很多部分都是在游戏中优化完成</t>
+              <t class="">一些草图杂乱，很多部分都是在游戏中优化完成</t>
             </li>
           </ul>
           <div class="column_list">
             <div class="column">
               <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_59ba725a-f097-4ce3-a171-1f033eec5803.png">
                 <div class="caption">
-                  <t>草图</t>
+                  <t class="">草图</t>
                 </div>
               </div>
             </div>
             <div class="column">
               <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_4a37e9c6-49a4-4496-88af-3d09903ba5eb.png">
                 <div class="caption">
-                  <t>成品</t>
+                  <t class="">成品</t>
                 </div>
               </div>
             </div>
@@ -149,14 +149,14 @@
             <div class="column">
               <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_248a4f6e-9be5-4897-abdc-2a238a653529.png">
                 <div class="caption">
-                  <t>草图</t>
+                  <t class="">草图</t>
                 </div>
               </div>
             </div>
             <div class="column">
               <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_7bbbca85-c20b-40d5-9cd1-42bb696f1f9c.png">
                 <div class="caption">
-                  <t>成品</t>
+                  <t class="">成品</t>
                 </div>
               </div>
               <p></p>
@@ -166,7 +166,7 @@
             <div class="column">
               <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_b8691123-f77a-4f83-bc1c-5e8d4af13ca2.png">
                 <div class="caption">
-                  <t>草图</t>
+                  <t class="">草图</t>
                 </div>
               </div>
               <p></p>
@@ -174,110 +174,110 @@
             <div class="column">
               <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_66adae4b-c182-4d48-8d26-2c897438565b.png">
                 <div class="caption">
-                  <t>成品</t>
+                  <t class="">成品</t>
                 </div>
               </div>
               <p></p>
             </div>
           </div>
           <h2 id="heading2_1">
-            <t>2. 导出 UI 所需的图像素材</t>
+            <t class="">2. 导出 UI 所需的图像素材</t>
           </h2>
           <p>
-            <t>请将大小导出为 2^n（为了压缩），并最好使单位像素大小一致。</t>
+            <t class="">请将大小导出为 2^n（为了压缩），并最好使单位像素大小一致。</t>
           </p>
           <h2 id="heading2_2">
-            <t>3. 在 Unity 中制作 UI</t>
+            <t class="">3. 在 Unity 中制作 UI</t>
           </h2>
           <p>
-            <t>请见下文↓</t>
+            <t class="">请见下文↓</t>
           </p>
           <h1 id="heading1_2">
-            <t>一、在 Unity 中制作 UI（UGUI）</t>
+            <t class="">一、在 Unity 中制作 UI（UGUI）</t>
           </h1>
           <h2 id="heading2_3">
-            <t>Unity 中 GUI 对象管理</t>
+            <t class="">Unity 中 GUI 对象管理</t>
           </h2>
           <p>
-            <t>一般自己针对一个使用场景会写一个 </t>
+            <t class="">一般自己针对一个使用场景会写一个 </t>
             <t class="code">xxUIManager</t>
-            <t> ，以单例模式存在，这里包含 GUI 的所有（有需的）GUI 对象引用、会触发事件（退出、重新开始等）。</t>
+            <t class=""> ，以单例模式存在，这里包含 GUI 的所有（有需的）GUI 对象引用、会触发事件（退出、重新开始等）。</t>
           </p>
           <p>
             <t class="code">xxUIManager</t>
-            <t> 最终会挂在一个 Canvas 下，再将该 Canvas 存为预制体，修改只需修改预制体即可。</t>
+            <t class=""> 最终会挂在一个 Canvas 下，再将该 Canvas 存为预制体，修改只需修改预制体即可。</t>
           </p>
           <p>
-            <t>以下为例：</t>
+            <t class="">以下为例：</t>
           </p>
           <ul>
             <li>
-              <t>LevelUIManager (Canvas)</t>
+              <t class="">LevelUIManager (Canvas)</t>
               <ul>
                 <li>
-                  <t>ButtonsPanel (Panel)</t>
+                  <t class="">ButtonsPanel (Panel)</t>
                   <ul>
                     <li>
-                      <t>AButton</t>
+                      <t class="">AButton</t>
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      <t>BButton</t>
+                      <t class="">BButton</t>
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      <t>……</t>
+                      <t class="">……</t>
                     </li>
                   </ul>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <t>KeymapPanel</t>
+                  <t class="">KeymapPanel</t>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <t>WinPanel</t>
+                  <t class="">WinPanel</t>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <t>……</t>
+                  <t class="">……</t>
                 </li>
               </ul>
             </li>
           </ul>
           <p>
-            <t>当某个面板的功能过多时，可能会将对一个面板的操作封装成一个脚本，挂在对应面板下。</t>
+            <t class="">当某个面板的功能过多时，可能会将对一个面板的操作封装成一个脚本，挂在对应面板下。</t>
           </p>
           <p>
             <t class="code">xxUIManager</t>
-            <t> 和面板的脚本下的物体引用通常会暴露给外部对象，但通常不会在外部对象中进行操作。外部对象对</t>
+            <t class=""> 和面板的脚本下的物体引用通常会暴露给外部对象，但通常不会在外部对象中进行操作。外部对象对</t>
             <t class="code">xxUIManager</t>
-            <t>下子物体的操作尽可能封装成方法，供外部调用。</t>
+            <t class="">下子物体的操作尽可能封装成方法，供外部调用。</t>
           </p>
           <p></p>
           <h2 id="heading2_4">
-            <t>自定义 UI 组件 与 CustomEditor 与 预制体</t>
+            <t class="">自定义 UI 组件 与 CustomEditor 与 预制体</t>
           </h2>
           <h3 id="heading3_0">
-            <t>编写自己的 UI 组件</t>
+            <t class="">编写自己的 UI 组件</t>
           </h3>
           <p>
-            <t>很多时候 Unity 自带的 UI 组件完全不能满足自己的需求，此时会自己写 UI 脚本，继承 IPointerClickHandler, IPointerDownHandler, Up, Enter, Exit… 等常用的事件。</t>
+            <t class="">很多时候 Unity 自带的 UI 组件完全不能满足自己的需求，此时会自己写 UI 脚本，继承 IPointerClickHandler, IPointerDownHandler, Up, Enter, Exit… 等常用的事件。</t>
           </p>
           <blockquote>
-            <t>我还没有做过兼容手柄的菜单，所以此处肯定是忽略了兼容手柄选择的情况。
+            <t class="">我还没有做过兼容手柄的菜单，所以此处肯定是忽略了兼容手柄选择的情况。
 对兼容手柄有需求的读者或许可以阅读 Selectable 类。</t>
           </blockquote>
           <h3 id="heading3_1">
-            <t>自定义 Inspector ( CustomEditor ) 方便地修改预制体参数</t>
+            <t class="">自定义 Inspector ( CustomEditor ) 方便地修改预制体参数</t>
           </h3>
           <p>
-            <t>写好 UI 脚本后使用 CustomEditor 调整 UI 是十分方便的事。</t>
+            <t class="">写好 UI 脚本后使用 CustomEditor 调整 UI 是十分方便的事。</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://docs.unity3d.com/Manual/UIE-HowTo-CreateCustomInspector.html')">
@@ -287,7 +287,7 @@
             <div class="caption"></div>
           </div>
           <p>
-            <t>不过使用预制体时使用 Editor 会出现无法将改变的参数保存的问题，自己找了一些地方找到了解决方案。 Editor 类：</t>
+            <t class="">不过使用预制体时使用 Editor 会出现无法将改变的参数保存的问题，自己找了一些地方找到了解决方案。 Editor 类：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -320,28 +320,28 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <h2 id="heading2_5">
-            <t>资源文件管理</t>
+            <t class="">资源文件管理</t>
           </h2>
           <p>
-            <t>自己对 UI 的资源文件通常不会单开一个文件夹，而是放在对应种类的文件夹下方的</t>
+            <t class="">自己对 UI 的资源文件通常不会单开一个文件夹，而是放在对应种类的文件夹下方的</t>
             <t class="code"> ~/UI/</t>
-            <t> 目录下。</t>
+            <t class=""> 目录下。</t>
           </p>
           <p>
-            <t>自己通常会用 </t>
+            <t class="">自己通常会用 </t>
             <t class="code">&lt;文件类型[小写]&gt;(_&lt;细分类型[小写]&gt;)_&lt;文件名称[大写驼峰]&gt;</t>
-            <t>  的方式命名资源文件。对于 UI 的资源文件，例子是 </t>
+            <t class="">  的方式命名资源文件。对于 UI 的资源文件，例子是 </t>
             <t class="code">spr_ui_HelloWorld</t>
-            <t> ，其中 spr 代表 Sprite，ui 代表 UI，HelloWorld 是文件名。对于其它资源，命名方式同理，如预制体用 p_，状态机用 ant_，动画用 an_ 等，缩写的选择取决于自己和伙伴的认知。</t>
+            <t class=""> ，其中 spr 代表 Sprite，ui 代表 UI，HelloWorld 是文件名。对于其它资源，命名方式同理，如预制体用 p_，状态机用 ant_，动画用 an_ 等，缩写的选择取决于自己和伙伴的认知。</t>
           </p>
           <h2 id="heading2_6">
-            <t>精灵图的注意事项</t>
+            <t class="">精灵图的注意事项</t>
           </h2>
           <p>
-            <t>对于用于 UI 的精灵图，建议将 Mipmap 关掉，（按需）将 Wrap Mode 改为 Clamp，这两者可能导致 UI 边缘出现错误的边线。</t>
+            <t class="">对于用于 UI 的精灵图，建议将 Mipmap 关掉，（按需）将 Wrap Mode 改为 Clamp，这两者可能导致 UI 边缘出现错误的边线。</t>
           </p>
           <p>
-            <t>导入资源时设置资源属性可阅读：</t>
+            <t class="">导入资源时设置资源属性可阅读：</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://docs.unity3d.com/ScriptReference/AssetPostprocessor.OnPostprocessTexture.html')">
@@ -352,19 +352,19 @@ public override void OnInspectorGUI()
           </div>
           <p></p>
           <h1 id="heading1_3">
-            <t>二、动效</t>
+            <t class="">二、动效</t>
           </h1>
           <p>
-            <t>自己实现动效的方法可以不严谨地分为三类：</t>
+            <t class="">自己实现动效的方法可以不严谨地分为三类：</t>
           </p>
           <h2 id="heading2_7">
-            <t>1. DoTween：功能完整、使用方便</t>
+            <t class="">1. DoTween：功能完整、使用方便</t>
           </h2>
           <blockquote>
-            <t>有些学习成本、管理复杂</t>
+            <t class="">有些学习成本、管理复杂</t>
           </blockquote>
           <p>
-            <t>DOTween 的官网：</t>
+            <t class="">DOTween 的官网：</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('http://dotween.demigiant.com/')">
@@ -374,7 +374,7 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <p>
-            <t>一个 DOTween 系列教程：</t>
+            <t class="">一个 DOTween 系列教程：</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://blog.yarsalabs.com/dotween-unity-animation-part1/')">
@@ -384,7 +384,7 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <p>
-            <t>各种动画曲线一览：</t>
+            <t class="">各种动画曲线一览：</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://easings.net/')">
@@ -394,10 +394,10 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <h2 id="heading2_8">
-            <t>2. 自己写个 Tweener：灵活可控，支持打断动画</t>
+            <t class="">2. 自己写个 Tweener：灵活可控，支持打断动画</t>
           </h2>
           <blockquote>
-            <t>数学基础是插值，推荐视频</t>
+            <t class="">数学基础是插值，推荐视频</t>
           </blockquote>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://www.bilibili.com/video/BV1Ur4y1E7Fv')">
@@ -407,13 +407,13 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <p>
-            <t>在用 DOTween 时发现管理动画打断很不方便，会出现动画突然闪到终点的情况等等；另一方面，在场景切换或物体销毁时，物体的动画没有播放完，DOTween 也会给出安全模式警告。</t>
+            <t class="">在用 DOTween 时发现管理动画打断很不方便，会出现动画突然闪到终点的情况等等；另一方面，在场景切换或物体销毁时，物体的动画没有播放完，DOTween 也会给出安全模式警告。</t>
           </p>
           <p>
-            <t>于是就自己实现一个可以随时打断和返程的 Tweener（与 DOTween 中的 Tweener 无关）</t>
+            <t class="">于是就自己实现一个可以随时打断和返程的 Tweener（与 DOTween 中的 Tweener 无关）</t>
           </p>
           <p>
-            <t>我们实现一个类：</t>
+            <t class="">我们实现一个类：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -463,9 +463,9 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <p>
-            <t> 之后我们在自己的 </t>
+            <t class=""> 之后我们在自己的 </t>
             <t class="code">MonoBehaviour</t>
-            <t> 中使用：</t>
+            <t class=""> 中使用：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -512,32 +512,32 @@ public override void OnInspectorGUI()
           </div>
           <p>
             <t class="bold">Inspector</t>
-            <t>：</t>
+            <t class="">：</t>
           </p>
           <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_48b718f4-36b8-4593-b66a-98957477a113.png">
             <div class="caption"></div>
           </div>
           <p>
-            <t>效果</t>
-            <t>：</t>
+            <t class="">效果</t>
+            <t class="">：</t>
           </p>
           <div class="image_wrapper"><img src="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71/img_ee6e958b-c32b-4902-83b2-6337b5d90a90.gif">
             <div class="caption"></div>
           </div>
           <p>
-            <t>自己编写 Tweener 的可控性高却繁琐，单程动画自己一般会用 DoTween 实现。</t>
+            <t class="">自己编写 Tweener 的可控性高却繁琐，单程动画自己一般会用 DoTween 实现。</t>
           </p>
           <p>
-            <t>*我想 DOTween 也是有实现可打断动画的方法的，自己应该学习一下。//不过自己造轮子快乐啊</t>
+            <t class="">*我想 DOTween 也是有实现可打断动画的方法的，自己应该学习一下。//不过自己造轮子快乐啊</t>
           </p>
           <h2 id="heading2_9">
-            <t>3. 无限趋近式：编写快捷、适应性高</t>
+            <t class="">3. 无限趋近式：编写快捷、适应性高</t>
           </h2>
           <blockquote>
-            <t>动画形式单一、可控性差、无法达到目标值</t>
+            <t class="">动画形式单一、可控性差、无法达到目标值</t>
           </blockquote>
           <p>
-            <t>在一次 Ludum Dare 的作品中我用了这个方法实现卡牌动画</t>
+            <t class="">在一次 Ludum Dare 的作品中我用了这个方法实现卡牌动画</t>
           </p>
           <div class="bookmark_block">
             <div class="bookmark" onclick="window.open('https://trioduck.itch.io/time-cardmancer')">
@@ -550,10 +550,10 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <p>
-            <t>无限趋近式的意思是，让希望改变的参数的实际值无限趋近这个目标值。</t>
+            <t class="">无限趋近式的意思是，让希望改变的参数的实际值无限趋近这个目标值。</t>
           </p>
           <p>
-            <t>以缩放为例，我们设定一个物体缩放的目标值，然后让实际值无限趋近这个目标值：</t>
+            <t class="">以缩放为例，我们设定一个物体缩放的目标值，然后让实际值无限趋近这个目标值：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -564,11 +564,11 @@ public override void OnInspectorGUI()
           </div>
           <p>
             <t class="code">speed</t>
-            <t> 是趋近的速度，在 0 ~ 1 之间。在 Update 中调用的话，记得将</t>
+            <t class=""> 是趋近的速度，在 0 ~ 1 之间。在 Update 中调用的话，记得将</t>
             <t class="code">speed</t>
-            <t> 乘上 </t>
+            <t class=""> 乘上 </t>
             <t class="code">Time.deltaTime</t>
-            <t> .</t>
+            <t class=""> .</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -585,17 +585,17 @@ public override void OnInspectorGUI()
             <div class="caption"></div>
           </div>
           <p>
-            <t>这种方法会导致物体永远无法达到目标值，动画的停用也需要用差值进行检测。但其管理和实现都很简单，2D 相机跟踪物体用这种方式实现十分方便。</t>
+            <t class="">这种方法会导致物体永远无法达到目标值，动画的停用也需要用差值进行检测。但其管理和实现都很简单，2D 相机跟踪物体用这种方式实现十分方便。</t>
           </p>
           <p></p>
           <h1 id="heading1_4">
-            <t>后记：</t>
+            <t class="">后记：</t>
           </h1>
           <p>
-            <t>回顾一下，发现自己做完的可玩的游戏都是 Game Jam 作品。自己在私下幻想和开发的游戏不便展示，完成度也拿不出手。所以本篇文章的 UI 美术都是 Game Jam 的快速生产内容，一定有许多不标准的地方。</t>
+            <t class="">回顾一下，发现自己做完的可玩的游戏都是 Game Jam 作品。自己在私下幻想和开发的游戏不便展示，完成度也拿不出手。所以本篇文章的 UI 美术都是 Game Jam 的快速生产内容，一定有许多不标准的地方。</t>
           </p>
           <p>
-            <t>做 UI 是自己喜欢的一件事，自己一有游戏想法，第一件事就是去做 UI，自己做了不少游戏的 UI，结果游戏却没怎么动工过w。若有机会，愿意结识更多的伙伴，去做些有趣好看的游戏。</t>
+            <t class="">做 UI 是自己喜欢的一件事，自己一有游戏想法，第一件事就是去做 UI，自己做了不少游戏的 UI，结果游戏却没怎么动工过w。若有机会，愿意结识更多的伙伴，去做些有趣好看的游戏。</t>
           </p>
         </div>
       </div>

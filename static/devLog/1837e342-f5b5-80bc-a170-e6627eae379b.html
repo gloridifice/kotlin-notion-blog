@@ -34,43 +34,43 @@
         <div>
           <ul>
             <li class="h1"><a href="#heading1_0">
-                <t>法线变换</t>
+                <t class="">法线变换</t>
               </a></li>
             <li class="h1"><a href="#heading1_1">
-                <t>延迟渲染管线</t>
+                <t class="">延迟渲染管线</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>Write G-Buffer Pass</t>
+                <t class="">Write G-Buffer Pass</t>
               </a></li>
             <li class="h2"><a href="#heading2_0">
-                <t>Main Pass</t>
+                <t class="">Main Pass</t>
               </a></li>
             <li class="h3"><a href="#heading3_0">
-                <t>Full screen vertex shader</t>
+                <t class="">Full screen vertex shader</t>
               </a></li>
             <li class="h3"><a href="#heading3_1">
-                <t>Bindings</t>
+                <t class="">Bindings</t>
               </a></li>
             <li class="h1"><a href="#heading1_2">
-                <t>点光源</t>
+                <t class="">点光源</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>Radiance of a Point Light</t>
+                <t class="">Radiance of a Point Light</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>遍历光源</t>
+                <t class="">遍历光源</t>
               </a></li>
             <li class="h1"><a href="#heading1_3">
-                <t>微表面 BRDF</t>
+                <t class="">微表面 BRDF</t>
               </a></li>
             <li class="h1"><a href="#heading1_4">
-                <t>更好的 Editor UI</t>
+                <t class="">更好的 Editor UI</t>
               </a></li>
             <li class="h2"><a href="#heading2_2">
-                <t>Material Override</t>
+                <t class="">Material Override</t>
               </a></li>
             <li class="h1"><a href="#heading1_5">
-                <t>参考资料</t>
+                <t class="">参考资料</t>
               </a></li>
           </ul>
         </div>
@@ -91,40 +91,40 @@
             <div class="caption"></div>
           </div>
           <h1 id="heading1_0">
-            <t>法线变换</t>
+            <t class="">法线变换</t>
           </h1>
           <p>
-            <t>法线的变换受模型旋转和缩放的影响。但缩放会使法线变换发生错误，不能直接用模型缩放和旋转的合变换来做。Jason L. McKesson 的 </t>
-            <t class="href" onclick="window.open('/1737e342f5b580499966c8b906b26558')">这篇文章</t>
-            <t> 介绍了法线变换矩阵的原理和计算方法。这里直接卸出结论：</t>
+            <t class="">法线的变换受模型旋转和缩放的影响。但缩放会使法线变换发生错误，不能直接用模型缩放和旋转的合变换来做。Jason L. McKesson 的 </t>
+<a class="link" href="/1737e342f5b580499966c8b906b26558">这篇文章</a>
+            <t class=""> 介绍了法线变换矩阵的原理和计算方法。这里直接卸出结论：</t>
           </p>
           <div class="equation">$$N_{ormal} = (M_{scale\_rotation}^{-1})^T$$</div>
           <p>
-            <t>这个公式会对矩阵进行逆运算，如何安全快速地求逆：</t>
+            <t class="">这个公式会对矩阵进行逆运算，如何安全快速地求逆：</t>
           </p>
           <blockquote>
-            <t>下文会用 </t>
+            <t class="">下文会用 </t>
             <t class="code">./</t>
-            <t> 符号，如 </t>
+            <t class=""> 符号，如 </t>
             <t class="code">A ./ B</t>
-            <t> ，表示一种运算：对 B 的所有非零元素取倒数后，与 A 的元素逐个相乘。
+            <t class=""> ，表示一种运算：对 B 的所有非零元素取倒数后，与 A 的元素逐个相乘。
 * 因为旋转和缩放变换都是 3x3 矩阵即可表达，所以我们的法线变换矩阵只需要一个 3x3 矩阵，本节下文中矩阵均为 3x3</t>
           </blockquote>
           <ul>
             <li>
-              <t>旋转矩阵（下文称 R）是可逆的，其特性是其逆矩阵等于其转置矩阵，所以对旋转矩阵求逆是安全的：</t>
+              <t class="">旋转矩阵（下文称 R）是可逆的，其特性是其逆矩阵等于其转置矩阵，所以对旋转矩阵求逆是安全的：</t>
               <t class="code">invert(R) = transpose(R)</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>缩放矩阵（下文称 S）是一个对角矩阵，其在对角线元素不为零的情况下是可逆的，并且其结果是各元素取倒：</t>
+              <t class="">缩放矩阵（下文称 S）是一个对角矩阵，其在对角线元素不为零的情况下是可逆的，并且其结果是各元素取倒：</t>
               <t class="code">invert(S) = 1 ./ S</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>根据矩阵积的求逆和转置性质，我们有：</t>
+              <t class="">根据矩阵积的求逆和转置性质，我们有：</t>
             </li>
           </ul>
           <div class="equation">$$\begin{cases}
@@ -137,11 +137,11 @@ N_{ormal} = (M^{-1})^T
 \\
 \implies N = (S^{-1}R^{-1})^T=(R^{-1})^T (S^{-1})^T=(R^T)^T(1./S)^T$$</div>
           <p>
-            <t>最终得到的结果是</t>
+            <t class="">最终得到的结果是</t>
           </p>
           <div class="equation">$$N_{ormal} = R\  ./\  S$$</div>
           <p>
-            <t>代码实现</t>
+            <t class="">代码实现</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -167,24 +167,24 @@ pub fn model_normal_matrix(&amp;self) -&gt; (Mat4, Mat3) {
 }</code></pre>
             </div>
             <div class="caption">
-              <t>数学库: cgmath</t>
+              <t class="">数学库: cgmath</t>
             </div>
           </div>
           <h1 id="heading1_1">
-            <t>延迟渲染管线</t>
+            <t class="">延迟渲染管线</t>
           </h1>
           <p>
-            <t>目前项目延迟渲染管线实现方式是将一系列计算光照用的几何数据渲染成一系列纹理（一般被称为 Geometry Buffer &lt;G-Buffer&gt;），然后在计算 Pass 中采样并计算像素颜色。</t>
+            <t class="">目前项目延迟渲染管线实现方式是将一系列计算光照用的几何数据渲染成一系列纹理（一般被称为 Geometry Buffer &lt;G-Buffer&gt;），然后在计算 Pass 中采样并计算像素颜色。</t>
           </p>
           <h2 id="heading2_0">
-            <t>Write G-Buffer Pass</t>
+            <t class="">Write G-Buffer Pass</t>
           </h2>
           <p>
-            <t>所以我们需要一个写入 G-Buffer 的 Pass 我们需要的几何信息写入多个纹理，wgpu 支持多目标渲染的，可以将片源着色器结果设为多个目标。具体实现是：在创建渲染管线时需要指定 targets（是一个</t>
+            <t class="">所以我们需要一个写入 G-Buffer 的 Pass 我们需要的几何信息写入多个纹理，wgpu 支持多目标渲染的，可以将片源着色器结果设为多个目标。具体实现是：在创建渲染管线时需要指定 targets（是一个</t>
             <t class="code"> Option&lt;ColorTargetState&gt;</t>
-            <t> 的数组，</t>
+            <t class=""> 的数组，</t>
             <t class="code">ColorTargetState</t>
-            <t> 声明了 Target 的纹理格式、混合模式以及写入蒙版）。</t>
+            <t class=""> 声明了 Target 的纹理格式、混合模式以及写入蒙版）。</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -199,7 +199,7 @@ pub fn model_normal_matrix(&amp;self) -&gt; (Mat4, Mat3) {
             <div class="caption"></div>
           </div>
           <p>
-            <t>Write G-Buffer 的渲染目标目前是四个 Rgba8Unorm 的参数，框架和 wgsl 如下表：</t>
+            <t class="">Write G-Buffer 的渲染目标目前是四个 Rgba8Unorm 的参数，框架和 wgsl 如下表：</t>
           </p>
           <div class="table">
             <table>
@@ -248,22 +248,22 @@ fn fs_main(in: VertexOutput) -&gt; FragmentOutput {
 ...</code></pre>
             </div>
             <div class="caption">
-              <t>在 wgsl 中，可以用结构体的方式书写多目标</t>
+              <t class="">在 wgsl 中，可以用结构体的方式书写多目标</t>
             </div>
           </div>
           <h2 id="heading2_1">
-            <t>Main Pass</t>
+            <t class="">Main Pass</t>
           </h2>
           <p>
-            <t>得到了有关几何信息的贴图后，在后续的任何 Pass 中，我们都可以使用他们。延迟渲染管线中的主 Pass 又时被称为 Compute Pass，因为很多时候是用 Compute Shader 实现的。这样做在光源剔除上有好处。我还没有这么做，是一个需要后续优化的地方。我直接使用了一个全屏幕 Vertex Shader 来实现。</t>
+            <t class="">得到了有关几何信息的贴图后，在后续的任何 Pass 中，我们都可以使用他们。延迟渲染管线中的主 Pass 又时被称为 Compute Pass，因为很多时候是用 Compute Shader 实现的。这样做在光源剔除上有好处。我还没有这么做，是一个需要后续优化的地方。我直接使用了一个全屏幕 Vertex Shader 来实现。</t>
           </p>
           <h3 id="heading3_0">
-            <t>Full screen vertex shader</t>
+            <t class="">Full screen vertex shader</t>
           </h3>
           <p>
-            <t>我们唯一的输入是 vertex_index: u32，这是着色器内置的输入信息，通过 </t>
+            <t class="">我们唯一的输入是 vertex_index: u32，这是着色器内置的输入信息，通过 </t>
             <t class="code">@builtin(vertex_index)</t>
-            <t> 声明它。</t>
+            <t class=""> 声明它。</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -278,11 +278,11 @@ fn vs_main(
 }</code></pre>
             </div>
             <div class="caption">
-              <t>fullscreen_vertex_shader.wgsl</t>
+              <t class="">fullscreen_vertex_shader.wgsl</t>
             </div>
           </div>
           <p>
-            <t>在渲染调用时，我们不需要指定顶点的结构，也不需要任何 Buffer，只要绘制序号为 0, 1, 2 的顶点就可以了。我们只用到了三个顶点，三个顶点是如下图的方式运作的：</t>
+            <t class="">在渲染调用时，我们不需要指定顶点的结构，也不需要任何 Buffer，只要绘制序号为 0, 1, 2 的顶点就可以了。我们只用到了三个顶点，三个顶点是如下图的方式运作的：</t>
           </p>
           <div class="column_list">
             <div class="column">
@@ -301,18 +301,18 @@ fn vs_main(
             <div class="column">
               <div class="image_wrapper"><img src="/devLog/1837e342-f5b5-80bc-a170-e6627eae379b/img_1837e342-f5b5-8011-aa18-ccd13507d9e7.png">
                 <div class="caption">
-                  <t>面的前方：左手系逆时针 (CCW) </t>
+                  <t class="">面的前方：左手系逆时针 (CCW) </t>
                 </div>
               </div>
             </div>
           </div>
           <h3 id="heading3_1">
-            <t>Bindings</t>
+            <t class="">Bindings</t>
           </h3>
           <div class="column_list">
             <div class="column">
               <p>
-                <t>关于 G-Buffer 的部分我传入主 Pass 的参数如右图。因为所有贴图的采样方式都是 No Filter (Nearest)，ClampToEdge. 所以只需要一个采样器就可以了。</t>
+                <t class="">关于 G-Buffer 的部分我传入主 Pass 的参数如右图。因为所有贴图的采样方式都是 No Filter (Nearest)，ClampToEdge. 所以只需要一个采样器就可以了。</t>
               </p>
               <div class="code_block">
                 <div class="code_part">
@@ -331,7 +331,7 @@ fn vs_main(
 }</code></pre>
                 </div>
                 <div class="caption">
-                  <t>sampler descriptor</t>
+                  <t class="">sampler descriptor</t>
                 </div>
               </div>
             </div>
@@ -368,21 +368,21 @@ fn vs_main(
             </div>
           </div>
           <h1 id="heading1_2">
-            <t>点光源</t>
+            <t class="">点光源</t>
           </h1>
           <p>
-            <t>在 Shader 中计算点光源需要两个数据，一个是存储所有点光源信息的 Storage Buffer，另一个是点光源的总数，用于遍历。</t>
+            <t class="">在 Shader 中计算点光源需要两个数据，一个是存储所有点光源信息的 Storage Buffer，另一个是点光源的总数，用于遍历。</t>
           </p>
           <h2 id="heading2_2">
-            <t>Radiance of a Point Light</t>
+            <t class="">Radiance of a Point Light</t>
           </h2>
           <blockquote>
-            <t>下文将 Radiance 翻译为辐射率。（</t>
-            <t class="href" onclick="window.open('https://zh.wikipedia.org/wiki/%E8%BE%90%E5%B0%84%E7%8E%87')">https://zh.wikipedia.org/wiki/辐射率</t>
-            <t>）</t>
+            <t class="">下文将 Radiance 翻译为辐射率。（</t>
+<a class="link" href="https://zh.wikipedia.org/wiki/%E8%BE%90%E5%B0%84%E7%8E%87">https://zh.wikipedia.org/wiki/辐射率</a>
+            <t class="">）</t>
           </blockquote>
           <p>
-            <t>点光源的辐射率可以通过如下的方式计算：</t>
+            <t class="">点光源的辐射率可以通过如下的方式计算：</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -393,21 +393,21 @@ fn vs_main(
           </div>
           <p>
             <t class="code">intensity</t>
-            <t> 和 </t>
+            <t class=""> 和 </t>
             <t class="code">decay</t>
-            <t> 是光源的属性，</t>
+            <t class=""> 是光源的属性，</t>
             <t class="code">distance</t>
-            <t> 是世界空间下光源到片源的距离，世界空间下的坐标方才记录在 G-Buffer 中了，</t>
+            <t class=""> 是世界空间下光源到片源的距离，世界空间下的坐标方才记录在 G-Buffer 中了，</t>
             <t class="code">+ 0.001</t>
-            <t> 是为了除法安全。</t>
+            <t class=""> 是为了除法安全。</t>
           </p>
           <h2 id="heading2_3">
-            <t>遍历光源</t>
+            <t class="">遍历光源</t>
           </h2>
           <p>
-            <t>点光源的数量存在了一个全局的光照相关的 Binding 中的一个向量里。</t>
+            <t class="">点光源的数量存在了一个全局的光照相关的 Binding 中的一个向量里。</t>
             <t class="code">light.lights_nums.x</t>
-            <t> 其它分量设想用于存其它光照的数量。</t>
+            <t class=""> 其它分量设想用于存其它光照的数量。</t>
           </p>
           <div class="code_block">
             <div class="code_part">
@@ -435,13 +435,13 @@ fn vs_main(
           </div>
           <p></p>
           <h1 id="heading1_3">
-            <t>微表面 BRDF</t>
+            <t class="">微表面 BRDF</t>
           </h1>
           <p>
-            <t>鄙人理论知识不够扎实，加之有许多很好的理论资料，就不在这里说明微表面模型理论。资料会列在文尾的参考资料中。</t>
+            <t class="">鄙人理论知识不够扎实，加之有许多很好的理论资料，就不在这里说明微表面模型理论。资料会列在文尾的参考资料中。</t>
           </p>
           <p>
-            <t>微表面模型实现的难点是找到详细的一套参数标准和其跟实际计算的映射关系的。例如在微表面模型的计算不直接存在 Metallic （下文称金属度）参数。金属度实际影响菲涅尔项。翻的许多文章或视频并没有讲清楚这些。好在最终找到了好的参照。我参照 filament 引擎的实现，如此设置面向用户的参数（目前实现的部分）：</t>
+            <t class="">微表面模型实现的难点是找到详细的一套参数标准和其跟实际计算的映射关系的。例如在微表面模型的计算不直接存在 Metallic （下文称金属度）参数。金属度实际影响菲涅尔项。翻的许多文章或视频并没有讲清楚这些。好在最终找到了好的参照。我参照 filament 引擎的实现，如此设置面向用户的参数（目前实现的部分）：</t>
           </p>
           <div class="column_list">
             <div class="column">
@@ -472,7 +472,7 @@ fn vs_main(
             </div>
             <div class="column">
               <p>
-                <t>其中 BaseColor, Reflectance, Metallic 共同决定了 f0 项，Reflectance, Metallic 目前也只影响 f0 项，diffuse 会也会受 metallic 影响。此外，为了让 roughness 的视觉变换更符合直觉，roughness 可以平方处理一下。</t>
+                <t class="">其中 BaseColor, Reflectance, Metallic 共同决定了 f0 项，Reflectance, Metallic 目前也只影响 f0 项，diffuse 会也会受 metallic 影响。此外，为了让 roughness 的视觉变换更符合直觉，roughness 可以平方处理一下。</t>
               </p>
               <div class="code_block">
                 <div class="code_part">
@@ -486,60 +486,57 @@ fn perceptual_roughness_to_roughness(perceptual_roughness: f32) -&gt; f32 {
 }</code></pre>
                 </div>
                 <div class="caption">
-                  <t>wgsl</t>
+                  <t class="">wgsl</t>
                 </div>
               </div>
             </div>
           </div>
           <p>
-            <t>表格和算法出自 </t>
-            <t class="href" onclick="window.open('https://google.github.io/filament/Filament.html')">Physically Based Rendering in Filament</t>
-            <t>，原理可见原文。</t>
+            <t class="">表格和算法出自 </t>
+<a class="link" href="https://google.github.io/filament/Filament.html">Physically Based Rendering in Filament</a>
+            <t class="">，原理可见原文。</t>
           </p>
           <p></p>
           <h1 id="heading1_4">
-            <t>更好的 Editor UI</t>
+            <t class="">更好的 Editor UI</t>
           </h1>
           <div class="image_wrapper"><img src="/devLog/1837e342-f5b5-80bc-a170-e6627eae379b/img_18a7e342-f5b5-802d-98e8-c2b846f8647e.png">
             <div class="caption"></div>
           </div>
           <p>
-            <t>增加了世界物体继承和组件的 UI，可以相对方便地控制各个物体的组件了。</t>
+            <t class="">增加了世界物体继承和组件的 UI，可以相对方便地控制各个物体的组件了。</t>
           </p>
           <h2 id="heading2_4">
-            <t>Material Override</t>
+            <t class="">Material Override</t>
           </h2>
           <p>
-            <t>增加了一个材质继承的组件，用于覆盖某个 Mesh 的材质。附加在 MeshRenderer 组件的即可。也因此可以方便地在 Inspector 中调整材质的属性了。</t>
+            <t class="">增加了一个材质继承的组件，用于覆盖某个 Mesh 的材质。附加在 MeshRenderer 组件的即可。也因此可以方便地在 Inspector 中调整材质的属性了。</t>
           </p>
           <h1 id="heading1_5">
-            <t>参考资料</t>
+            <t class="">参考资料</t>
           </h1>
           <ul>
             <li>
-              <t>Romain Guy, Mathias Agopian - Physically Based Rendering in Filament </t>
-              <t class="href" onclick="window.open('https://google.github.io/filament/Filament.html')">https://google.github.io/filament/Filament.html</t>
-              <t>
+              <t class="">Romain Guy, Mathias Agopian - Physically Based Rendering in Filament </t>
+<a class="link" href="https://google.github.io/filament/Filament.html">https://google.github.io/filament/Filament.html</a>
+              <t class="">
 一篇非常好和全面的 PBR 文章，细致地解释了 filament 实时渲染引擎中的 PBR 是如何实现的</t>
             </li>
           </ul>
           <ul>
             <li>
-              <t>Blender - 原理化 BSDF </t>
-              <t class="href" onclick="window.open('https://docs.blender.org/manual/zh-hans/3.5/render/shader_nodes/shader/principled.html')">https://docs.blender.org/manual/zh-hans/3.5/render/shader_nodes/shader/principled.html</t>
-            </li>
+              <t class="">Blender - 原理化 BSDF </t>
+<a class="link" href="https://docs.blender.org/manual/zh-hans/3.5/render/shader_nodes/shader/principled.html">https://docs.blender.org/manual/zh-hans/3.5/render/shader_nodes/shader/principled.html</a></li>
           </ul>
           <ul>
             <li>
-              <t>Boson (2020) - GraphicEngine-Tile-based Deferred Shading using Compute Shader </t>
-              <t class="href" onclick="window.open('https://myboson.wordpress.com/2020/05/29/graphicengine-tiled-based-deferred-shading-using-compute-shader/')">https://myboson.wordpress.com/2020/05/29/graphicengine-tiled-based-deferred-shading-using-compute-shader/</t>
-            </li>
+              <t class="">Boson (2020) - GraphicEngine-Tile-based Deferred Shading using Compute Shader </t>
+<a class="link" href="https://myboson.wordpress.com/2020/05/29/graphicengine-tiled-based-deferred-shading-using-compute-shader/">https://myboson.wordpress.com/2020/05/29/graphicengine-tiled-based-deferred-shading-using-compute-shader/</a></li>
           </ul>
           <ul>
             <li>
-              <t>Jason L. McKesson (2012) - Normal Transformation </t>
-              <t class="href" onclick="window.open('https://paroj.github.io/gltut/Illumination/Tut09%20Normal%20Transformation.html#idp8010')">https://paroj.github.io/gltut/Illumination/Tut09 Normal Transformation.html</t>
-            </li>
+              <t class="">Jason L. McKesson (2012) - Normal Transformation </t>
+<a class="link" href="https://paroj.github.io/gltut/Illumination/Tut09%20Normal%20Transformation.html#idp8010">https://paroj.github.io/gltut/Illumination/Tut09 Normal Transformation.html</a></li>
           </ul>
           <p></p>
         </div>
