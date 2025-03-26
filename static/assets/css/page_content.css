@@ -123,7 +123,7 @@
   }
 }
 .page_content .code_block {
-  margin: 0.4em auto;
+  margin: 12px auto;
 }
 .page_content .code_block .code_part {
   background-color: var(--bg-color-1);
