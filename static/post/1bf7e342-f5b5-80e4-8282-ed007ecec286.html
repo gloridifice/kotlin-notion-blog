@@ -1,0 +1,422 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta name="darkreader-lock" content="true">
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/assets/js/header.js"></script>
+    <script src="/assets/katex/katex.js"></script>
+<script defer src="/assets/katex/auto-render.min.js" onload="renderMathInElement(document.body);"></script>    <script>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+          {left: '$$', right: '$$', display: false},
+      ],
+      throwOnError : false
+    });
+});</script>
+    <link rel="stylesheet" href="/assets/katex/katex.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/root.css">
+    <link rel="stylesheet" href="/assets/css/color_scheme_v2.dark_mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <script src="/assets/js/highlightjs/highlight.js"></script>
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/page_content.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/color_scheme_v2.dark_mode.css">
+    <link rel="stylesheet" href="/assets/css/highlightjs/github-dark.css">
+    <title>🔁 使用 Bevy 反射序列化组件 </title>
+  </head>
+  <body>
+    <script>hljs.highlightAll();</script>
+    <div class="post">
+      <div class="catalogue">
+        <div>
+          <ul>
+            <li class="h1"><a href="#heading1_0">
+                <t class="">(反/)序列化 Entity 的所有 Component</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">获得 Entity 的 Component 信息</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">序列化反射</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">反序列化反射</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_1">
+                <t class="">插入反射组件到实体中</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_2">
+                <t class="">运行时检查类型是否实现了某个 trait</t>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="navi"><a class="navi_link" href="/home.html">主页</a><a class="navi_link" href="/blogs.html">博客</a><a class="navi_link" href="/portfolio.html">项目</a><a class="navi_link" href="/about.html">关于</a></div>
+      <div class="sidebar_wrapper_left sidebar_wrapper"></div>
+      <div class="sidebar_wrapper_right sidebar_wrapper"></div>
+      <div class="contents">
+        <div class="header"><a class="navi_link" href="/home.html">主页</a><a class="navi_link" href="/blogs.html">博客</a><a class="navi_link" href="/portfolio.html">项目</a><a class="navi_link" href="/about.html">关于</a></div>
+        <div class="page_description">
+          <h1 class="title">🔁 使用 Bevy 反射序列化组件 </h1>
+          <div class="sub_info">
+            <p class="date">2025-06-05</p>
+            <div class="type_tags">
+              <p class="tag">Bevy</p>
+              <p class="tag">Rust</p>
+              <p class="tag">Game Dev</p>
+              <p class="tag">Serialization</p>
+              <p class="type">Dev</p>
+            </div>
+          </div>
+        </div>
+        <div class="page_content">
+          <h1 id="heading1_0">
+            <t class="">(反/)序列化 Entity 的所有 Component</t>
+          </h1>
+          <p>
+            <t class="">只是为了方便，本文在一个 test 来学习和测试 reflect 功能。方便测试和打印。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">#[cfg(test)]
+mod test {
+  fn test_reflect() {
+    todo!();
+  }
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <h2 id="heading2_0">
+            <t class="">获得 Entity 的 Component 信息</t>
+          </h2>
+          <p>
+            <t class="">反射的类型信息由 </t>
+            <t class="code">TypeRegistry</t>
+            <t class=""> 管理。我们的 App 类型注册信息存储在 </t>
+            <t class="code">AppTypeRegistry</t>
+            <t class=""> 中。这是一个</t>
+<a class="link" href="https://doc.rust-lang.org/beta/std/sync/struct.RwLock.html">读写锁</a>
+            <t class="">。这里我们以声明一个类型 </t>
+            <t class="code">Foo</t>
+            <t class="">，然后注册它为例。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">#[cfg(test)]
+mod test {
+  #[derive(Reflect, Component)]
+  struct Foo {
+    a: f32
+    b: i32
+  }
+  fn test_reflect() {
+      let mut app = App::new();
+      app.register_type::&lt;Foo&gt;();
+      
+      let world = app.world_mut();
+      
+      let registry_arc: TypeRegistryArc = world.resource::&lt;AppTypeRegistry&gt;().0.clone();
+      let registry = registry_arc.read();
+      
+      todo!();
+  }
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="code">AppTypeRegistry # 0</t>
+              <t class=""> 是一个原子引用计数，所以我们可以克隆它来避免占用世界的所有权</t>
+            </li>
+          </ul>
+          <blockquote>
+            <t class="">我们声明一个 App 是为了后续 </t>
+            <t class="code">Component</t>
+            <t class=""> 的测试。如果只想测试反射，不需要用到 </t>
+            <t class="code">World</t>
+            <t class="">，也可以使用构造函数实例化一个 </t>
+            <t class="code">TypeRegistry</t>
+            <t class=""> 。如：
+- </t>
+            <t class="code">let registry = TypeRegistry::new();</t>
+          </blockquote>
+          <p>
+            <t class="">接着，要想获得一个 Entity 的所有 Component 的信息，可以使用 </t>
+            <t class="code">World # inspect_entity</t>
+            <t class="">，它会返回一个 </t>
+            <t class="code">&amp;ComponentInfo</t>
+            <t class=""> 的迭代器。注意，如果 Entity 不存在，</t>
+            <t class="code">inspect_entity</t>
+            <t class=""> 会直接 panic. 在实际使用前最好检查一下 Entity 是否还存在。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">// test_reflect()
+let id = world.spawn(Foo { a: 0, b: 0 });
+if world.entities().contains(id) { // 检查实体存在
+  for component_info in world.inspect_entity(id) {
+    todo!();
+  }
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <h2 id="heading2_1">
+            <t class="">序列化反射</t>
+          </h2>
+          <p>
+            <t class="">接着我们通过 </t>
+            <t class="code">World # get_reflect</t>
+            <t class="">获得某个实体的某个组件的反射。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">// 在 for loop 中
+let component_reflect: &amp;dyn Reflect = world.get_reflect(id, component_info.type_id().unwrap()).unwrap();
+
+let serialzier =
+    ReflectSerializer::new(component_reflect.as_partial_reflect(), &amp;registry);
+let str = toml::to_string_pretty(&amp;serialzier).unwrap();
+println!(&quot;{}&quot;, &amp;str); // Debug</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="code">ReflectSerializer</t>
+              <t class=""> 反射内容的序列化器，可以被各类基于 serde 的序列化方法序列化</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">在 toml 中，反射的 </t>
+              <t class="code">Foo</t>
+              <t class=""> 的序列化的结果是一个 </t>
+              <t class="code">toml::Table</t>
+              <t class=""> 里包含了一个键值，其键是 </t>
+              <t class="code">Foo</t>
+              <t class=""> 的类型路径，值还是一个 </t>
+              <t class="code">Table</t>
+              <t class="">，包含了 </t>
+              <t class="code">Foo</t>
+              <t class=""> 的字段。</t>
+            </li>
+          </ul>
+          <h2 id="heading2_2">
+            <t class="">反序列化反射</t>
+          </h2>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">// 这是 toml 格式的 Table
+let table = toml::from_str::&lt;toml::Table&gt;(&amp;str).unwrap();
+let key = table.iter().last().unzip().0.unwrap().clone();
+
+// 重要的地方！
+let reflect_deserializer = ReflectDeserializer::new(&amp;registry);
+let partial_reflect: Box&lt;dyn PartialReflect&gt; =
+    reflect_deserializer.deserialize(table).unwrap();
+    
+assert!(partial_reflect.represents::&lt;Foo&gt;()); // 检查部分反射代表的是否是类型 Foo</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="code">key</t>
+              <t class="">：这里获得的 key 是 </t>
+              <t class="code">Foo</t>
+              <t class=""> 的完整类型路径。后面插入 Component 时会用到。</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">ReflectDeserializer</t>
+              <t class="">：反序列化器，其 </t>
+              <t class="code"># deserialize</t>
+              <t class=""> 方法来自对 serde 的 </t>
+              <t class="code">DeserializeSeed</t>
+              <t class=""> trait 实现，如果 rust analyzer 无法找到 </t>
+              <t class="code"># deserialize</t>
+              <t class=""> 方法，需要手动 </t>
+              <t class="code">use DeserializeSeed</t>
+              <t class=""> .</t>
+            </li>
+          </ul>
+          <p></p>
+          <h1 id="heading1_1">
+            <t class="">插入反射组件到实体中</t>
+          </h1>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">let type_registration: &amp;TypeRegistration = registry.get_with_type_path(&amp;key).unwrap();
+let type_id: TypeId = TypeRegistration::type_id(type_registration);</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="code">type_registration</t>
+              <t class="">：我们使用上面得到的类型路径（key）获取类型的注册信息，为了获取类型的 </t>
+              <t class="code">TypeId</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">type_id</t>
+              <t class="">：通过 </t>
+              <t class="code">TypeRegistration # type_id</t>
+              <t class=""> 来获取注册类型的 TypeId，这里使用显式的方法调用是为了与标准库原有的 </t>
+              <t class="code">Any # type_id</t>
+              <t class=""> 函数区分。</t>
+            </li>
+          </ul>
+          <p>
+            <t class="">后续会用到地，为了让可以组件的反射可以执行 </t>
+            <t class="code">Component</t>
+            <t class=""> 的 trait 的行为，需要为我们的 </t>
+            <t class="code">Foo</t>
+            <t class="">  类型标记 </t>
+            <t class="code">reflect</t>
+            <t class=""> 宏。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">#[derive(Reflect, Component)]
+#[reflect(Component, from_reflect = true)] // new!
+struct Foo {
+    a: f32,
+    b: i32,
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">接着可以通过 </t>
+            <t class="code">get_type_data::&lt;ReflectComponent&gt;</t>
+            <t class=""> 将反射作为组件插入实体。</t>
+<a class="link" href="https://docs.rs/bevy/0.15.3/bevy/ecs/prelude/struct.ReflectComponent.html">ReflectComponent</a>
+            <t class=""> 可以操作实现了 Component trait 的类型的反射。需要我们对类型使用 </t>
+            <t class="code">#[reflect(Component)]</t>
+            <t class=""> 宏才能被记录到 </t>
+            <t class="code">TypeRegistry</t>
+            <t class=""> 中。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">if let Some(reflect_component) =
+    registry.get_type_data::&lt;ReflectComponent&gt;(type_id) // -&gt; Option&lt;&amp;ReflectComponent&gt;
+{
+    info!(&quot;Successfully insert reflect component!&quot;);
+    reflect_component.insert(
+        &amp;mut world.entity_mut(id),
+        partial_reflect.as_ref(),
+        &amp;registry,
+    );
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">也可以直接使用 </t>
+            <t class="code">TypeRegistration</t>
+            <t class=""> 来获取 </t>
+            <t class="code">Foo</t>
+            <t class=""> 类型的 </t>
+            <t class="code">ReflectComponent</t>
+            <t class=""> 数据。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">type_registration.data::&lt;ReflectComponent&gt;(); // -&gt; Option&lt;&amp;ReflectComponent&gt;</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <h1 id="heading1_2">
+            <t class="">运行时检查类型是否实现了某个 trait</t>
+          </h1>
+          <p>
+            <t class="">上文中我们看到了，一个类型的 trait 数据以 data 的形式存储在 </t>
+            <t class="code">TypeRegistry</t>
+            <t class=""> 中。如果我们想记录类型实现的我们自己的 trait，也可以通过 </t>
+            <t class="code">reflect</t>
+            <t class=""> 宏来实现。</t>
+            <t class="code">reflect</t>
+            <t class=""> 宏会自动注册 trait 的反射数据。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">#[derive(Reflect, Component)]
+#[reflect(FooTrait, Component, from_reflect = true)] // new!
+struct Foo {
+    a: f32,
+    b: i32,
+}
+
+#[reflect_trait] // new!
+trait FooTrait {}
+
+impl FooTrait for Foo {}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">我们需要为想要被记录反射信息的 </t>
+            <t class="code">FooTrait</t>
+            <t class=""> 打上 </t>
+            <t class="code">reflect_trait</t>
+            <t class=""> 宏，它会生成一个结构体叫做 </t>
+            <t class="code">ReflectFooTrait</t>
+            <t class="">.于此同时，我们还需要在 </t>
+            <t class="code">Foo</t>
+            <t class=""> 类型的 </t>
+            <t class="code">reflect</t>
+            <t class=""> 宏中加上 </t>
+            <t class="code">FooTrait</t>
+            <t class=""> .</t>
+          </p>
+          <ul>
+            <li><a class="link" href="https://docs.rs/bevy/latest/bevy/prelude/attr.reflect_trait.html">reflect_trait</a>
+              <t class=""> 宏会自动生成 trait 的数据，既 </t>
+              <t class="code">Reflect{trait_ident}</t>
+              <t class=""> 结构体。</t>
+            </li>
+          </ul>
+          <p>
+            <t class="">经过以上行为后，我们就可以像获取 </t>
+            <t class="code">ReflectComponent</t>
+            <t class=""> 一样获取 </t>
+            <t class="code">ReflectFooTrait</t>
+            <t class="">，以此来判断一个类型是否实现了某个 trait.</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">let is_impl_foo_trait =
+  type_registration.data::&lt;ReflectFooTrait&gt;().is_some();
+  // or
+  registry.get_type_data::&lt;ReflectComponent&gt;(type_id).is_some();</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

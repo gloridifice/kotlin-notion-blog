@@ -1,5 +1,6 @@
 <!DOCTYPE html><html>
-  <head lang="zh_CN">
+  <head>
+    <meta name="darkreader-lock" content="true">
     <meta http-equiv="Content-Type" content="charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/header.js"></script>
@@ -71,6 +72,48 @@
               </a></li>
             <li class="h1"><a href="#heading1_6">
                 <t class="">什么是 ECS</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">先介绍一下什么是实体和组件</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">什么是系统（System）</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_0">
+                <t class="">组件是怎样被存储的</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_1">
+                <t class="">将系统放在一起</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">🌰 例子</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">ECS 的应用</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_7">
+                <t class="">附录</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">程序设计基础方向</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">面向对象的编程范式方向</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_2">
+                <t class="">C# (C Sharp)</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_3">
+                <t class="">Java &amp; Kotlin</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_4">
+                <t class="">游戏引擎</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_4">
+                <t class="">Bevy 引擎</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_4">
+                <t class="">进阶</t>
               </a></li>
           </ul>
         </div>
@@ -417,11 +460,7 @@ void spawnDrops(){
             <t class="">例如：只有鸡在空中会缓慢降落，因此开发者只需把缓落逻辑写在 Chicken 类中。类似的，开发者把用桶接牛奶的逻辑写在 Cow 类中。</t>
           </p>
           <div class="column_list">
-            <div class="column">
-              <div class="image_wrapper"><img src="/post/935d27d8-8e8a-4559-8c56-ee8ed6daf2b4/img_e569b01b-bd86-4d05-af96-7e30bd5171e0.gif">
-                <div class="caption"></div>
-              </div>
-            </div>
+            <div class="column"></div>
             <div class="column">
               <div class="image_wrapper"><img src="/post/935d27d8-8e8a-4559-8c56-ee8ed6daf2b4/img_d8c270e6-1fb8-4a26-a78e-0f4ba1a4c35c.gif">
                 <div class="caption"></div>
@@ -644,6 +683,266 @@ min a b = case compare a b of
           <blockquote>
             <t class="">ECS 是一种用面向数据思想设计的框架，我们下面也会介绍 ECS 系统如何用面向数据思想来实现的。</t>
           </blockquote>
+          <p>
+            <t class="">虽然上面是通俗简练的介绍，但还是很难懂。我们可以根据实际的游戏内容来理解。下面我们依然以 Minecraft 为例。</t>
+          </p>
+          <blockquote>
+            <t class="">注：Minecraft 并不是用 ECS 模型实现的游戏，但我们以 Minecraft 的游戏内容为例来介绍 ECS，或者说如果我们以 ECS 模型来实现 Minecraft，我们会怎样设计。以下的 Entity（实体）定义与我们上面介绍过的 Minecraft 中的 Entity 没有关系。</t>
+          </blockquote>
+          <h2 id="heading2_6">
+            <t class="">先介绍一下什么是实体和组件</t>
+          </h2>
+          <p>
+            <t class="">我们的游戏是由大量的物体组成的。以 Minecraft 为例：我们的每一个方块、物品、生物都可以看作一个实体。每个物体都有一个唯一标识符，而实体就是这个唯一标识符，在实现上它就是一个 </t>
+            <t class="code">unsigned int</t>
+            <t class="">（在大部分机器上这是一个 32 位长无符号整数） 。而我们的数据存在组件中，我们可以声明每个组件属于哪个实体。</t>
+          </p>
+          <p>
+            <t class="">这样我们创建了一个组合数据的能力。我们将不同的组件，通过实体这个唯一标识符组合在了一起。</t>
+          </p>
+          <p>
+            <t class="">一个具体的例子，我们可以想一想，对于 Minecraft 中一个掉落在地上的物品来说，它需要有哪些组件：</t>
+          </p>
+          <div class="column_list">
+            <div class="column">
+              <div class="code_block">
+                <div class="code_part">
+                  <div class="code_lang">kotlin</div>
+                  <pre><code class="language-kotlin">- Transform //位置、旋转、缩放信息
+- ItemTexture //物品的贴图
+- RegistryName //这个物品种类的唯一标识
+- Count //掉落的物品的数量
+- DroppedItem //不存储数据，只是一个用来标识这时掉落物的标签
+..</code></pre>
+                </div>
+                <div class="caption"></div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="image_wrapper"><img src="/post/935d27d8-8e8a-4559-8c56-ee8ed6daf2b4/img_94e034ac-d2ff-49ef-ab09-629b46f367ce.gif">
+                <div class="caption"></div>
+              </div>
+            </div>
+          </div>
+          <p>
+            <t class="">各位可能好奇为什么我们不直接创建一个 Item 的组件，把物体相关的参数都放进去。</t>
+          </p>
+          <p>
+            <t class="">这确实是一种可以用的设计方法，但是，对于 ECS 模型，将组件做小，在 ECS 的 Systems（系统）中有性能优势，下面会介绍。</t>
+          </p>
+          <h2 id="heading2_7">
+            <t class="">什么是系统（System）</t>
+          </h2>
+          <p>
+            <t class="">系统是对数据的操作。在编程语言中，我们对数据操作的手段是函数，ECS 中的系统也是类似的，在实现上它们就是各种函数。我们要实现系统有两个问题：</t>
+          </p>
+          <ul>
+            <li>
+              <t class="">我们怎样获取需要的数据（主要为组件）？（了解组件的存储方式）</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">我们怎样调用我们的系统？（了解系统的存储方式）</t>
+            </li>
+          </ul>
+          <h3 id="heading3_0">
+            <t class="">组件是怎样被存储的</t>
+          </h3>
+          <p>
+            <t class="">我们刚刚说过 ECS 是一种面向数据的架构。在面向数据的思想中，我们会将同一类的数据放在一起。而在 ECS 中，组件就是这样的数据，在实现上我们将同一种组件放在一起存储。</t>
+          </p>
+          <p></p>
+          <div class="image_wrapper"><img src="/post/935d27d8-8e8a-4559-8c56-ee8ed6daf2b4/img_b576e434-6f31-4e15-b40f-063c5fc135b3.png">
+            <div class="caption"></div>
+          </div>
+          <h3 id="heading3_1">
+            <t class="">将系统放在一起</t>
+          </h3>
+          <p>
+            <t class="">基本数据类型可以被存储，函数是也可以被存储的，我们游戏通过循环来更新，系统或者说函数就是在这个过程中被执行的。现在大部分语言都拥有许多函数式编程特性，使得存储函数或者说操作的事情变得并不困难。函数式编程又是另一个天坑，我们未来再聊。大家只需知道我们可以像存储数据一样把函数存储在一起，然后在游戏循环中每帧调用。</t>
+          </p>
+          <p></p>
+          <h2 id="heading2_8">
+            <t class="">🌰 例子</t>
+          </h2>
+          <p>
+            <t class="">我们刚刚了解了如何解决处理数据遇到的两个问题，来看看具体的例子吧！</t>
+          </p>
+          <div class="column_list">
+            <div class="column"></div>
+            <div class="column"></div>
+          </div>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">rust</div>
+              <pre><code class="language-rust">fn rotate_drops(query: Query&lt;&amp;Transform, With&lt;DroppedItem&gt;&gt;, time: Res&lt;Time&gt;){
+    for transform in query{
+        rotate_with_time(&amp;mut transform, time.delta());
+    }
+}</code></pre>
+            </div>
+            <div class="caption">
+              <t class="">一段用 Bevy 引擎实现的 System 函数（你不需要理解这段代码）</t>
+            </div>
+          </div>
+          <p>
+            <t class="">讲完这些这点之后，上面将不同数据分成更多细小的组件的原因也明晰了。假如我们一个组件写的很大，负责的数据多，如我们说过的 </t>
+            <t class="code">ItemStackDorp</t>
+            <t class=""> 。</t>
+          </p>
+          <p>
+            <t class="">为了获得 </t>
+            <t class="code">Transform</t>
+            <t class=""> ，我们就要获得所有的 </t>
+            <t class="code">ItemStackDrop</t>
+            <t class=""> ，这时那些用不上的数据也一并被获取了（texture, registryName…），这就产生了无用的开销。因此我们会倾向于将每个组件设计得小，使其只承担一个明确的任务。</t>
+          </p>
+          <p></p>
+          <h2 id="heading2_9">
+            <t class="">ECS 的应用</t>
+          </h2>
+          <p>
+            <t class="">ECS 有许多性能上的好处，但缺点也显而易见，它完全不如面向对象组织数据来的直观，在面向对象模型中我们将物体的数据和行为放在一起，而在 ECS 中却要把他们分开。另外，ECS 对编程语言特性也有要求，因此市面上大部分游戏引擎都不是纯 ECS 系统的，有的使用其它的范式，有的是和其它范式混合的 ECS 系统。</t>
+          </p>
+          <ul>
+            <li>
+              <t class="">Unreal 的使用的就是混合的 ECS 范式。</t>
+            </li>
+          </ul>
+          <p>
+            <t class="">比较纯粹同时较流行的使用 ECS 范式游戏引擎我知道的有：</t>
+          </p>
+          <ul>
+            <li>
+              <t class="">一个是 Bevy，这是一个基于 rust 的纯 ECS 的面向数据的游戏引擎。</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">另一个就是 Unity 于今年（2023）刚刚更新的 DOTS 框架，Unity 特别强调了该框架 ECS 和面向数据的特性。</t>
+            </li>
+          </ul>
+          <p></p>
+          <p>
+            <t class="">不过，我们了解 ECS 更重要的是了解其中的思想，也就是面向数据的思想。ECS 只是其中的一种实现。我们不断思考架构的原因是为了创造出更好的软件。</t>
+          </p>
+          <p></p>
+          <p>
+            <t class="">以上，祝大家玩得愉快。Happy game dev and happy hacking!</t>
+          </p>
+          <p></p>
+          <h1 id="heading1_7">
+            <t class="">附录</t>
+          </h1>
+          <blockquote>
+            <t class="">再好的学习资料也不能解决一切问题，学习的过程中希望大家广泛地运用搜索引擎、ChatGPT、New Bing 等来解决自己的问题。
+在开发领域，在国际搜索引擎（Bing 国际版、Google 等）用英文搜索能得到更有帮助的答案。</t>
+          </blockquote>
+          <h2 id="heading2_10">
+            <t class="">程序设计基础方向</t>
+          </h2>
+          <p></p>
+          <p>
+            <t class="">CS50: Introduction to Computer Science，Harward University，</t>
+<a class="link" href="https://pll.harvard.edu/course/cs50-introduction-computer-science">https://pll.harvard.edu/course/cs50-introduction-computer-science</a>
+            <t class=""> 
+（中文版字幕 - CS50：计算机导论，</t>
+<a class="link" href="https://www.bilibili.com/video/BV1DA411Y7jk/">https://www.bilibili.com/video/BV1DA411Y7jk/</a>
+            <t class="">）</t>
+          </p>
+          <blockquote>
+            <t class="">适合的人群：希望了解程序设计基础知识的人；
+你可以从中获得：作为程序员，我们在编程时到底在做什么和应该思考什么。程序设计的基本理念。</t>
+          </blockquote>
+          <p></p>
+          <p>
+            <t class="">Structure and Interpretation of Computer Programs，</t>
+            <t class="">MIT，</t>
+<a class="link" href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book.html">https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book.html</a>
+            <t class=""> 
+（中文版 -《计算机程序的构造与解释》，</t>
+<a class="link" href="https://www.bilibili.com/video/BV1Xx41117tr/">https://www.bilibili.com/video/BV1Xx41117tr/</a>
+            <t class="">）</t>
+          </p>
+          <blockquote>
+            <t class="">适合的人群：希望了解编程语言如何赋予我们组合和抽象的能力，以及希望了解如何设计出良好程序的人群；
+你可以从中获得：Lisp 语言的基础知识，设计良好程序的能力，分析编程语言结构的能力。</t>
+          </blockquote>
+          <p></p>
+          <h2 id="heading2_11">
+            <t class="">面向对象的编程范式方向</t>
+          </h2>
+          <h3 id="heading3_2">
+            <t class="">C# (C Sharp)</t>
+          </h3>
+          <p>
+            <t class="">《C# 图解教程》，丹尼尔·索利斯，卡尔·施罗坦博尔，人民邮电出版社</t>
+          </p>
+          <blockquote>
+            <t class="">适合的人群：无编程语言经验的编程入门人群、只有非面向对象编程语言经验的人群；
+你可以从中获得：C# 程序设计语言的基础和进阶知识及实践指导，面向对象基本理论在 C# 编程中的实践。</t>
+          </blockquote>
+          <h3 id="heading3_3">
+            <t class="">Java &amp; Kotlin</t>
+          </h3>
+          <blockquote>
+            <t class="">Kotlin 是一个可以用于编写 Java 程序、跨平台应用、Web开发、安卓应用等的编程语言。
+Kotlin 更加现代并且完全兼容 Java，所以越来越多的 Java 项目开始使用 Kotlin 作为主要开发语言（例如安卓系统）。</t>
+          </blockquote>
+          <hr class="divider_block">
+          <p>
+            <t class="">《Head First Java（中文版）》Kathy Sierra , Bert Bates，中国电力出版社</t>
+          </p>
+          <blockquote>
+            <t class="">适合的人群：无编程语言经验的编程入门人群、只有非面向对象编程语言经验的人群，想要学习 Java 的人群；
+你可以从中获得：理解面向对象这种编程范式并学习如何用 Java 语言实践。</t>
+          </blockquote>
+          <hr class="divider_block">
+          <p>
+            <t class="">Kotlin 语言中文指南：</t>
+<a class="link" href="https://hltj.gitbooks.io/kotlin-reference-chinese/content/txt/index0.html">https://hltj.gitbooks.io/kotlin-reference-chinese/content/txt/index0.html</a></p>
+          <blockquote>
+            <t class="">适合的人群：有面向对象语言编程经验、想学习 Kotlin 的人群。</t>
+          </blockquote>
+          <p></p>
+          <p></p>
+          <h2 id="heading2_12">
+            <t class="">游戏引擎</t>
+          </h2>
+          <p>
+            <t class="">GAMES 104 - 现代游戏引擎导论： </t>
+<a class="link" href="https://www.bilibili.com/video/BV1oU4y1R7Km/?vd_source=8e3bac5216c2065ea5e49aa968fbe85a">https://www.bilibili.com/video/BV1oU4y1R7Km/</a></p>
+          <blockquote>
+            <t class="">适合人群：对游戏和游戏引擎如何运作好奇的人群，即使大部分听不懂，也能收获颇多
+你可以从中获得：现代游戏引擎的理论知识</t>
+          </blockquote>
+          <p></p>
+          <h2 id="heading2_13">
+            <t class="">Bevy 引擎</t>
+          </h2>
+          <blockquote>
+            <t class="">适合的人群：好奇 Bevy 是如何设计出干净的 ECS 结构的人
+你可以从中获得：使用 Bevy 引擎的能力；ECS 的游戏引擎是如何被实践出来的知识；对数据驱动更深刻的认识。</t>
+          </blockquote>
+          <p>
+            <t class="">Bevy 官网： </t>
+<a class="link" href="https://bevyengine.org/">https://bevyengine.org/</a></p>
+          <p>
+            <t class="">Rust Game Development with Bevy： </t>
+<a class="link" href="https://taintedcoders.com/">https://taintedcoders.com/</a></p>
+          <p>
+            <t class="">Rust Bevy Entity Component System：</t>
+<a class="link" href="https://blog.logrocket.com/rust-bevy-entity-component-system/">https://blog.logrocket.com/rust-bevy-entity-component-system/</a></p>
+          <p></p>
+          <h2 id="heading2_14">
+            <t class="">进阶</t>
+          </h2>
+          <p>
+            <t class="">Beau­tiful Racket: an intro­duc­tion to language-oriented program­ming using Racket，</t>
+<a class="link" href="https://beautifulracket.com/">https://beautifulracket.com/</a>
+            <t class=""> （使用 Racket 设计属于你的编程语言）</t>
+          </p>
         </div>
       </div>
     </div>

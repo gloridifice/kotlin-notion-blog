@@ -1,0 +1,1139 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta name="darkreader-lock" content="true">
+    <meta http-equiv="Content-Type" content="charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/assets/js/header.js"></script>
+    <script src="/assets/katex/katex.js"></script>
+<script defer src="/assets/katex/auto-render.min.js" onload="renderMathInElement(document.body);"></script>    <script>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+          {left: '$$', right: '$$', display: false},
+      ],
+      throwOnError : false
+    });
+});</script>
+    <link rel="stylesheet" href="/assets/katex/katex.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/root.css">
+    <link rel="stylesheet" href="/assets/css/color_scheme_v2.dark_mode.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+    <script src="/assets/js/highlightjs/highlight.js"></script>
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/page_content.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/color_scheme_v2.dark_mode.css">
+    <link rel="stylesheet" href="/assets/css/highlightjs/github-dark.css">
+    <title>🤸 Unreal 5 C++ 多人游戏入门资料</title>
+  </head>
+  <body>
+    <script>hljs.highlightAll();</script>
+    <div class="post">
+      <div class="catalogue">
+        <div>
+          <ul>
+            <li class="h1"><a href="#heading1_0">
+                <t class="">注意事项</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">从 Rider 启动编辑器</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">Ctrl+S 并不是全部保存</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="">使用版本管理工具</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_1">
+                <t class="">UE 常见类</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="code">UObject</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="code">AActor</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="code">APawn</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_0">
+                <t class="code">UActorComponent</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_2">
+                <t class="">UE 垃圾回收机制</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_0">
+                <t class="">所有强引用（Hard Reference）</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_1">
+                <t class="">某些弱引用（Soft Reference）</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">智能指针与非 </t>
+                <t class="code">UObject</t>
+                <t class=""> 对象的内存管理</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">参考资料</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_3">
+                <t class="">多人游戏与网络同步机制</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_2">
+                <t class="">Actor 的网络属性</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_2">
+                <t class="">所有者：Role 和 Remote Role</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_3">
+                <t class="">优先级（Priority）</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_4">
+                <t class="">复制（Replication）</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_5">
+                <t class="">相关性（</t>
+                <t class="bold">Relevancy</t>
+                <t class="">）</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_6">
+                <t class="">网络休眠（</t>
+                <t class="bold">Network Dormancy</t>
+                <t class="">）</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_7">
+                <t class="">RPC 远程函数调用</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_7">
+                <t class="">调试建议</t>
+              </a></li>
+            <li class="h2"><a href="#heading2_7">
+                <t class="">场景切换</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_4">
+                <t class="">Profiling</t>
+              </a></li>
+            <li class="h3"><a href="#heading3_7">
+                <t class="">参考资料</t>
+              </a></li>
+            <li class="h1"><a href="#heading1_5">
+                <t class="">其它常用 API</t>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="navi"><a class="navi_link" href="/home.html">主页</a><a class="navi_link" href="/blogs.html">博客</a><a class="navi_link" href="/portfolio.html">项目</a><a class="navi_link" href="/about.html">关于</a></div>
+      <div class="sidebar_wrapper_left sidebar_wrapper"></div>
+      <div class="sidebar_wrapper_right sidebar_wrapper"></div>
+      <div class="contents">
+        <div class="header"><a class="navi_link" href="/home.html">主页</a><a class="navi_link" href="/blogs.html">博客</a><a class="navi_link" href="/portfolio.html">项目</a><a class="navi_link" href="/about.html">关于</a></div>
+        <div class="page_description">
+          <h1 class="title">🤸 Unreal 5 C++ 多人游戏入门资料</h1>
+          <div class="sub_info">
+            <p class="date">2025-06-05</p>
+            <div class="type_tags">
+              <p class="tag">Unreal</p>
+              <p class="tag">Cpp</p>
+              <p class="type">Dev</p>
+            </div>
+          </div>
+        </div>
+        <div class="page_content">
+          <h1 id="heading1_0">
+            <t class="">注意事项</t>
+          </h1>
+          <h2 id="heading2_0">
+            <t class="">从 Rider 启动编辑器</t>
+          </h2>
+          <p>
+            <t class="">由于 UE 的 C++ 反射内容必须编译后才能在编辑器中使用。推荐从 Rider 启动编辑器，这会预先编译后启动 UE。</t>
+          </p>
+          <h2 id="heading2_1">
+            <t class="">Ctrl+S 并不是全部保存</t>
+          </h2>
+          <p>
+            <t class="">全部保存的默认按键是 Ctrl+Shift+S，即使按再多 Ctrl+S 只会保存当前资源！在场景中按 Ctrl+S 是保存当前关卡，也不会保存所有内容。此外，所有的保存按钮也都是保存当前资源，场景选项卡中的也是。想要保存记得使用 Ctrl+Shift+S。</t>
+          </p>
+          <h2 id="heading2_2">
+            <t class="">使用版本管理工具</t>
+          </h2>
+          <p>
+            <t class="">请务必使用版本管理工具存储工作，在入门 UE 时，强制关机、引擎崩溃、撤销内容错误或者不慎将不想要的结果保存都可能导致工程完全无法进行下去。</t>
+          </p>
+          <p>
+            <t class="">因为 UE 会将许多内容存在内存中，因此想要使用版本管理工具回退时：</t>
+          </p>
+          <ol>
+            <li>
+              <t class="">先关闭编辑器并不保存所有修改；</t>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">回退版本；</t>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">使用 Rider 打开编辑器；</t>
+            </li>
+          </ol>
+          <p>
+            <t class="">这样可以安全地回退版本。</t>
+          </p>
+          <h1 id="heading1_1">
+            <t class="">UE 常见类</t>
+          </h1>
+          <p>
+            <t class="">这个小节会描述 UE 当中重要且常用的一些类，总体的标题顺序是从基类到派生类。</t>
+          </p>
+          <h2 id="heading2_3">
+            <t class="code">UObject</t>
+          </h2>
+          <p>
+            <t class="">UObject 是 UE 参与反射与垃圾回收的最基本类。其包含两个重要子类：</t>
+          </p>
+          <ul>
+            <li>
+              <t class="">AActor</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">UActorComponent</t>
+            </li>
+          </ul>
+          <p>
+            <t class="">在类命名时通常使用 U 开头来标记此类为 UObject 的派生类，A 开头来标记此类为 AActor 的派生类。下文会对这两个类以及 UObject 的垃圾回收机制进行简单地介绍。</t>
+          </p>
+          <h2 id="heading2_4">
+            <t class="code">AActor</t>
+          </h2>
+          <p>
+            <t class="">AActor 是可以放在场景中的物体的父类。具体来说，它有变换属性（旋转、缩放、位置等），同时也有网络功能。</t>
+          </p>
+          <blockquote>
+            <t class="">参考资料（官方文档）：</t>
+<a class="link" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-actor-lifecycle">https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-actor-lifecycle</a></blockquote>
+          <p>
+            <t class="">一些重点（按顺序）：</t>
+          </p>
+          <ul>
+            <li>
+              <t class="code">BeginPlay</t>
+              <t class="">（Level 开始时被调用）</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">EndPlay</t>
+              <t class="">（在 Destory 中被调用）</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">Tick</t>
+              <t class="">（每帧更新）</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">BeginDestroy</t>
+              <t class="">（与垃圾回收相关，通常用于释放内存或处理多线程资源）</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">FinishDestory</t>
+              <t class="">（与垃圾回收相关，这是 </t>
+              <t class="code">UObject</t>
+              <t class="">被释放前的最后一次调用）</t>
+            </li>
+          </ul>
+          <h2 id="heading2_5">
+            <t class="code">APawn</t>
+          </h2>
+          <p>
+            <t class="">APawn 是用于表征可控制的实体，如玩家、NPC 等，它是 AActor 的子类。</t>
+          </p>
+          <p><a class="link" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Engine/GameFramework/APawn">https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Engine/GameFramework/APawn</a></p>
+          <h2 id="heading2_6">
+            <t class="code">UActorComponent</t>
+          </h2>
+          <p>
+            <t class="code">UActorComponent</t>
+            <t class=""> 是一个重要的类，它是渲染网格、图像、碰撞、音频等玩家视觉、听觉、交互的唯一途径，也是游戏逻辑的重要载体。下文将 Component 称为“组件“。</t>
+          </p>
+          <p>
+            <t class="">组件被附加在 Actor 上，其没有变换信息。要想组件被正常使用，其需要被注册，注册会在组件被当作 sub-objects 时被自动完成，也可以手工使用 </t>
+            <t class="code">RegisterComponent</t>
+            <t class=""> 函数注册（但运行时注册会影响性能，这点需要注意）。</t>
+          </p>
+          <p>
+            <t class="">注册组件时，</t>
+            <t class="code">UActorComponent::OnRegister</t>
+            <t class=""> 会被触发。此外，</t>
+            <t class="code">CreateRenderState</t>
+            <t class=""> 和 </t>
+            <t class="code">OnCreatePhysicsState</t>
+            <t class=""> 也会被触发。如果想要取消注册一个组件，使用 </t>
+            <t class="code">UnregisterComponent</t>
+            <t class=""> 组件即可。</t>
+          </p>
+          <p>
+            <t class="">下面为组件的一些函数与功能：</t>
+          </p>
+          <ul>
+            <li>
+              <t class="code">PostLoad</t>
+              <t class=""> 静态 Actor 加载时触发</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">InitializeComponent</t>
+              <t class=""> 组件首次初始化时触发</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">BeginPaly</t>
+              <t class=""> Actor 进入游戏时触发</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">TickComponent</t>
+              <t class=""> 函数每帧都会执行</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">EndPlay</t>
+              <t class=""> Actor 被移除时触发</t>
+            </li>
+          </ul>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">MyComponent = CreateDefaultSubobject&lt;UMyCustomComponent&gt;(TEXT(&quot;MyComponentName&quot;));
+MyComponent-&gt;SetupAttachment(RootComponent); // RootComponent 是 Actor 的默认根组件</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">如果需要一个组件有物理属性，可以使用其子类 </t>
+            <t class="code">USceneComponent</t>
+            <t class="">，更进一步的，如果在此基础上还需要物理碰撞或者渲染能力，可以使用 </t>
+            <t class="code">UPrimitiveComponent</t>
+            <t class="">。下面是常见的子类与其用途。</t>
+          </p>
+          <div class="table">
+            <table></table>
+          </div>
+          <h1 id="heading1_2">
+            <t class="">UE 垃圾回收机制</t>
+          </h1>
+          <p>
+            <t class="">UE 采用标记清扫的垃圾回收策略，标记清扫的具体思想是：先在标记阶段从根集（Root Set）对象遍历对象图（一个包含了对象间引用信息的有向图），将所有被遍历的对象标记为“可达”。接着在清扫阶段遍历所有对象，如果一个对象没有可达标记，则说明其需要被释放。</t>
+          </p>
+          <p>
+            <t class="">在 UE 中，所有 </t>
+            <t class="code">UObject</t>
+            <t class=""> 类型及其子类型会参与到垃圾回收中。其中，因为 Actor 总是被场景和自己引用，所以需要被手动销毁。Actor 的销毁方式为调用 </t>
+            <t class="code">Destroy</t>
+            <t class=""> 函数。</t>
+          </p>
+          <p>
+            <t class="">下文会列举会在对象图产生边的情况。</t>
+          </p>
+          <h3 id="heading3_0">
+            <t class="">所有强引用（Hard Reference）</t>
+          </h3>
+          <ul>
+            <li>
+              <t class="">持有一个 </t>
+              <t class="code">UPROPETY</t>
+              <t class=""> 宏标记的 C++ 裸指针</t>
+            </li>
+          </ul>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">UPROPERTY()
+UMyObjectClass* Foo;</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="">持有 </t>
+              <t class="code">UPROPERTY</t>
+              <t class=""> 宏标记的 C++ 裸指针的 UE 容器</t>
+            </li>
+          </ul>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">UPROPERTY()
+TArray&lt;UMyObjectClass*&gt; Foo;</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="">根集对象（可以通过 </t>
+              <t class="code">MyObject-&gt;AddToRoot()</t>
+              <t class=""> 将对象添加到根集）</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">被 </t>
+              <t class="code">TStrongObjectPtr</t>
+              <t class=""> 管理的对象（不需要 </t>
+              <t class="code">UPROPERTY</t>
+              <t class="">）</t>
+            </li>
+          </ul>
+          <h3 id="heading3_1">
+            <t class="">某些弱引用（Soft Reference）</t>
+          </h3>
+          <ul>
+            <li>
+              <t class="">在 </t>
+              <t class="code">UFUNCTION</t>
+              <t class=""> 内被声明的新的 </t>
+              <t class="code">UObject</t>
+              <t class=""> 会存活到其生命周期结束（当前函数结束）。</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">在结构体或类中直接使用 </t>
+              <t class="code">UObject</t>
+              <t class=""> 的裸指针作为成员变量</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">使用 </t>
+              <t class="code">TWeakObjectPtr&lt;T&gt;</t>
+              <t class=""> 或 </t>
+              <t class="code">TSoftObjectPointer&lt;T&gt;</t>
+              <t class=""> 弱指针作为成员变量</t>
+            </li>
+          </ul>
+          <h2 id="heading2_7">
+            <t class="">智能指针与非 </t>
+            <t class="code">UObject</t>
+            <t class=""> 对象的内存管理</t>
+          </h2>
+          <p>
+            <t class="">对于非 UObject 的对象，其不支持垃圾回收，但是 UE 也提供了与 C++11 标准库类似的内存管理方式，即智能指针。本小节不再赘述标准库中的智能指针的特性与工作原理，读者可以阅读 </t>
+<a class="link" href="https://www.learncpp.com/cpp-tutorial/introduction-to-smart-pointers-move-semantics/">LEARN C++ 相关章节</a>
+            <t class="">。下面表格介绍了非 UObject 与 UObject 智能指针，需要注意的是，非 UObject 的智能指针不能给 UObject 使用！</t>
+          </p>
+          <div class="table">
+            <table>
+              <tr>
+                <td class="table_header">非 UObject 智能指针</td>
+                <td>机制</td>
+                <td>备注</td>
+                <td>可空性</td>
+                <td>标准库指针类比</td>
+              </tr>
+              <tr>
+                <td class="table_header">TUniquePtr</td>
+                <td>所有权</td>
+                <td>-</td>
+                <td>可空</td>
+                <td>std::unique_ptr</td>
+              </tr>
+              <tr>
+                <td class="table_header">TSharedPtr</td>
+                <td>引用计数</td>
+                <td>-</td>
+                <td>可空</td>
+                <td>std::shared_ptr</td>
+              </tr>
+              <tr>
+                <td class="table_header">TSharedRef</td>
+                <td>非空引用计数</td>
+                <td>可以转换为 TSharedPtr</td>
+                <td>不可空</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="table_header">TWeakPtr</td>
+                <td>弱引用不计数</td>
+                <td>用于解决引用计数的循环引用问题</td>
+                <td>可空</td>
+                <td>std::weak_ptr</td>
+              </tr>
+              <tr>
+                <td class="table_header">UObject 智能指针</td>
+                <td>机制</td>
+                <td>备注</td>
+                <td></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="table_header">TStrongObjectPtr</td>
+                <td>引用计数</td>
+                <td>用于保护 UObject 不被垃圾回收</td>
+                <td>可空</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="table_header">TWeakObjectPtr</td>
+                <td>弱引用不计数</td>
+                <td>上面的弱引用版本</td>
+                <td>可空</td>
+                <td>-</td>
+              </tr>
+            </table>
+          </div>
+          <blockquote>
+            <t class="">Tips：为什么 UE 有一套自己的智能指针？
+UE 源码起源早于 C++ 11。另一方面，自主的智能指针有利于多平台支持的开发。此外，独立的智能指针也提供了统一的命名风格等好处。笔者仅了解至此。</t>
+          </blockquote>
+          <h2 id="heading2_8">
+            <t class="">参考资料</t>
+          </h2>
+          <ul>
+            <li><a class="link" href="https://mikelis.net/memory-management-garbage-collection-in-unreal-engine/">https://mikelis.net/memory-management-garbage-collection-in-unreal-engine/</a></li>
+          </ul>
+          <p></p>
+          <h1 id="heading1_3">
+            <t class="">多人游戏与网络同步机制</t>
+          </h1>
+          <p>
+            <t class="">在专用服务器模型下的多人游戏，服务端存储了真正的游戏状态，大部分游戏逻辑会在服务端进行。服务端经过运算后会将需要的数据同步给客户端。客户端通过发送数据或执行远程函数（RPC）的方式对服务端的数据进行修改。</t>
+          </p>
+          <p>
+            <t class="">复制（Replicate）是同步的重要过程，权威服务器（在大型射击游戏中通常为专用服务器）会将状态数据复制到客户端中，客户端会在本地执行渲染和音频行为。</t>
+          </p>
+          <p>
+            <t class="code">AActor</t>
+            <t class=""> 是第一个用于支持网络的类，大部分复制行为可以在 Actor 中定义，其也是网络同步的数据的主要承载者。此外，</t>
+            <t class="code">UObject</t>
+            <t class="">的派生类也可以通过附加到 Actor 的方式被正确地复制。同时，对于多人游戏，每个连接都会绑定一个 Pawn 与一个 PlayerController。</t>
+          </p>
+          <h2 id="heading2_9">
+            <t class="">Actor 的网络属性</t>
+          </h2>
+          <h3 id="heading3_2">
+            <t class="">所有者：Role 和 Remote Role</t>
+          </h3>
+          <p>
+            <t class="">一个 Actor 所属于谁，即哪个机器包含了当前 Actor 的真正状态，这个属性被称为所有者。所有者会向连接的机器进行有条件地（例如相关性、休眠状态等）复制。想要查看一个 Actor 被谁所有，可以使用 </t>
+            <t class="code">AActor::GetLocalRole</t>
+            <t class=""> 和 </t>
+            <t class="code">Remote Role</t>
+            <t class="">。</t>
+          </p>
+          <ul>
+            <li>
+              <t class="">Local Role 代表的是当前机器对该 Actor 的权限</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">Remote Role 代表的是对端机器对该 Actor 的权限</t>
+            </li>
+          </ul>
+          <div class="table">
+            <table>
+              <tr>
+                <td>ROLE_None</td>
+                <td>这个 Actor 不是可复制的</td>
+                <td>Local Role</td>
+                <td>Remote Role</td>
+              </tr>
+              <tr>
+                <td>ROLE_Authority</td>
+                <td>当前机器是 Actor 的所有者，持有 Actor 真正的状态</td>
+                <td>服务器</td>
+                <td>客户端</td>
+              </tr>
+              <tr>
+                <td>ROLE_SimulatedProxy</td>
+                <td>当前机器只是 Actor 的模拟，对于 Actor 的真正状态是只读的，同时不能调用远程函数</td>
+                <td>客户端</td>
+                <td>无</td>
+              </tr>
+              <tr>
+                <td>ROLE_AutonomousProxy</td>
+                <td>当前机器虽然是 Actor 的模拟，但可以更改其真正状态和调用远程函数</td>
+                <td>客户端</td>
+                <td>服务器</td>
+              </tr>
+            </table>
+          </div>
+          <p>
+            <t class="">在服务器-客户端的模式下，一个 Actor 的所有者由服务器掌控，同时，客户端无法修改任何 Actor 的所有者。此外，服务器-客户端模式下，客户端的对端机器是服务端，服务端的对端机器是客户端。</t>
+          </p>
+          <h3 id="heading3_3">
+            <t class="">优先级（Priority）</t>
+          </h3>
+          <p>
+            <t class="">Actor 的 </t>
+            <t class="code">NetPriority</t>
+            <t class=""> 变量是一个浮点数，代表一个 Actor 的优先级。优先级更高的 Actor 拥有更多的带宽。重载 </t>
+            <t class="code">GetNetPriority</t>
+            <t class=""> 函数可以修改一个 Actor 的优先级。同时，优先级是会受各种参数影响的一个动态变量，例如观察者的位置、观察者的方向、上次复制 Actor 以来的时间等等。</t>
+          </p>
+          <h3 id="heading3_4">
+            <t class="">复制（Replication）</t>
+          </h3>
+          <p>
+            <t class="">Actor 要被从服务器发送复制到客户端，但是并不是所有内容都要被发送，下面的代码和注释描述了声明可复制字段和注册可复制字段的过程。</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">AMyActor::AMyActor()
+{
+  bReplicates = true; // 启用 Actor 的复制
+  ...
+}</code></pre>
+            </div>
+            <div class="caption">
+              <t class="">MyActor.cpp</t>
+            </div>
+          </div>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">#pragma once
+
+#include &quot;CoreMinimal.h&quot;
+#include &quot;GameFramework/Actor.h&quot;
+#include &quot;MyActor.generated.h&quot;
+
+UCLASS()
+class HELLOUNREAL_API AMyActor : public APawn
+{
+  GENERATED_BODY()
+  
+public:  
+  AMyActor();
+
+  UPROPERTY(EditAnywhere)
+  AMyActor* Friend;
+
+  // ========== Replication ==========
+  
+  /// 要想声明一个可以被复制的变量，首先需要使用 Replicated 或 ReplicatedUsing（见下）标签
+  /// 接着还必须在 GetLifetimeReplicatedProps 注册要复制的变量（见下）
+  UPROPERTY(Replicated)
+  bool IsSleeping;
+
+  /// @c ReplicatedUsing 为复制提供了一个声明回调的机会，
+  /// 这个功能被称作 &quot;RepNotify&quot;。
+  /// 在这个例子中，@c OnRep_OwnedCatsCount 会在客户端成功收到变量的复制值时运行。
+  /// 需要注意的是，这个在回调中并不需要执行赋值，赋值在注册后是自动的。
+  /// 回调函数会在被复制赋值之后被触发。
+  UPROPERTY(ReplicatedUsing=OnRep_OwnedCatsCount)
+  int OwnedCatsCount;
+
+  /// 所有有复制变量的 Actor 都需要重载该函数，其作用是注册需要网络复制的变量。
+  /// 
+  /// 其会被在 Actor 被创建并加入网络时被触发，用于构建网络同步的元数据；
+  /// 通常在服务端，是服务器生成 Actor 时调用此函数。
+  /// 
+  /// 使用该函数务必首先调用 @c Super::GetLifetimeReplicatedProps 以确保父类的内容被注册
+  void GetLifetimeReplicatedProps(TArray&lt;FLifetimeProperty&gt;&amp; OutLifetimeProps) const override;
+  
+protected:
+  UFUNCTION()
+  void OnRep_OwnedCatsCount();
+};</code></pre>
+            </div>
+            <div class="caption">
+              <t class="">MyActor.h</t>
+            </div>
+          </div>
+          <h3 id="heading3_5">
+            <t class="">相关性（</t>
+            <t class="bold">Relevancy</t>
+            <t class="">）</t>
+          </h3>
+          <p>
+            <t class="">一个关卡可能很大，我们希望只有与玩家相关的 Actor 才被更新。UE 提供了相关性机制，只有与某个网络连接有关的 Actor 才会被复制。同时，如果某些 Actor 与当前客户端不相关，它们会在客户端被销毁。</t>
+          </p>
+          <p>
+            <t class="">网络驱动程序会自动调用 </t>
+            <t class="code">AActor::IsNetRelevantFor</t>
+            <t class=""> 来判断某个 Actor 是否与某个连接相关。如果想要强制设置相关性，可以使用 </t>
+            <t class="code">AActor::ForceNetRelevant</t>
+            <t class=""> 来管理。下面是默认的相关性判断条件：</t>
+          </p>
+          <ol>
+            <li>
+              <t class="">强制相关条件
+满足以下任一条件时，Actor </t>
+              <t class="bold">必定相关</t>
+              <t class="">（向客户端同步）：</t>
+              <ol>
+                <li>
+                  <t class="">Actor 被标记为 </t>
+                  <t class="bold">Always Relevant</t>
+                  <t class="">（始终相关）。</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">Actor </t>
+                  <t class="bold">属于当前连接的控制权对象</t>
+                  <t class="">：</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">是当前连接的 </t>
+                  <t class="code">Pawn</t>
+                  <t class="">。</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">被当前连接的 </t>
+                  <t class="code">Pawn</t>
+                  <t class=""> 或 </t>
+                  <t class="code">Player Controller</t>
+                  <t class=""> 拥有（</t>
+                  <t class="code">OwnedBy</t>
+                  <t class="">）。</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">Actor 是当前连接 </t>
+                  <t class="code">Pawn</t>
+                  <t class=""> 触发的</t>
+                  <t class="bold">行为发起者</t>
+                  <t class="">（如噪音、伤害的 Instigator）。</t>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">依赖所有者的相关性
+若满足以下条件，Actor 的相关性 </t>
+              <t class="bold">由其 Owner 决定</t>
+              <t class="">：</t>
+              <ol>
+                <li>
+                  <t class="">Actor </t>
+                  <t class="bold">设置了 Owner</t>
+                  <t class="">（通过 </t>
+                  <t class="code">SetOwner</t>
+                  <t class="">）。</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">Actor 启用了 </t>
+                  <t class="bold">bNetUseOwnerRelevancy</t>
+                  <t class="">（使用 Owner 的相关性设置）。</t>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">强制不相关条件
+满足以下任一条件时，Actor </t>
+              <t class="bold">必定不相关</t>
+              <t class="">：</t>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">基于骨骼附加的相关性
+若 Actor </t>
+              <t class="bold">附加到其他 Actor 的骨骼</t>
+              <t class="">（如角色装备的武器）：</t>
+              <ol>
+                <li>
+                  <t class="">使用被附加 Actor 的 </t>
+                  <t class="bold">基础相关性规则</t>
+                  <t class="">（附加目标的网络相关性决定其相关性）。</t>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">距离相关性（可选）
+若启用了 </t>
+              <t class="bold">距离相关性</t>
+              <t class="">（通过 </t>
+              <t class="code">AGameNetworkManager::bUseDistanceBasedRelevancy</t>
+              <t class="">）：</t>
+              <ol>
+                <li>
+                  <t class="">Actor 在客户端的 </t>
+                  <t class="bold">可视距离内</t>
+                  <t class="">（基于 </t>
+                  <t class="code">NetCullDistanceSquared</t>
+                  <t class="">）时相关，否则不相关。</t>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <p>
+            <t class="bold">规则优先级说明</t>
+          </p>
+          <ol>
+            <li>
+              <t class="bold">强制相关</t>
+              <t class="">条件的优先级最高（如 </t>
+              <t class="code">Always Relevant</t>
+              <t class="">）。</t>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="bold">强制不相关</t>
+              <t class="">条件优先级次之（如隐藏或无根组件）。</t>
+            </li>
+          </ol>
+          <ol>
+            <li>
+              <t class="">其余条件按顺序判断，最终由 </t>
+              <t class="bold">距离或附加目标相关性</t>
+              <t class=""> 决定。</t>
+            </li>
+          </ol>
+          <p>
+            <t class="bold">调试建议</t>
+          </p>
+          <ul>
+            <li>
+              <t class="">使用控制台命令 </t>
+              <t class="code">VisualizeNetworkRelevancy</t>
+              <t class=""> 可视化相关性范围。</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">检查 Actor 属性：</t>
+              <t class="code">bAlwaysRelevant</t>
+              <t class="">、</t>
+              <t class="code">bOnlyRelevantToOwner</t>
+              <t class="">、</t>
+              <t class="code">NetCullDistanceSquared</t>
+              <t class="">。</t>
+            </li>
+          </ul>
+          <h3 id="heading3_6">
+            <t class="">网络休眠（</t>
+            <t class="bold">Network Dormancy</t>
+            <t class="">）</t>
+          </h3>
+          <p>
+            <t class="">休眠是一个手动管理的网络优化机制，休眠中的 Actor 不会发生复制，也不会在客户端因为相关性而被销毁。同时，不要修改休眠中的 Actor 的可复制数据，这可能发生数据丢失。</t>
+          </p>
+          <p>
+            <t class="">休眠属性存储在 AActor::NetDormacy 属性中，可以通过 AActor::SetNetDormancy 来更改。</t>
+          </p>
+          <p>
+            <t class="code">NetDormacy</t>
+            <t class=""> 的类型是 </t>
+            <t class="code">TEnumAsByte&lt;enum ENetDormancy&gt;</t>
+            <t class=""> ，其中 ENetDormancy 枚举类型有下：</t>
+          </p>
+          <ul>
+            <li>
+              <t class="code">DORM_Never</t>
+              <t class=""> 永不休眠</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">DORM_Awake</t>
+              <t class=""> 苏醒</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">DORM_DormantPartial</t>
+              <t class=""> 对于部分连接是休眠的，通过 </t>
+              <t class="code">AActor::GetNetDormancy</t>
+              <t class=""> 来获得具体在哪些连接中是休眠的</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">DORM_DormantAll</t>
+              <t class=""> 对于所有连接都是休眠的</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="code">DORM_Intial</t>
+              <t class=""> 初始对所有连接都是休眠的</t>
+            </li>
+          </ul>
+          <p>
+            <t class="">通常使用：</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">AActor::SetDormancy(ENetDormancy::DORM_Awake); // 唤醒
+AActor::FlushNetDormancy(); // 唤醒
+
+AActor::SetDormancy(ENetDormancy::DORM_DormantAll); // 休眠</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p></p>
+          <h2 id="heading2_10">
+            <t class="">RPC 远程函数调用</t>
+          </h2>
+          <p>
+            <t class="">除了复制和复制回调外，UE 还支持 RPC 来进行两端通信。简单来说，RPC 允许开发者在一端机器让另一端的机器调用某些函数。可以使用标签来标记这个函数在哪里执行，例如 Server 代表这个函数在服务器上执行，下面是一个简单的列表。</t>
+          </p>
+          <div class="table">
+            <table>
+              <tr>
+                <td>标签</td>
+                <td>运行位置</td>
+                <td>备注</td>
+              </tr>
+              <tr>
+                <td>Client</td>
+                <td>客户端</td>
+                <td>所有在这个 Actor 上拥有连接的客户端</td>
+              </tr>
+              <tr>
+                <td>Server</td>
+                <td>服务器</td>
+                <td>只能在拥有这个 Actor 的客户端上调用</td>
+              </tr>
+              <tr>
+                <td>Remote</td>
+                <td>对端</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>NetMulticast</td>
+                <td>客户端与服务器</td>
+                <td>服务器与所有与这个 Actor 相关的客户端</td>
+              </tr>
+            </table>
+          </div>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">  /// RPC 远程函数调用，可以实现跨端调用函数的功能。
+  /// @c Reliable 标签声明了这此调用一定要被抵达，不管带宽情况如何；
+  /// 默认的可靠性是 Unreliable.
+  /// @c WithCalidation 提供了简单的程序验证，通过实现对应的 XXX_Validate 函数实现
+  UFUNCTION(Server, Reliable, WithValidation)
+  void ServerRequestPetCat();
+
+  UFUNCTION(Client)
+  void ClientPlayPetCat();
+
+  UFUNCTION(NetMulticast)
+  void NetMulticastRPC();</code></pre>
+            </div>
+            <div class="caption">
+              <t class="">MyActor.h</t>
+            </div>
+          </div>
+          <p>
+            <t class="">在实现 RPC 函数时，函数名会有所不同：</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">void AMyActor::ServerRequestPetCat_Implementation() { ... }
+bool AMyActor::ServerRequestPetCat_Validate() { ... }</code></pre>
+            </div>
+            <div class="caption">
+              <t class="">MyActor.cpp</t>
+            </div>
+          </div>
+          <p>
+            <t class="">想要使用一个 RPC 函数，只需要调用其原本的定义（即原名）即可。下面是一段让你的朋友摸你的猫的示例：</t>
+          </p>
+          <p>
+            <t class="">❌错误示例</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">UPROPERTY(Replicated)
+AMyActor* Friend;
+
+void LetMyFriendPetMyCat() {
+  Friend-&gt;ServerRequestPetCat();
+}
+
+void ServerRequestPetCat_Implementatoin() {
+  ClientPlayPetCat()
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">Server RPC 只能在持有该 Actor 的连接中调用，自己并没有调用朋友 Actor 的 RPC 的权限。所以代码不应该直接调用 Friend 的 RPC 函数。另一个问题是即使 Friend 标记了 Replicated，因为复制存在延迟，所以 Friend 也可能为空，在使用前需要做检查。</t>
+          </p>
+          <p>
+            <t class="">✔️正确示例</t>
+          </p>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">void LetMyFriendPetMyCat() {
+    ServerRequestLetMyFriendPetCat();
+}
+
+void ServerRequestLetMyFriendPetCat_Implementation() {
+    if (IsValid(Friend) &amp;&amp; TargetFriend-&gt;GetOwner() == GetOwner()) {
+        Friend-&gt;ClientPlayPetCat();
+    }
+}</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">我们使用自身连接的 Actor 给服务器发送 RPC，而不是在自己的连接让朋友 Actor 发送摸猫操作的请求。</t>
+          </p>
+          <h2 id="heading2_11">
+            <t class="">调试建议</t>
+          </h2>
+          <p>
+            <t class="">编辑器中的多人游戏调试菜单在下图的位置：</t>
+          </p>
+          <div class="image_wrapper"><img src="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048/img_1f37e342-f5b5-809a-9397-e3ccaa6d1d84.png">
+            <div class="caption"></div>
+          </div>
+          <h2 id="heading2_12">
+            <t class="">场景切换</t>
+          </h2>
+          <p>
+            <t class="">推荐阅读官方文档：</t>
+<a class="link" href="https://dev.epicgames.com/documentation/zh-cn/unreal-engine/travelling-in-multiplayer-in-unreal-engine">https://dev.epicgames.com/documentation/zh-cn/unreal-engine/travelling-in-multiplayer-in-unreal-engine</a></p>
+          <h1 id="heading1_4">
+            <t class="">Profiling</t>
+          </h1>
+          <p>
+            <t class="">性能分析菜单可以通过编辑器右下角的选项打开。</t>
+          </p>
+          <div class="image_wrapper"><img src="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048/img_1f37e342-f5b5-807e-a0af-d551821d6eab.png">
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">点击 Unreal Insights (Session Browser) 的选项可以打开多个调试选项卡。</t>
+          </p>
+          <div class="image_wrapper"><img src="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048/img_1f37e342-f5b5-8075-9ce8-e53f7b44704a.png">
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">点击录制按钮开始录制，再次点击停止录制。</t>
+          </p>
+          <div class="image_wrapper"><img src="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048/img_1f37e342-f5b5-80a3-839c-e14561cceeca.png">
+            <div class="caption"></div>
+          </div>
+          <p>
+            <t class="">录制完成后 Unreal Insights 会显示录制的数据，双击即可查看分析数据。</t>
+          </p>
+          <h3 id="heading3_7">
+            <t class="">参考资料</t>
+          </h3>
+          <ul>
+            <li>
+              <t class="bold">How to Optimize Performance in Unreal Engine 5 </t>
+<a class="link" href="https://youtu.be/lfjG3z5VVIw">https://youtu.be/lfjG3z5VVIw</a></li>
+          </ul>
+          <h1 id="heading1_5">
+            <t class="">其它常用 API</t>
+          </h1>
+          <ul>
+            <li>
+              <t class="">类型转换</t>
+            </li>
+          </ul>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">UBar* Parent;
+...
+UFoo* Child = Cast&lt;UFoo&gt;(Parent);</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="">在子类中调用父类内容，使用 </t>
+              <t class="code">Super</t>
+              <t class="">，如 </t>
+              <t class="code">Super::Foo()</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">检查指针的可用性（是否为空指针）：</t>
+            </li>
+          </ul>
+          <div class="code_block">
+            <div class="code_part">
+              <div class="code_lang">c++</div>
+              <pre><code class="language-c++">UPROPERTY()
+UMyClass* ReflectedPtr;
+
+UMyClass* NotRefletedPtr;
+...
+// For reflected pointer (UPROPERTY)
+IsValid(ReflectedPtr); 
+// For not reflected pointer
+NotReflectedPtr-&gt;IsValidLowLevel()</code></pre>
+            </div>
+            <div class="caption"></div>
+          </div>
+          <ul>
+            <li>
+              <t class="">指针的可空性：只有被 </t>
+              <t class="code">UPROPERTY()</t>
+              <t class=""> 修饰的 </t>
+              <t class="code">UObject</t>
+              <t class=""> 变量的指针在未初始化的情况下默认为空。但是未被修饰的 </t>
+              <t class="code">UObject</t>
+              <t class=""> 指针不应该为空。要检查没有被 </t>
+              <t class="code">UPROPERTY()</t>
+              <t class=""> 修饰的裸指针的空情况，可以使用 </t>
+              <t class="code">IsValidLowLevel</t>
+              <t class="">。</t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">强制要求使用子类的变量，可以使用 </t>
+              <t class="code">TSubclassOf&lt;T&gt;</t>
+              <t class=""> </t>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <t class="">实例创建，UObject 及其子类只支持无参数的构造函数来创建对象。</t>
+              <t class="code">NewObject&lt;T&gt;(...)</t>
+              <t class=""> 是最简单的工厂方法，用于创建一个 UObject。</t>
+              <t class="code">NewNamedObject&lt;T&gt;(…)</t>
+              <t class=""> 可以指定名称（FName）。</t>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
