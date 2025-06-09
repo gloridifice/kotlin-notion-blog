@@ -331,7 +331,33 @@ MyComponent-&gt;SetupAttachment(RootComponent); // RootComponent 是 Actor 的�
             <t class="">。下面是常见的子类与其用途。</t>
           </p>
           <div class="table">
-            <table></table>
+            <table>
+              <tr>
+                <td>子类</td>
+                <td>功能说明</td>
+                <td>示例场景</td>
+              </tr>
+              <tr>
+                <td>USceneComponent</td>
+                <td>提供空间变换能力，支持层级嵌套（如根组件、子组件）</td>
+                <td>角色骨骼、摄像机弹簧臂</td>
+              </tr>
+              <tr>
+                <td>UPrimitiveComponent</td>
+                <td>继承自 USceneComponent，支持物理碰撞与渲染（如静态网格、粒子系统）</td>
+                <td>武器碰撞体积、可破坏物体</td>
+              </tr>
+              <tr>
+                <td>UAudioComponent</td>
+                <td>直接继承自 UActorComponent，提供音频播放功能</td>
+                <td>背景音乐、角色脚步声</td>
+              </tr>
+              <tr>
+                <td>UMovementComponent</td>
+                <td>实现物理移动逻辑（如角色移动、飞行载具）</td>
+                <td>角色跳跃、载具加速</td>
+              </tr>
+            </table>
           </div>
           <h1 id="heading1_2">
             <t class="">UE 垃圾回收机制</t>
@@ -795,13 +821,6 @@ protected:
 若 Actor </t>
               <t class="bold">附加到其他 Actor 的骨骼</t>
               <t class="">（如角色装备的武器）：</t>
-              <ol>
-                <li>
-                  <t class="">使用被附加 Actor 的 </t>
-                  <t class="bold">基础相关性规则</t>
-                  <t class="">（附加目标的网络相关性决定其相关性）。</t>
-                </li>
-              </ol>
             </li>
           </ol>
           <ol>
@@ -1066,7 +1085,7 @@ void ServerRequestLetMyFriendPetCat_Implementation() {
           <p>
             <t class="">性能分析菜单可以通过编辑器右下角的选项打开。</t>
           </p>
-          <div class="image_wrapper"><img src="">
+          <div class="image_wrapper"><img src="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048/img_1f37e342-f5b5-807e-a0af-d551821d6eab.png">
             <div class="caption"></div>
           </div>
           <p>
