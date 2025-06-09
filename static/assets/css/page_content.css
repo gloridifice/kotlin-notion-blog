@@ -99,7 +99,6 @@
 }
 .page_content .column_list {
   display: flex;
-  justify-content: center;
   flex-direction: row;
   overflow: auto;
   max-width: 100%;

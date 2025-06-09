@@ -751,6 +751,42 @@ protected:
 满足以下任一条件时，Actor </t>
               <t class="bold">必定不相关</t>
               <t class="">：</t>
+              <ol>
+                <li>
+                  <t class="">Actor </t>
+                  <t class="bold">仅对 Owner 相关</t>
+                  <t class="">（</t>
+                  <t class="code">bOnlyRelevantToOwner=true</t>
+                  <t class="">），且：</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">没有 Owner </t>
+                  <t class="bold">或</t>
+                  <t class=""> Owner 自身不相关。</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">Actor </t>
+                  <t class="bold">被隐藏</t>
+                  <t class="">（</t>
+                  <t class="code">bHidden=true</t>
+                  <t class="">）。</t>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <t class="">Actor </t>
+                  <t class="bold">无根组件</t>
+                  <t class="">（Root Component） </t>
+                  <t class="bold">或</t>
+                  <t class=""> 根组件的碰撞未启用（</t>
+                  <t class="code">CollisionEnabled=NoCollision</t>
+                  <t class="">）。</t>
+                </li>
+              </ol>
             </li>
           </ol>
           <ol>
@@ -1030,7 +1066,7 @@ void ServerRequestLetMyFriendPetCat_Implementation() {
           <p>
             <t class="">性能分析菜单可以通过编辑器右下角的选项打开。</t>
           </p>
-          <div class="image_wrapper"><img src="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048/img_1f37e342-f5b5-807e-a0af-d551821d6eab.png">
+          <div class="image_wrapper"><img src="">
             <div class="caption"></div>
           </div>
           <p>
