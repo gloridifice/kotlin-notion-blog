@@ -65,8 +65,15 @@ body {
 }
 .post .catalogue ul li {
   list-style: none;
+  max-width: 15vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .post .catalogue ul li a t {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: var(--text-color-2);
   transition: color 0.16s;
 }
