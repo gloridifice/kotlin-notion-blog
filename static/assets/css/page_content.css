@@ -9,18 +9,21 @@
   font-weight: 400;
   font-size: 28px;
   border-bottom: solid var(--line-color) 1px;
+  text-align: left;
 }
 .page_content h2 {
   font-weight: 400;
   color: var(--text-color-0);
   width: fit-content;
   margin: 22px 0 12px;
+  text-align: left;
 }
 .page_content h3 {
   color: var(--text-color-0);
   font-weight: 400;
   font-size: 18px;
   margin-bottom: 10px;
+  text-align: left;
 }
 .page_content p {
   margin: 8px auto;
