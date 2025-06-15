@@ -67,30 +67,20 @@
             <li>
               <t class="">垃圾回收：垃圾回收或者说垃圾回收器是一段定期运行的程序。它会检查对象的存活状态，并释放死亡对象的内存。所谓“死亡”的对象，就是在程序中永远无法再被访问的对象，也是“垃圾回收”中的“垃圾”。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">对象图（Objects Graph）：对象图是指对象和对象的引用关系构成的有向图，它描述了对象之间的引用关系。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">标记清扫（Mark-Sweep）：是现今最常用的垃圾回收策略。它的基本思想是从一些特殊的“根对象”开始，根据对象之间的引用管线，完整地遍历对象图。所有被遍历对象会被打上“可达”标记。接着，再遍历一遍所有对象，如果一个对象没有被打上可达标记，我们认为它是死亡的。再标记清扫中，我们认为对象的“存活性”和“可达性”是等价的。根对象在 UE 中有 </t>
               <t class="code">UWorld</t>
               <t class=""> 等，也可以人为指定。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">增量回收（Incremental）：“增量回收”的思想是将一次垃圾回收分成多个小段在不同的时间执行，这样分散了一次垃圾回收的时长，减少了程序卡顿的可能性。增量回收也面临着挑战，例如对象图在运行时是变化的。增量回收需要一些异步安全机制，这些在下文中都会介绍。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">全量回收（Full）：全量回收是为了和增量回收区分而存在的名词，有了增量回收之后，之前的“一次进行全部回收”的行为就是全量回收。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">对象簇（Cluster）：是一种将强相关的对象放在一起的数据结构，用于减少对象图的遍历次数</t>
             </li>
@@ -105,18 +95,12 @@
             <li>
               <t class="">UE 5 垃圾回收编程范式</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">垃圾回收的触发机制</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">垃圾回收过程</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">引用与对象图</t>
             </li>
@@ -230,20 +214,14 @@ void UEngine::ForceGarbageCollection(bool bForcePurge/*=false*/)
               <t class=""> 表示这次强制回收是否是一次全量回收，与之相对的是增量回收 </t>
               <t class="code">Incremental Purge</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">TimeSinceLastPendingKillPurge</t>
               <t class=""> 私有成员变量的作用是记录距离上一次清除待销毁的对象的时间，用于判断垃圾回收条件</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">GetTimeBetweenGarbageCollectionPasses()</t>
               <t class=""> 用于获取两次垃圾回收之间的时间间隔</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">bFullPurgeTriggered</t>
               <t class=""> 私有成员变量的作用是标记下一次垃圾回收是否是一次全量回收</t>
@@ -289,38 +267,9 @@ void UEngine::ConditionalCollectGarbage()
               <t class="code">UWord::Tick</t>
               <t class=""> 中被每帧调用</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">GetTimeBetweenGarbageCollectionPasses()</t>
               <t class=""> 函数有无参和有一个参的两个重载</t>
-              <ul>
-                <li>
-                  <t class="">有参的版本需要传入一个是否有玩家连接的布尔值</t>
-                  <ul>
-                    <li>
-                      <t class="">在服务器上，如果没有玩家连接，间隔会乘以 </t>
-                      <t class="code">GTimeBetweenPurgingPendingKillObjectsOnIdleServerMultiplier</t>
-                      <t class="">，这是一个静态变量，默认值为 </t>
-                      <t class="code">10.0</t>
-                    </li>
-                  </ul>
-                  <ul>
-                    <li>
-                      <t class="">这会降低垃圾回收的频率，有助于节约功耗</t>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="">无参的版本只是增加了一段自动判断是否有玩家在服务器的代码，具体实现是遍历所有 </t>
-                  <t class="code">WorldList</t>
-                  <t class=""> 里所有的 </t>
-                  <t class="code">UWorld</t>
-                  <t class="">，检查每个世界是否有玩家</t>
-                </li>
-              </ul>
             </li>
           </ul>
           <p>
@@ -392,8 +341,6 @@ void UEngine::ConditionalCollectGarbage()
               <t class="code">GFrameCounter</t>
               <t class=""> 是引擎的全局帧号</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">LastGCFrame</t>
               <t class=""> 是上一次触发垃圾回收的帧号</t>
@@ -477,24 +424,6 @@ void UEngine::ConditionalCollectGarbage()
             <li>
               <t class="code">EGarbageCollectionType</t>
               <t class=""> 枚举有三种值</t>
-              <ul>
-                <li>
-                  <t class="code">None</t>
-                  <t class=""> 不强制回收</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="code">Incremental</t>
-                  <t class=""> 增量强制回收</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="code">Full</t>
-                  <t class=""> 全量强制回收</t>
-                </li>
-              </ul>
             </li>
           </ul>
           <p>
@@ -633,8 +562,6 @@ void UEngine::ConditionalCollectGarbage()
               <t class="code">PerformIncrementalReachabilityAnalysis()</t>
               <t class=""> 负责执行增量垃圾回收的分步可达性分析</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">PerformGarbageCollectionAndCleanupActors()</t>
               <t class=""> 负责执行全量垃圾回收，内容与上文中介绍的全量垃圾回收的逻辑类似，其也使用了 </t>
@@ -643,8 +570,6 @@ void UEngine::ConditionalCollectGarbage()
               <t class="code">UWorld::CleanupActors</t>
               <t class=""> 来回收对象。下文会具体介绍</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">IncrementalPurgeGarbage()</t>
               <t class=""> 负责销毁 </t>
@@ -749,8 +674,6 @@ void UEngine::ConditionalCollectGarbage()
               <t class="code">IsAsyncLoading()</t>
               <t class=""> 进行异步加载时是否触发 GC 的判断</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">bForcePurge</t>
               <t class=""> 默认为 true，但是一旦发现存在活跃的游戏世界（</t>
@@ -867,33 +790,15 @@ if (TryCollectGarbage(GARBAGE_COLLECTION_KEEPFLAGS, bForcePurge))
             <li>
               <t class="">进行预回收 </t>
               <t class="code">UE::GC::PreCollectGarbageImpl&lt;true&gt;(ObjectKeepFlags);</t>
-              <ul>
-                <li>
-                  <t class="">其中模板中的布尔值作用是标记是否为全量回收</t>
-                </li>
-              </ul>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">进行可达性分析 </t>
               <t class="code">PerformReachabilityAnalysis()</t>
               <t class="">;</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">进行后回收 </t>
               <t class="code">UE::GC::PostCollectGarbageImpl&lt;true&gt;(ObjectKeepFlags);</t>
-              <ul>
-                <li>
-                  <t class="">这里会执行 </t>
-                  <t class="code">UObject::BeginDestroy</t>
-                  <t class=""> 和 </t>
-                  <t class="code">UObject::FinishDestroy</t>
-                  <t class=""> 并回收内存</t>
-                </li>
-              </ul>
             </li>
           </ul>
           <p>
@@ -965,8 +870,6 @@ void PerformReachabilityAnalysis(EObjectFlags KeepFlags, const EGCOptions Option
             <li>
               <t class="">增量模式挂起，一般是执行时间超过一帧的时间预算，这时会等到下一帧处理</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">可达对象或者可达对象簇为空，意味着数据处理完毕</t>
             </li>
@@ -1130,13 +1033,9 @@ void PerformReachabilityAnalysisPass(const EGCOptions Options)
             <li>
               <t class="">重置工作线程</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">合并统计信息</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">归还上下文到对象池</t>
             </li>
@@ -1297,8 +1196,6 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class=""> 检查对象是否有 </t>
               <t class="code">MaybeUnreachableObjectFlag</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Iterator.Payload.Add({ ObjectItem })</t>
               <t class=""> 将不可达对象添加到一个临时集合，在后续使用</t>
@@ -1354,15 +1251,11 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class="code">StaticFindObject</t>
               <t class="">；也用于按路径索引资源</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">执行所有不可达对象的</t>
               <t class="code">BeginDestroy()</t>
               <t class=""> 函数</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">返回一个是否超时的布尔值</t>
             </li>
@@ -1428,8 +1321,6 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class="code">FinishDestroy()</t>
               <t class="">，不包含释放内存</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">IsReadyForFinishDestroy()</t>
               <t class=""> 是一个 </t>
@@ -1443,16 +1334,12 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class=""> 中会在渲染结束时才为 </t>
               <t class="code">true</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">ConditionalFinishDestroy()</t>
               <t class=""> 会执行 </t>
               <t class="code">FinishDestroy()</t>
               <t class=""> 函数</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">GGCObjectsPendingDestruction</t>
               <t class=""> 缓存了待销毁的对象的指针，这个变量是全局的，如果当帧没有处理完里面的内容（如超过了时限），会在下一帧处理。下文将这个对象称为“待销毁对象数组”</t>
@@ -1640,8 +1527,6 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class="code">OnDestroy</t>
               <t class=""> 事件和蓝图逻辑</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">标记 </t>
               <t class="code">Actor</t>
@@ -1653,8 +1538,6 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class="code">MarkAsGarbage()</t>
               <t class=""> 等）</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">从游戏逻辑中移除，不参与渲染、物理计算</t>
             </li>
@@ -1740,8 +1623,6 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
               <t class="code">UPROPERTY</t>
               <t class=""> 引用，这部分主要配合反射系统完成</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">对于非 </t>
               <t class="code">UPROPERTY</t>
@@ -1895,8 +1776,6 @@ FORCEINLINE void CollectReferencesForGC(ProcessorType&amp; Processor, UE::GC::FW
               <t class="code">Collector</t>
               <t class="">）负责收集引用</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">分发器（</t>
               <t class="code">Dispatcher</t>
@@ -1941,8 +1820,6 @@ FORCEINLINE void CollectReferencesForGC(ProcessorType&amp; Processor, UE::GC::FW
               <t class="code">CurrentObjects</t>
               <t class=""> 是一个 UObject 指针的数组，存储着当前的待处理的对象</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">ProcessObjects</t>
               <t class=""> 就是遍历对象的引用的地方，它会将遍历到引用暂时存储在分发器 </t>
@@ -1987,8 +1864,6 @@ FORCEINLINE void CollectReferencesForGC(ProcessorType&amp; Processor, UE::GC::FW
               <t class="code">Processor.IsTimeLimitExceeded()</t>
               <t class=""> 检查是否超过增量式回收的每帧预算</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">FlushWork</t>
               <t class=""> 将 </t>
@@ -2064,8 +1939,6 @@ StoleARO:
               <t class="code">BlockSize</t>
               <t class=""> 在上面的代码中出现过，是一个工作块的容量</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">RemainingObjects.PopPartialBlock</t>
               <t class=""> 必须是原子性的，因为有多个线程可能会请求进行此操作</t>
@@ -2101,14 +1974,10 @@ StoleARO:
               <t class="code">Nothing</t>
               <t class="">：什么都不干等到下面执行结束</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Block</t>
               <t class="">：上文中已经判断过了（实际上这个线程也不会执行到这里），直接获取一个完整的块，在下一次循环工作</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">ARO (AddReferencedObjects)</t>
               <t class="">：窃取到其它线程未处理的手动引用工作，此时 </t>
@@ -2119,8 +1988,6 @@ StoleARO:
               <t class="code">StoleARO</t>
               <t class=""> 直接工作即可</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Context</t>
               <t class="">：窃取到其它线程未完成的上下文任务，此时上下问 </t>
@@ -2203,8 +2070,6 @@ StoleARO:
               <t class="code">UClass</t>
               <t class=""> 的元数据在编译时生成，运行时只读</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Outer</t>
               <t class=""> 变量是当前对象所在的父容器，在 UE 中，对象的父容器只存在一个，这也意味着一个对象有一条唯一的引用路径</t>
@@ -2294,8 +2159,6 @@ StoleARO:
               <t class="code">UpdateDetailedStats</t>
               <t class=""> 用于计时和性能分析</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">VisitMembers</t>
               <t class=""> 执行遍历类图的地方，它会将物体收集到 </t>

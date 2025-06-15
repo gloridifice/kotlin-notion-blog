@@ -89,14 +89,10 @@
               <t class="code">Game NetDriver</t>
               <t class="">：负责正常的游戏网络通信</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Demo NetDriver</t>
               <t class="">： 负责记录或回放记录的游戏数据，这也是提供回放功能的地方</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Beacon NetDriver</t>
               <t class="">：负责正常游戏外网络通信</t>
@@ -129,14 +125,10 @@
               <t class="code">Control Channel</t>
               <t class="">：用于发送监控当前连接的数据，比如当前连接是否需要关闭等</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Voice Channel</t>
               <t class="">：用于在客户端和服务端之间发送声音数据</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Unique Actor Channel</t>
               <t class=""> 在每个从服务端复制到客户端的 </t>
@@ -312,8 +304,6 @@
               <t class=""> 发送 </t>
               <t class="code">NMT_Hello</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">服务器的 </t>
               <t class="code">UWorld::NotifyControlMessage</t>
@@ -322,8 +312,6 @@
               <t class="">，并发送 </t>
               <t class="code">NMT_Challenge</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">客户端的 </t>
               <t class="code">UPendingNetGame::NotifyControlMessage</t>
@@ -333,8 +321,6 @@
               <t class="code">NMT_Login</t>
               <t class=""> 中发回数据</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">服务器的 </t>
               <t class="code">UWorld::NotifyControlMessage</t>
@@ -343,8 +329,6 @@
               <t class="">，验证质询数据（challenge data），并调用 </t>
               <t class="code">AGameModeBase::PreLogin</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">如果 </t>
               <t class="code">PreLogin</t>
@@ -355,8 +339,6 @@
               <t class=""> 并发送含有地图信息的 </t>
               <t class="code">NMT_Welcome</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">客户端的 </t>
               <t class="code">UPendingNetGame::NotifyControlMessage</t>
@@ -366,8 +348,6 @@
               <t class="code">NMT_NetSpeed</t>
               <t class=""> 信息，这里包含了客户端配置了的网络速度（Net Speed）</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">服务器的 </t>
               <t class="code">UWorld::NotifyControlMessage</t>
@@ -477,8 +457,6 @@
               <t class="">客户端调用 </t>
               <t class="code">Server_RPC</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">这个请求将会通过 </t>
               <t class="code">NetDriver</t>
@@ -486,54 +464,38 @@
               <t class="code">NetConnection</t>
               <t class=""> 被转发（forwarded）到对应 Actor 的 Actor Channel</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">这个 Actor Channel 会序列化 RPC 标识符和参数到一个带有这个 Actor Channel 的 ID 的束中</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">Actor Channel 向 </t>
               <t class="code">NetConnection</t>
               <t class=""> 请求发送束</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">接着，</t>
               <t class="code">NetConnection</t>
               <t class=""> 将会组合这些数据到一个包中，被发送到服务器</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">在服务器中，包会被 </t>
               <t class="code">NetDriver</t>
               <t class=""> 接收</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">NetDriver</t>
               <t class=""> 讲话检查包的源地址，并将包交给适当的 </t>
               <t class="code">NetConnection</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">对应的 </t>
               <t class="code">NetConnection</t>
               <t class=""> 会把包拆称束</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">NetConnection</t>
               <t class=""> 会使用束包含的 Actor Channel ID 来把束发送到对应的 Actor Channel、</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">Actor Channel 会拆开束，查看其包含的 RPC 数据，然后使用 RPC ID 和被序列化的参数去调用 Actor 的函数</t>
             </li>
@@ -649,14 +611,10 @@
               <t class="code">nullptr</t>
               <t class=""> 说明当前运行在服务器上</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">ClientConnections</t>
               <t class=""> 与客户端的连接列表</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">MappedClientConnections</t>
               <t class=""> IP 到连接的表</t>
@@ -672,38 +630,24 @@
             <li>
               <t class="code">World::Tick</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnTickDispatch</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">PrePhysics</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">ActorTick</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnPostTickDispatch</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnPreTickFlush</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnTickFlush</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnPostTickFlush</t>
             </li>
@@ -715,18 +659,12 @@
             <li>
               <t class="code">OnTickDispatch</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnPostTickDispatch</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnTickFlush</t>
             </li>
-          </ol>
-          <ol>
             <li>
               <t class="code">OnPostTickFlush</t>
             </li>
@@ -1348,8 +1286,6 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class="code">ServerTickRate</t>
               <t class="">），间隔就是最大 Tick 频率的倒数，用于待同步列表的构建</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">ServerReplicateActors_BuildConsiderList</t>
               <t class=""> 构建待同步列表，这会剔除掉睡眠的 Actor</t>
@@ -1454,16 +1390,12 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class="code">Actor</t>
               <t class=""> 的物理位置</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">Viewer</t>
               <t class="">：本质是一个</t>
               <t class="code">FNetViewer</t>
               <t class="">结构体，它包含了网络连接指针、视角、位置坐标等，用于快速判断一个物体是否在另一个物体的视野范围内，这些数据通常是关联于某个 Actor 的</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">new (ConnectionViewers) FNetViewer(Connection, DeltaSeconds);</t>
               <t class=""> 语法在 </t>
@@ -1518,8 +1450,6 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class="code">Pop</t>
               <t class=""> 时，会将栈顶设置回开始记录的栈顶，来实现快速“释放”内存的效果。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">OnProcessConsiderListOverride</t>
               <t class=""> 是自定义同步逻辑相关的事件，可以允许开发者自定义 </t>
@@ -1562,8 +1492,6 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class="code">ServerReplicateActors_ProcessPrioritizedActorsRange</t>
               <t class=""> 会处理高优先级的 Actors 并返回没有处理完的 Actors 的数量</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">ServerReplicateActors_MarkRelevantActors</t>
               <t class=""> 会利用剩下的 Actor 数量，将相关的 Actor 标记为相关，并留到下帧优先处理</t>
@@ -1589,8 +1517,6 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class=""> 秒内可见的 </t>
               <t class="code">Actor</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">使用 </t>
               <t class="code">IsActorRelevantToConnection</t>
@@ -1771,8 +1697,6 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class="code">Tick</t>
               <t class=""> 函数会安全地发送其队列里的包</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">FlushHandler</t>
               <t class=""> 会强制发送所有缓存的无建立连接的包</t>
@@ -1794,8 +1718,6 @@ void UNetDriver::TickDispatch( float DeltaTime )
               <t class="code">UpdateNetworkStats()</t>
               <t class=""> 主要作用是更新基础统计，如带宽利用率、丢包率等</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">GetMetrics()</t>
               <t class=""> 会返回 </t>
@@ -1922,8 +1844,6 @@ if (bReceiveTimedOut || bGracefulCloseTimedOut)
               <t class="code">Timeout</t>
               <t class="">，除了会输出日志外，还会关闭连接和尝试自动重连</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">优雅关闭超时（</t>
               <t class="code">bGracefulCloseTimedOut</t>
@@ -2120,8 +2040,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class=""> 发送 </t>
               <t class="code">NMT_Hello</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">服务器的 </t>
               <t class="code">UWorld::NotifyControlMessage</t>
@@ -2130,8 +2048,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="">，并发送 </t>
               <t class="code">NMT_Challenge</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">客户端的 </t>
               <t class="code">UPendingNetGame::NotifyControlMessage</t>
@@ -2141,8 +2057,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="code">NMT_Login</t>
               <t class=""> 中发回数据</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">服务器的 </t>
               <t class="code">UWorld::NotifyControlMessage</t>
@@ -2151,8 +2065,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="">，验证质询数据（challenge data），并调用 </t>
               <t class="code">AGameModeBase::PreLogin</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">如果 </t>
               <t class="code">PreLogin</t>
@@ -2163,8 +2075,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class=""> 并发送含有地图信息的 </t>
               <t class="code">NMT_Welcome</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">客户端的 </t>
               <t class="code">UPendingNetGame::NotifyControlMessage</t>
@@ -2174,8 +2084,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="code">NMT_NetSpeed</t>
               <t class=""> 信息，这里包含了客户端配置了的网络速度（Net Speed）</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">服务器的 </t>
               <t class="code">UWorld::NotifyControlMessage</t>
@@ -2193,8 +2101,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="code">FURL</t>
               <t class=""> 类型，它携带了网络协议、地图路径等信息</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">在客户端主动切换关卡时（</t>
               <t class="code">ClientTravel</t>
@@ -2202,8 +2108,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="code">OpenLevel</t>
               <t class="">），会重新建立连接</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">在服务器主导的关卡切换时，不需要重新建立连接</t>
             </li>
@@ -2251,8 +2155,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="">：这个函数会使用游戏默认 URL 进行 </t>
               <t class="code">Browse</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">UEngine::TickWorldTravel()</t>
               <t class="">：这个函数会获取传入的世界上下文（</t>
@@ -2261,8 +2163,6 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
               <t class="code">Browse</t>
               <t class="">，如果失败，会尝试使用默认的 URL，也就是下面这条的函数</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">UEngine::BrowseToDefaultMap()</t>
               <t class="">：这个函数会在 </t>
@@ -2372,8 +2272,6 @@ if( NetDriver-&gt;InitConnect( this, URL, ConnectionError ) )
               <t class=""> 的 </t>
               <t class="code">TickDispatch</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">UWorld::NotifyControlMessage</t>
               <t class=""> 经过层层转发，在顶层也是在 </t>

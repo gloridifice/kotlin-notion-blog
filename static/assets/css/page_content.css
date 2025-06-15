@@ -33,18 +33,6 @@
   padding: 2px 12px;
   color: var(--text-color-1);
 }
-.page_content ul {
-  padding-left: 1.5em;
-  margin: 0.3em 0;
-  text-align: start;
-}
-.page_content ul t {
-  line-height: 1.45;
-}
-.page_content ol {
-  padding-left: 1.5em;
-  margin: 0.3em 0;
-}
 .page_content .bookmark_block {
   margin: 12px 0;
 }
@@ -80,11 +68,24 @@
 .page_content .bookmark:hover .url {
   color: var(--text-color-1);
 }
-.page_content .divider_block {
+.page_content hr {
   height: 1px;
   border: none;
   border-radius: 6px;
-  background: var(--text-color-2);
+  background: var(--bg-color-2);
+  margin: 24px 0;
+}
+.page_content ul {
+  padding-left: 1.5em;
+  margin: 24px 0;
+}
+.page_content ol {
+  padding-left: 1.5em;
+  margin: 24px 0;
+}
+.page_content li {
+  text-align: start;
+  margin: 8px 0;
 }
 .page_content .image_wrapper {
   margin: 1em auto;

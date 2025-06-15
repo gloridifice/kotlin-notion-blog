@@ -358,14 +358,10 @@ pub struct StartFooPass;</code></pre>
               <t class="code">render_context</t>
               <t class=""> 包含了 RenderDevice, CommandEncoder 等渲染上下文内容</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">graph</t>
               <t class=""> 包含了我们当前渲染图的各类上下文信息</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="code">view_query</t>
               <t class=""> 是我们要的 Query 的 View 的结果</t>
@@ -463,40 +459,17 @@ pub struct StartFooPass;</code></pre>
             <li>
               <t class="">它不是一个 Node</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">它是一个管理被渲染的物体的上下文的数据结构</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">它可以管理这些信息</t>
-              <ul>
-                <li>
-                  <t class="">要被渲染实体列表</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="">用什么行为渲染这些实体（渲染函数）</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="">实体的渲染顺序是怎样的</t>
-                </li>
-              </ul>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">一个渲染阶段的渲染过程中，所有渲染命令使用同一个 </t>
               <t class="code">RenderPass</t>
               <t class=""> ，无法中途切换</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">一个实体可以在</t>
               <t class="code">BinnedRenderPhase</t>
@@ -778,41 +751,9 @@ fn main() {
           <ul>
             <li>
               <t class="">如果要在某个 Bevy 中已有的渲染阶段中插入一个自定义渲染行为，我们需要</t>
-              <ul>
-                <li>
-                  <t class="">创建或实现自己的 </t>
-                  <t class="code">RenderCommand</t>
-                  <t class="">、</t>
-                  <t class="code">Pipeline</t>
-                  <t class=""> 等渲染所需资源</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="">加入一个 queue 阶段执行的 system，在这个 system 中，我们给我们想要的渲染阶段加入 </t>
-                  <t class="code">PhaseItem</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="">参考 </t>
-<a class="link" href="https://github.com/bevyengine/bevy/blob/release-0.15.2/examples/shader/custom_phase_item.rs">https://github.com/bevyengine/bevy/blob/release-0.15.2/examples/shader/custom_phase_item.rs</a></li>
-              </ul>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">如果我们的渲染行为不和任何现有的渲染阶段共享，比如后处理效果，我们需要</t>
-              <ul>
-                <li>
-                  <t class="">实现自己的 ViewNode</t>
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <t class="">在 App 中添加 Nodes 和 Edges</t>
-                </li>
-              </ul>
             </li>
           </ul>
           <p></p>
@@ -826,13 +767,9 @@ fn main() {
             <li>
               <t class="">ExtractSchedule：</t>
 <a class="link" href="https://docs.rs/bevy/latest/bevy/prelude/struct.ExtractSchedule.html">https://docs.rs/bevy/latest/bevy/prelude/struct.ExtractSchedule.html</a></li>
-          </ul>
-          <ul>
             <li>
               <t class="">ExtractComponent： </t>
 <a class="link" href="https://docs.rs/bevy/latest/bevy/render/extract_component/index.html">https://docs.rs/bevy/latest/bevy/render/extract_component/index.html</a></li>
-          </ul>
-          <ul>
             <li>
               <t class="">extract 相机到 </t>
               <t class="code">ExtractedCamera</t>

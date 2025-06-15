@@ -71,14 +71,10 @@
               <t class="">旋转矩阵（下文称 R）是可逆的，其特性是其逆矩阵等于其转置矩阵，所以对旋转矩阵求逆是安全的：</t>
               <t class="code">invert(R) = transpose(R)</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">缩放矩阵（下文称 S）是一个对角矩阵，其在对角线元素不为零的情况下是可逆的，并且其结果是各元素取倒：</t>
               <t class="code">invert(S) = 1 ./ S</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">根据矩阵积的求逆和转置性质，我们有：</t>
             </li>
@@ -478,18 +474,12 @@ fn perceptual_roughness_to_roughness(perceptual_roughness: f32) -&gt; f32 {
               <t class="">
 一篇非常好和全面的 PBR 文章，细致地解释了 filament 实时渲染引擎中的 PBR 是如何实现的</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">Blender - 原理化 BSDF </t>
 <a class="link" href="https://docs.blender.org/manual/zh-hans/3.5/render/shader_nodes/shader/principled.html">https://docs.blender.org/manual/zh-hans/3.5/render/shader_nodes/shader/principled.html</a></li>
-          </ul>
-          <ul>
             <li>
               <t class="">Boson (2020) - GraphicEngine-Tile-based Deferred Shading using Compute Shader </t>
 <a class="link" href="https://myboson.wordpress.com/2020/05/29/graphicengine-tiled-based-deferred-shading-using-compute-shader/">https://myboson.wordpress.com/2020/05/29/graphicengine-tiled-based-deferred-shading-using-compute-shader/</a></li>
-          </ul>
-          <ul>
             <li>
               <t class="">Jason L. McKesson (2012) - Normal Transformation </t>
 <a class="link" href="https://paroj.github.io/gltut/Illumination/Tut09%20Normal%20Transformation.html#idp8010">https://paroj.github.io/gltut/Illumination/Tut09 Normal Transformation.html</a></li>

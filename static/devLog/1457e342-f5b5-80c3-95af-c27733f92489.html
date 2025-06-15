@@ -440,34 +440,23 @@ var shadow = textureSampleCompare(tex_shadow_map, samp_shadow_map, uv, proj_coor
 CSM 将玩家能看到的视野范围分为多个部分，这些部分分别用单独的 Shadow Map 覆盖。旨在解决平行光 Shadow Mapping 的视角问题、利用率问题和精度问题。
 </t>
 <a class="link" href="https://learnopengl.com/Guest-Articles/2021/CSM">https://learnopengl.com/Guest-Articles/2021/CSM</a></li>
-          </ul>
-          <ul>
             <li>
               <t class="">多光源 Shadow Mapping：
 用 texture array 实现就好了，每个光源对应一张 Shadow Map. Wgpu 的 </t>
 <a class="link" href="https://github.com/gfx-rs/wgpu/tree/trunk/examples/src/shadow">examples 中的 shadow</a>
               <t class=""> 就是一个多光源实现，很好的参考。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">多光源类型：
 各种光源类型下的投影矩阵如何设置也是件需要花一些时间研究的事。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">Percentage-Closer Soft Shadows (PCSS):
 随距离变化的软阴影。</t>
             </li>
-          </ul>
-          <ul>
             <li>
               <t class="">反走样：
 目前我还没有太多了解，之后会查一些资料。实践后切身认识到 Shadow Mapping 的反走样重要性，目前的程序时常走样地可怕。</t>
-              <div class="image_wrapper"><img src="/devLog/1457e342-f5b5-80c3-95af-c27733f92489/img_1647e342-f5b5-808c-bcbc-ffdada5a1e5b.png">
-                <div class="caption"></div>
-              </div>
             </li>
           </ul>
           <p></p>
