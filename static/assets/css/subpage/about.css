@@ -12,7 +12,8 @@
   display: flex;
   flex-direction: row;
   align-items: end;
-  margin-left: 10px;
+  justify-content: center;
+  margin: 20px auto;
 }
 .friends .title svg {
   width: 28px;
@@ -29,22 +30,15 @@
 .friends .list {
   width: 100%;
 }
-.friends .list .friend_link:hover {
-  border: solid 1px var(--text-color-2);
-}
 .friends .list .friend_link {
-  box-sizing: content-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 8px auto;
-  background-color: var(--bg-color-1);
-  border-radius: 4px;
-  padding: 4px 10px;
   cursor: pointer;
   font-size: 14px;
-  transition: border-color 0.2s;
-  border: solid 1px transparent;
+  width: 100%;
 }
 .friends .list .friend_link .start {
   display: flex;
@@ -106,4 +100,4 @@
   margin: 4px 0;
 }
 
-/*# sourceMappingURL=about_page.css.map */
+/*# sourceMappingURL=about.css.map */

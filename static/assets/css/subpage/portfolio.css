@@ -3,6 +3,9 @@
   border-top: var(--bg-color-1) solid 1px;
   padding: 32px 32px;
 }
+.project .button {
+  margin: 0 auto;
+}
 .project img {
   width: 100%;
   object-fit: contain;
@@ -51,4 +54,4 @@
   max-width: 96%;
 }
 
-/*# sourceMappingURL=portfolio_page.css.map */
+/*# sourceMappingURL=portfolio.css.map */

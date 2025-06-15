@@ -30,11 +30,8 @@ body {
   border: 24px var(--bg-color-0) solid;
   padding: 30px;
   overflow: auto;
-}
-.about * {
   color: var(--text-color-1);
   font-weight: 200;
-  display: block;
 }
 .about .up {
   display: flex;
@@ -52,36 +49,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-.about .outside_pages .outside_page_item {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: fit-content;
-  padding: 3px 8px;
-  border-radius: 5px;
-  margin: 3px;
-  cursor: pointer;
-  transition: 0.2s border-color;
-  border: solid 1px transparent;
-  background-color: var(--bg-color-0);
-  font-size: 13px;
-  box-shadow: 0 2px 4px var(--shadow-color-1);
-}
-.about .outside_pages .outside_page_item svg {
-  width: 14px;
-  margin-right: 4px;
-}
-.about .outside_pages .outside_page_item svg * {
-  fill: var(--text-color-2);
-}
-.about .outside_pages .outside_page_item .desc {
-  color: var(--text-color-1);
-  height: fit-content;
-  margin: auto 0 auto 8px;
-}
-.about .outside_pages .outside_page_item:hover {
-  border: solid 1px var(--accents-color-2);
 }
 .about img {
   width: min(266px, 100%);
