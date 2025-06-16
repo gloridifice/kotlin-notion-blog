@@ -19,7 +19,7 @@
   padding-bottom: 0;
 }
 
-a.post_preview:-webkit-any-link {
+a.post_preview:any-link {
   display: flex;
   text-decoration: none;
   cursor: pointer;

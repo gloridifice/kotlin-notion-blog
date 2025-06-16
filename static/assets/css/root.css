@@ -50,7 +50,7 @@ div {
   justify-content: center;
 }
 
-.button:-webkit-any-link {
+.button:any-link {
   width: fit-content;
   border-radius: 5px;
   margin: 3px;
@@ -65,18 +65,18 @@ div {
   text-decoration: none;
   color: var(--text-color-1);
 }
-.button:-webkit-any-link:hover {
+.button:any-link:hover {
   border: solid 1px var(--text-color-2);
 }
-.button:-webkit-any-link:active {
+.button:any-link:active {
   box-shadow: 0 2px 4px var(--shadow-color-1);
   padding-bottom: 4px;
 }
-.button:-webkit-any-link svg {
+.button:any-link svg {
   width: 14px;
   fill: var(--text-color-2);
 }
-.button:-webkit-any-link div {
+.button:any-link div {
   color: var(--text-color-1);
   height: fit-content;
   margin: auto 0 auto 8px;
