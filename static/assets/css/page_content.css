@@ -3,13 +3,26 @@
 }
 .page_content h1 {
   color: var(--text-color-0);
-  margin: 48px 0 12px;
+  margin: 32px 0 12px;
   width: 100%;
   padding: 2px 0;
   font-weight: 400;
   font-size: 28px;
   border-bottom: solid var(--line-color) 1px;
   text-align: left;
+  position: relative;
+}
+.page_content h1::before {
+  content: attr(index-text);
+  top: 10px;
+  left: -8px;
+  font-family: serif;
+  font-weight: bolder;
+  color: var(--text-color-2);
+  transform: translateX(-100%);
+  position: absolute;
+  pointer-events: none;
+  font-size: 24px;
 }
 .page_content h2 {
   font-weight: 400;
@@ -36,40 +49,29 @@
   padding: 2px 12px;
   color: var(--text-color-1);
 }
-.page_content .bookmark_block {
-  margin: 12px 0;
-}
-.page_content .bookmark_block .bookmark {
-  padding: 8px 16px;
+.page_content .caption_block {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  border: solid var(--bg-color-2) 1px;
-  background-color: var(--bg-color-1);
-  border-radius: 6px;
-  margin: 0;
-  cursor: pointer;
 }
-.page_content .bookmark_block .bookmark div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 3px 0;
+.page_content .bookmark {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 12px;
+  padding-bottom: 14px;
+  margin-left: 0;
+  margin-right: 0;
+  gap: 4px;
+  --button-border-color: var(--bg-color-2);
+  --button-bg-color: var(--bg-color-1);
+  background-image: var(--bg-image-pattern);
 }
-.page_content .bookmark_block .bookmark .title {
-  transition: color 0.4s;
-  color: var(--text-color-1);
+.page_content .bookmark .title {
+  font-size: 16px;
 }
-.page_content .bookmark_block .bookmark .url {
-  transition: color 0.4s;
-  color: var(--text-color-2);
+.page_content .bookmark .url {
   font-size: 12px;
-}
-.page_content .bookmark:hover .title {
-  color: var(--text-color-0);
-}
-.page_content .bookmark:hover .url {
-  color: var(--text-color-1);
+  color: var(--text-color-2);
 }
 .page_content hr {
   height: 1px;
@@ -80,7 +82,7 @@
 }
 .page_content ul {
   padding-left: 1.5em;
-  margin: 24px 0;
+  margin: 16px 0;
 }
 .page_content ol {
   padding-left: 1.5em;
@@ -129,17 +131,20 @@
   margin: 12px auto;
 }
 .page_content .code_block .code_part {
-  background-color: var(--bg-color-1);
+  background-color: var(--bg-color-2);
   font-family: var(--monospace-font), sans-serif;
   border-radius: 6px;
-  padding: 1.3em 1.7em;
+  padding: 1em 1.5em;
+  padding-bottom: calc(1em + 4px);
+  border: 1px solid var(--inline-code-color-bg);
+  box-shadow: inset 0 -4px var(--bg-color-1);
 }
 .page_content .code_block .code_part .code_lang {
   text-align: right;
   position: relative;
   height: 0;
-  top: -18px;
-  right: -18px;
+  top: -8px;
+  right: -8px;
   color: var(--text-color-2);
   font-size: 12px;
 }
@@ -151,7 +156,7 @@
   padding: 0;
   overflow-x: auto;
   font-size: 13px;
-  background-color: var(--bg-color-1);
+  background-color: var(--bg-color-2);
   white-space: pre;
 }
 .page_content .caption {
@@ -166,9 +171,13 @@
 .page_content .callout {
   display: flex;
   flex-direction: row;
+  box-shadow: inset 0 -4px var(--bg-color-2);
+  padding: 12px 24px;
+  padding-bottom: 16px;
+  border-radius: 6px;
+  border: solid 1px var(--bg-color-3);
   background-color: var(--bg-color-1);
-  padding: 24px 30px;
-  border-radius: 2px;
+  margin: 24px 0;
   font-size: 16px;
 }
 .page_content .callout .icon {
@@ -205,7 +214,7 @@
 }
 
 h1 t {
-  font-weight: 400;
+  font-weight: bold;
   color: var(--text-color-0);
 }
 
@@ -233,7 +242,6 @@ t.code {
   font-weight: normal;
   border-radius: 0.3em;
   padding: 2px 0.4em;
-  padding-bottom: calc(1px + 0.3em);
   margin: 0 -0.1em;
   font-family: var(--monospace-font), monospace;
   font-size: 0.9em;

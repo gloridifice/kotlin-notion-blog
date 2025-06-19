@@ -56,7 +56,7 @@
           <p>
             <t class="">本文使用的 UE 源码版本为 5.5.4。在 UE 5.0，增量回收成为了默认开启的选项，也迎来了包括并行回收在内的垃圾回收更新。如 API 有所出入，请以 5.5.4 为准。</t>
           </p>
-          <h1 id="heading1_0">
+          <h1 id="heading1_0" index-text="I">
             <t class="">前言</t>
           </h1>
           <h2 id="heading2_0">
@@ -107,7 +107,7 @@
               <t class="">引用与对象图</t>
             </li>
           </ul>
-          <h1 id="heading1_1">
+          <h1 id="heading1_1" index-text="II">
             <t class="">UE 5 垃圾回收编程范式</t>
           </h1>
           <h2 id="heading2_2">
@@ -186,7 +186,7 @@ ParallelFor( TEXT(&quot;GC.GatherUnreachable&quot;), ...)</code></pre>
             <t class="code">ReleaseGCLock()</t>
             <t class="">，看到类似字眼说明是上锁或解锁垃圾回收强相关的资源。</t>
           </p>
-          <h1 id="heading1_2">
+          <h1 id="heading1_2" index-text="III">
             <t class="">垃圾回收的触发机制</t>
           </h1>
           <h2 id="heading2_4">
@@ -711,7 +711,7 @@ void UEngine::ConditionalCollectGarbage()
             <t class="code">CleanupActors</t>
             <t class="">，下面一个小节会对两者进行重点介绍。</t>
           </p>
-          <h1 id="heading1_3">
+          <h1 id="heading1_3" index-text="IV">
             <t class="">垃圾回收的执行过程</t>
           </h1>
           <p>
@@ -1611,7 +1611,7 @@ void PostCollectGarbageImpl(EObjectFlags KeepFlags)
             </div>
             <div class="caption"></div>
           </div>
-          <h1 id="heading1_4">
+          <h1 id="heading1_4" index-text="V">
             <t class="">引用与对象图</t>
           </h1>
           <p>

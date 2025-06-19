@@ -34,7 +34,7 @@ body {
   width: calc((100vw - var(--content-max-width)) / 2);
   box-sizing: border-box;
   border: 24px solid var(--bg-color-0);
-  background-image: var(--text-tile-bg-image);
+  background-image: var(--bg-image-koiro-text-tile);
 }
 .post .sidebar_wrapper .navi {
   display: flex;
