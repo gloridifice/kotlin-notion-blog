@@ -77,16 +77,11 @@ body {
   font-weight: normal;
 }
 .about .introduction .icon {
-  height: fit-content;
-  width: fit-content;
-  padding-right: 18px;
+  padding-right: 8px;
 }
-.about .introduction .icon svg {
-  width: 36px;
-  height: 36px;
-}
-.about .introduction .icon svg * {
-  fill: var(--text-color-2);
+.about .introduction .icon img {
+  height: 72px;
+  width: 72px;
 }
 @media only screen and (max-width: 380px) {
   .about .outside_pages {

@@ -112,3 +112,33 @@ function readCookie(name) {
 function eraseCookie(name) {
     createCookie(name, "", -1);
 }
+function setupTouchableAvatar(selector) {
+    var els = document.querySelectorAll(selector);
+    if (!els)
+        return;
+    els.forEach(function (el) {
+        el.addEventListener("click", function () {
+            if (el._anim) {
+                el._anim.cancel();
+            }
+            var keyframes = [
+                { transform: "scaleY(1)", offset: 0 },
+                { transform: "scaleY(0.22)", offset: 0.4 },
+                { transform: "scaleY(1)", offset: 1 }
+            ];
+            var timing = {
+                duration: 500,
+                easing: "cubic-bezier(.2,.7,.2,1)",
+                fill: "forwards"
+            };
+            var anim = el.animate(keyframes, timing);
+            el._anim = anim;
+            anim.onfinish = function () {
+                el._anim = null;
+            };
+        });
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+    setupTouchableAvatar(".touchable-avatar");
+});
