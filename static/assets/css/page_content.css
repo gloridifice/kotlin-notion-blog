@@ -12,18 +12,6 @@
   text-align: left;
   position: relative;
 }
-.page_content h1::before {
-  content: attr(index-text);
-  top: 10px;
-  left: -8px;
-  font-family: serif;
-  font-weight: bolder;
-  color: var(--text-color-2);
-  transform: translateX(-100%);
-  position: absolute;
-  pointer-events: none;
-  font-size: 24px;
-}
 .page_content h2 {
   font-weight: 400;
   color: var(--text-color-0);
