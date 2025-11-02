@@ -679,7 +679,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">// NetDriver.cpp
 void UNetDriver::RegisterTickEvents(class UWorld* InWorld)
 {
@@ -737,7 +737,7 @@ void UNetDriver::RegisterTickEvents(class UWorld* InWorld)
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">// NetDriver.cpp/UNetDriver::TickDispatch
 
 void UNetDriver::TickDispatch( float DeltaTime )
@@ -774,7 +774,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  // Checks for standby cheats if enabled
   UpdateStandbyCheatStatus();
   ResetNetworkMetrics();</code></pre>
@@ -792,7 +792,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if (ServerConnection == nullptr)
   {
     // Delete any straggler connections
@@ -832,7 +832,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    // Clean up recently disconnected client tracking
     if (RecentlyDisconnectedClients.Num() &gt; 0)
     {
@@ -866,7 +866,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  else if (IsValid(ServerConnection))
   {
     ServerConnection-&gt;PreTickDispatch();
@@ -893,7 +893,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void UIpNetDriver::TickDispatch(float DeltaTime)
 {
   LLM_SCOPE_BYTAG(NetDriver);
@@ -914,7 +914,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">#if !UE_BUILD_SHIPPING
   ...
 #endif
@@ -930,7 +930,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    FReceivedPacketView ReceivedPacket;
     FInPacketTraits&amp; ReceivedTraits = ReceivedPacket.Traits;
     bool bOk = It.GetCurrentPacket(ReceivedPacket);
@@ -970,7 +970,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    else
     {
       if (IsRecvFailBlocking(ReceivedPacket.Error))
@@ -991,7 +991,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    if (MyServerConnection)
     {
       if (MyServerConnection-&gt;RemoteAddr-&gt;CompareEndpoints(*FromAddr))
@@ -1028,7 +1028,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void UNetDriver::PostTickDispatch()
 {
   // Flush out of order packet caches for connections that did not receive the missing packets during TickDispatch
@@ -1064,7 +1064,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">#if UE_WITH_IRIS
   PostDispatchSendUpdate();
 #endif
@@ -1084,7 +1084,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if (GReceiveRPCTimingEnabled)
   {
     GRPCCSVTracker.EndTickDispatch();
@@ -1118,7 +1118,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void UNetDriver::TickFlush(float DeltaSeconds)
 {
   // ...trace
@@ -1137,7 +1137,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if (IsServer() &amp;&amp; ClientConnections.Num() &gt; 0 &amp;&amp; !bSkipServerReplicateActors)
   {
     // Update all clients.
@@ -1172,7 +1172,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">int32 UNetDriver::ServerReplicateActors(float DeltaSeconds)
 {
   SCOPE_CYCLE_COUNTER(STAT_NetServerRepActorsTime);
@@ -1188,7 +1188,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  GetMetrics()-&gt;SetInt(UE::Net::Metric::NumReplicatedActors,0 );
   GetMetrics()-&gt;SetInt(UE::Net::Metric::NumReplicatedActorBytes, 0);</code></pre>
             </div>
@@ -1199,7 +1199,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">#if CSV_PROFILER_STATS
   FScopedNetDriverStats NetDriverStats(this);
   GNumClientConnections = ClientConnections.Num();
@@ -1219,7 +1219,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  check( World );
 
   // Bump the ReplicationFrame value to invalidate any properties marked as &quot;unchanged&quot; for this frame.
@@ -1246,7 +1246,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  AWorldSettings* WorldSettings = World-&gt;GetWorldSettings();
 
   bool bCPUSaturated    = false;
@@ -1299,7 +1299,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  for ( int32 i=0; i &lt; ClientConnections.Num(); i++ )
   {
     UNetConnection* Connection = ClientConnections[i];
@@ -1318,7 +1318,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    // if this client shouldn't be ticked this frame
     if (i &gt;= NumClientsToTick)
     {
@@ -1359,7 +1359,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    else if (Connection-&gt;ViewTarget)
     {
       const int32 LocalNumSaturated = GNumSaturatedConnections;
@@ -1409,7 +1409,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">      // send ClientAdjustment if necessary
       // we do this here so that we send a maximum of one per packet to that client; there is no value in stacking additional corrections
       if ( Connection-&gt;PlayerController )
@@ -1434,7 +1434,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">      FMemMark RelevantActorMark(FMemStack::Get());
 
       const bool bProcessConsiderListIsBound = OnProcessConsiderListOverride.IsBound();
@@ -1461,7 +1461,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">      if (!bProcessConsiderListIsBound)
       {
         FActorPriority* PriorityList = NULL;
@@ -1477,7 +1477,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">        // Process the sorted list of actors for this connection
         TInterval&lt;int32&gt; ActorsIndexRange(0, FinalSortedCount);
         const int32 LastProcessedActor = ServerReplicateActors_ProcessPrioritizedActorsRange(Connection, ConnectionViewers, PriorityActors, ActorsIndexRange, Updated);
@@ -1534,7 +1534,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           <hr class="divider_block">
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">      RelevantActorMark.Pop();
       ConnectionViewers.Reset();
       Connection-&gt;LastProcessedFrame = ReplicationFrame;
@@ -1553,7 +1553,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">    if (Connection-&gt;GetPendingCloseDueToReplicationFailure())
     {
       ConnectionsToClose.Add(Connection);
@@ -1567,7 +1567,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if (OnPostConsiderListUpdateOverride.IsBound())
   {
     OnPostConsiderListUpdateOverride.ExecuteIfBound( { DeltaSeconds, nullptr, bCPUSaturated }, Updated, ConsiderList );
@@ -1582,7 +1582,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  // shuffle the list of connections if not all connections were ticked
   if (NumClientsToTick &lt; ClientConnections.Num())
   {
@@ -1609,7 +1609,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">#if NET_DEBUG_RELEVANT_ACTORS
   //...debug
 #endif // NET_DEBUG_RELEVANT_ACTORS
@@ -1638,7 +1638,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  // Reset queued bunch amortization timer
   ProcessQueuedBunchesCurrentFrameMilliseconds = 0.0f;
 
@@ -1674,7 +1674,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if (ConnectionlessHandler.IsValid())
   {
     ConnectionlessHandler-&gt;Tick(DeltaSeconds);
@@ -1707,7 +1707,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  //... debug
   //... Iris
   UpdateNetworkStats();
@@ -1732,7 +1732,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  // Update the lag state
   UpdateNetworkLagState();
 }</code></pre>
@@ -1755,7 +1755,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">if (!IsInternalAck() &amp;&amp; MaxNetTickRateFloat &lt; EngineTickRate &amp;&amp; DesiredTickRate &gt; 0.0f)
 {
     const float MinNetFrameTime = 1.0f/DesiredTickRate;
@@ -1775,7 +1775,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">if (IsInternalAck())
 {
   ...
@@ -1788,7 +1788,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">if ( CurrentRealtimeSeconds - StatUpdateTime &gt; StatPeriod )
 {
   ...
@@ -1806,7 +1806,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">if (bConnectionPendingCloseDueToSocketSendFailure)
 {
     Close(ENetCloseResult::SocketSendFailure);
@@ -1823,7 +1823,7 @@ void UNetDriver::TickDispatch( float DeltaTime )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">const float Timeout = GetTimeoutValue();
 
 const bool bReceiveTimedOut = (CurrentRealtimeSeconds - LastReceiveRealtime) &gt; Timeout;
@@ -1867,7 +1867,7 @@ if (bReceiveTimedOut || bGracefulCloseTimedOut)
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">if (CVarTickAllOpenChannels.GetValueOnAnyThread() == 0) {
   for( int32 i=ChannelsToTick.Num()-1; i&gt;=0; i-- ) {
     ChannelsToTick[i]-&gt;Tick();
@@ -1895,7 +1895,7 @@ else {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">for ( auto ProcessingActorMapIter = KeepProcessingActorChannelBunchesMap.CreateIterator(); ProcessingActorMapIter; ++ProcessingActorMapIter ) {
   ...
 }</code></pre>
@@ -1919,7 +1919,7 @@ else {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if ( TimeSensitive || (Driver-&gt;GetElapsedTime() - LastSendTime) &gt; Driver-&gt;KeepAliveTime)
   {
     bool bHandlerHandshakeComplete = !Handler.IsValid() || Handler-&gt;IsFullyInitialized();
@@ -1941,7 +1941,7 @@ else {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">// Resend any queued up raw packets (these come from the reliability handler)
 BufferedPacket* ResendPacket = Handler-&gt;GetQueuedRawPacket();
 
@@ -1977,7 +1977,7 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void UNetDriver::PostTickFlush()
 {
 #if UE_WITH_IRIS
@@ -1996,7 +1996,7 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  if (bPendingDestruction)
   {
     if (World)
@@ -2125,7 +2125,7 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void UEngine::SetClientTravel( UWorld *InWorld, const TCHAR* NextURL, ETravelType InTravelType )
 {
     FWorldContext &amp;Context = GetWorldContextFromWorldChecked(InWorld);
@@ -2183,7 +2183,7 @@ if (ResendPacket &amp;&amp; Driver-&gt;IsNetResourceValid())
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">WorldContext.PendingNetGame = NewObject&lt;UPendingNetGame&gt;();
 WorldContext.PendingNetGame-&gt;Initialize(URL); //-V595
 WorldContext.PendingNetGame-&gt;InitNetDriver(); //-V595
@@ -2209,7 +2209,7 @@ WorldContext.PendingNetGame-&gt;InitNetDriver(); //-V595
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">// PendingNetGame.cpp
 if( NetDriver-&gt;InitConnect( this, URL, ConnectionError ) )
 {
@@ -2244,7 +2244,7 @@ if( NetDriver-&gt;InitConnect( this, URL, ConnectionError ) )
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void UPendingNetGame::BeginHandshake()
 {
   // Kick off the connection handshake

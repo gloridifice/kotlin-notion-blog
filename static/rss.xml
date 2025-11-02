@@ -1,122 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-<title>我的博客</title>
-<link>https://example.com</link>
-<description>我的 Kotlin 静态博客</description>
+<title>Koiro's Cat Café</title>
+<link>https://blog.koiro.xyz</link>
+<description>这里是宏楼 Koiro 的个人博客。宏楼是人类、学生、平面设计爱好者、图形学爱好者和游戏开发者。</description>
 <language>zh-cn</language>
-<lastBuildDate>周三, 01 10月 2025 09:57:58 +0200</lastBuildDate>
+<lastBuildDate>周日, 02 11月 2025 14:12:15 +0100</lastBuildDate>
 <item>
 <title>Unreal 5 多人网络同步源码梳理（基础）</title>
 <link>https://blog.koiro.xyz/post/2097e342-f5b5-8049-9be7-c3bffa990712.html</link>
 <guid>2097e342-f5b5-8049-9be7-c3bffa990712</guid>
 <pubDate>周二, 27 5月 2025 00:00:00 +0200</pubDate>
-<description><![CDATA[本文结合 UE 源码与注释梳理了 UE 5 的多人网络同步（服务器-客户端模式）下的网络同步过程。]]></description>
+<description><![CDATA[本文结合 UE 源码与注释梳理了 UE 5 的多人网络同步（服务器-客户端模式）下的网络同步过程。 #Dev]]></description>
 </item>
 <item>
 <title>Unreal 5 垃圾回收源码梳理</title>
 <link>https://blog.koiro.xyz/post/2097e342-f5b5-80d7-b619-c9a1ef9ef5f2.html</link>
 <guid>2097e342-f5b5-80d7-b619-c9a1ef9ef5f2</guid>
 <pubDate>周四, 22 5月 2025 00:00:00 +0200</pubDate>
-<description><![CDATA[UE 5 采用标记清扫的垃圾回收策略，同时支持增量回收和集群优化计数。本文梳理了 UE 5 垃圾回收相关的源码，并总结了其部分编程范式。]]></description>
+<description><![CDATA[UE 5 采用标记清扫的垃圾回收策略，同时支持增量回收和集群优化计数。本文梳理了 UE 5 垃圾回收相关的源码，并总结了其部分编程范式。 #Dev]]></description>
 </item>
 <item>
 <title>Unreal 5 C++ 多人游戏入门资料</title>
 <link>https://blog.koiro.xyz/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048.html</link>
 <guid>1f27e342-f5b5-8004-a897-d3f2cbdfb048</guid>
 <pubDate>周三, 14 5月 2025 00:00:00 +0200</pubDate>
-<description><![CDATA[本文为个人笔记，是一篇轻量化的资料类的入门文章，适合非 UE 开发者和无多人游戏开发经验者阅读。包括使用 Rider 开发的注意事项、UE C++ 常用类、垃圾回收、多人网络同步概念与特性等。]]></description>
+<description><![CDATA[本文为个人笔记，是一篇轻量化的资料类的入门文章，适合非 UE 开发者和无多人游戏开发经验者阅读。包括使用 Rider 开发的注意事项、UE C++ 常用类、垃圾回收、多人网络同步概念与特性等。 #Dev]]></description>
 </item>
 <item>
 <title>使用 Bevy 反射序列化组件 </title>
 <link>https://blog.koiro.xyz/post/1bf7e342-f5b5-80e4-8282-ed007ecec286.html</link>
 <guid>1bf7e342-f5b5-80e4-8282-ed007ecec286</guid>
 <pubDate>周三, 26 3月 2025 00:00:00 +0100</pubDate>
-<description><![CDATA[我们的游戏的场景文件是自定义的，因此涉及到大量场景序列化的工作。本文简单介绍如何使用 bevy_reflect 序列化和反序列化 Component（到 toml 文件）。并且包括如何将反序列化后的反射插入 Entity. 过程中会以猫方块的自定义场景序列化为例解释。]]></description>
+<description><![CDATA[我们的游戏的场景文件是自定义的，因此涉及到大量场景序列化的工作。本文简单介绍如何使用 bevy_reflect 序列化和反序列化 Component（到 toml 文件）。并且包括如何将反序列化后的反射插入 Entity. 过程中会以猫方块的自定义场景序列化为例解释。 #Dev]]></description>
 </item>
 <item>
 <title>Bevy 引擎渲染架构设计概览</title>
 <link>https://blog.koiro.xyz/post/19f7e342-f5b5-8092-9703-ff182cd5c02c.html</link>
 <guid>19f7e342-f5b5-8092-9703-ff182cd5c02c</guid>
 <pubDate>周四, 20 2月 2025 00:00:00 +0100</pubDate>
-<description><![CDATA[本文简单介绍了 Bevy 的渲染架构设计，包括有管理渲染顺序的向无环图、渲染流程中 System 顺序、不同物体的渲染阶段、主世界和渲染世界的互动等等。以 Bevy Core 3D 的渲染实现为参考。此外还简单介绍了在一般开发中，如何使用 Bevy 渲染相关的 API。]]></description>
+<description><![CDATA[本文简单介绍了 Bevy 的渲染架构设计，包括有管理渲染顺序的向无环图、渲染流程中 System 顺序、不同物体的渲染阶段、主世界和渲染世界的互动等等。以 Bevy Core 3D 的渲染实现为参考。此外还简单介绍了在一般开发中，如何使用 Bevy 渲染相关的 API。 #Dev]]></description>
 </item>
 <item>
 <title>面向平面设计的色彩知识入门</title>
 <link>https://blog.koiro.xyz/post/1387e342-f5b5-80fc-8c1a-e0ed5c9c6e75.html</link>
 <guid>1387e342-f5b5-80fc-8c1a-e0ed5c9c6e75</guid>
 <pubDate>周三, 25 12月 2024 00:00:00 +0100</pubDate>
-<description><![CDATA[这是一篇为社团平面设计 workshop 写的文章，介绍了使用色彩模型、HSB 模型的特点、色彩使用在平面设计工作中的注意事项等]]></description>
+<description><![CDATA[这是一篇为社团平面设计 workshop 写的文章，介绍了使用色彩模型、HSB 模型的特点、色彩使用在平面设计工作中的注意事项等 #Art]]></description>
 </item>
 <item>
 <title>王国之泪 的平面设计</title>
 <link>https://blog.koiro.xyz/post/a016f0dd-e3c3-439f-adee-54ecf545368b.html</link>
 <guid>a016f0dd-e3c3-439f-adee-54ecf545368b</guid>
 <pubDate>周三, 13 11月 2024 23:00:00 +0100</pubDate>
-<description><![CDATA[这是一篇社团分享]]></description>
+<description><![CDATA[这是一篇社团分享 #Art]]></description>
 </item>
 <item>
 <title>游戏开发中的编程理论基础</title>
 <link>https://blog.koiro.xyz/post/935d27d8-8e8a-4559-8c56-ee8ed6daf2b4.html</link>
 <guid>935d27d8-8e8a-4559-8c56-ee8ed6daf2b4</guid>
 <pubDate>周日, 07 4月 2024 07:37:00 +0200</pubDate>
-<description><![CDATA[本篇文章为社团分享。作者为宏楼（我）和拉斯普（Aspirin）两人。本文包含游戏开发中一些重要理论的基本概念，包括编程范式、面向对象、组合与继承、面向数据、ECS 的概念和优点以及一些现在市面上游戏引擎的使用的架构。]]></description>
+<description><![CDATA[本篇文章为社团分享。作者为宏楼（我）和拉斯普（Aspirin）两人。本文包含游戏开发中一些重要理论的基本概念，包括编程范式、面向对象、组合与继承、面向数据、ECS 的概念和优点以及一些现在市面上游戏引擎的使用的架构。 #Dev]]></description>
 </item>
 <item>
 <title>《怪兽远征》的编辑器工具｜随记 ThinkyCon 2024</title>
 <link>https://blog.koiro.xyz/post/6e6d98bd-613b-45f1-afb7-1bb6afb1c3de.html</link>
 <guid>6e6d98bd-613b-45f1-afb7-1bb6afb1c3de</guid>
 <pubDate>周五, 05 4月 2024 16:05:00 +0200</pubDate>
-<description><![CDATA[本编文章是 ThinkyCon 2024 有关怪兽远征编辑器部分的分享的笔记。其对我们正在开发的解秘游戏的关卡编辑器开发提供了不少启发。]]></description>
-</item>
-<item>
-<title>2023 的秋季做了些什么</title>
-<link>https://blog.koiro.xyz/post/8dd1e547-9817-447a-9f4b-0824d399e434.html</link>
-<guid>8dd1e547-9817-447a-9f4b-0824d399e434</guid>
-<pubDate>周四, 28 12月 2023 05:16:00 +0100</pubDate>
-<description><![CDATA[不知不觉已经到十二月了，喷喷已经更新到 Chill 赛季了。对于时间的认知有些模糊 ，转眼竟然离寒假不远了。]]></description>
+<description><![CDATA[本编文章是 ThinkyCon 2024 有关怪兽远征编辑器部分的分享的笔记。其对我们正在开发的解秘游戏的关卡编辑器开发提供了不少启发。 #Dev]]></description>
 </item>
 <item>
 <title>GameJam 中的时间管理</title>
 <link>https://blog.koiro.xyz/post/d7162752-54cd-4fa9-a17f-3af513bdadf7.html</link>
 <guid>d7162752-54cd-4fa9-a17f-3af513bdadf7</guid>
 <pubDate>周日, 05 5月 2024 17:57:00 +0200</pubDate>
-<description><![CDATA[这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。]]></description>
+<description><![CDATA[这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。 #Life]]></description>
 </item>
 <item>
 <title>GameJam 中的灵感发现</title>
 <link>https://blog.koiro.xyz/post/0dfb39d7-b496-4048-98c0-b1e503ceab6c.html</link>
 <guid>0dfb39d7-b496-4048-98c0-b1e503ceab6c</guid>
 <pubDate>周五, 10 11月 2023 05:03:00 +0100</pubDate>
-<description><![CDATA[这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。]]></description>
+<description><![CDATA[这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。 #Life]]></description>
 </item>
 <item>
 <title>Notion API 小记</title>
 <link>https://blog.koiro.xyz/post/4cc10f21-d5a0-41a9-af7c-03bf157e2789.html</link>
 <guid>4cc10f21-d5a0-41a9-af7c-03bf157e2789</guid>
 <pubDate>周二, 03 10月 2023 00:00:00 +0200</pubDate>
-<description><![CDATA[NotionAPI 的一些笔记]]></description>
+<description><![CDATA[NotionAPI 的一些笔记 #Dev]]></description>
 </item>
 <item>
 <title>Kotlin jvm 实现静态博客生成器随记</title>
 <link>https://blog.koiro.xyz/post/e35194f0-02fa-41ff-8eaa-331ba3b4b18b.html</link>
 <guid>e35194f0-02fa-41ff-8eaa-331ba3b4b18b</guid>
 <pubDate>周四, 28 12月 2023 05:09:00 +0100</pubDate>
-<description><![CDATA[用 kotlin-jvm、notion 和 typescript 实现了自己的静态博客生成器，此博客就是用其生成的。写得过程很愉快。]]></description>
+<description><![CDATA[用 kotlin-jvm、notion 和 typescript 实现了自己的静态博客生成器，此博客就是用其生成的。写得过程很愉快。 #Dev]]></description>
 </item>
 <item>
 <title>Blog 页面、样式测试</title>
 <link>https://blog.koiro.xyz/post/aaaa2dc6-0418-4f70-9e88-9888d8fb9573.html</link>
 <guid>aaaa2dc6-0418-4f70-9e88-9888d8fb9573</guid>
 <pubDate>周三, 13 11月 2024 21:26:00 +0100</pubDate>
-<description><![CDATA[页面样式测试]]></description>
+<description><![CDATA[页面样式测试 #Life]]></description>
 </item>
 <item>
 <title>UI 设计与开发经验 [Unity] 2023.2.8 版</title>
 <link>https://blog.koiro.xyz/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71.html</link>
 <guid>8e979650-5dc5-4a5c-badf-2ac96db0ab71</guid>
-<pubDate>周四, 28 12月 2023 05:09:00 +0100</pubDate>
-<description><![CDATA[自我总结]]></description>
+<pubDate>周五, 13 6月 2025 13:25:00 +0200</pubDate>
+<description><![CDATA[自我总结 #Dev]]></description>
 </item>
 </channel>
 </rss>

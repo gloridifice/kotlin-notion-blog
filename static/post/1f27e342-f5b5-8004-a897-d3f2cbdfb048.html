@@ -42,7 +42,7 @@
           <h1 class="title">🤸 Unreal 5 C++ 多人游戏入门资料</h1>
           <hr>
           <div class="sub_info">
-            <p class="date">2025-06-05</p>
+            <p class="date">2025-08-26</p>
             <div class="type_tags">
               <p class="tag">Unreal</p>
               <p class="tag">Cpp</p>
@@ -205,7 +205,7 @@
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">MyComponent = CreateDefaultSubobject&lt;UMyCustomComponent&gt;(TEXT(&quot;MyComponentName&quot;));
 MyComponent-&gt;SetupAttachment(RootComponent); // RootComponent 是 Actor 的默认根组件</code></pre>
             </div>
@@ -275,7 +275,7 @@ MyComponent-&gt;SetupAttachment(RootComponent); // RootComponent 是 Actor 的�
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">UPROPERTY()
 UMyObjectClass* Foo;</code></pre>
             </div>
@@ -290,7 +290,7 @@ UMyObjectClass* Foo;</code></pre>
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">UPROPERTY()
 TArray&lt;UMyObjectClass*&gt; Foo;</code></pre>
             </div>
@@ -500,7 +500,7 @@ UE 源码起源早于 C++ 11。另一方面，自主的智能指针有利于多�
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">AMyActor::AMyActor()
 {
   bReplicates = true; // 启用 Actor 的复制
@@ -513,7 +513,7 @@ UE 源码起源早于 C++ 11。另一方面，自主的智能指针有利于多�
           </div>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">#pragma once
 
 #include &quot;CoreMinimal.h&quot;
@@ -697,7 +697,7 @@ protected:
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">AActor::SetDormancy(ENetDormancy::DORM_Awake); // 唤醒
 AActor::FlushNetDormancy(); // 唤醒
 
@@ -743,7 +743,7 @@ AActor::SetDormancy(ENetDormancy::DORM_DormantAll); // 休眠</code></pre>
           </div>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">  /// RPC 远程函数调用，可以实现跨端调用函数的功能。
   /// @c Reliable 标签声明了这此调用一定要被抵达，不管带宽情况如何；
   /// 默认的可靠性是 Unreliable.
@@ -766,7 +766,7 @@ AActor::SetDormancy(ENetDormancy::DORM_DormantAll); // 休眠</code></pre>
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void AMyActor::ServerRequestPetCat_Implementation() { ... }
 bool AMyActor::ServerRequestPetCat_Validate() { ... }</code></pre>
             </div>
@@ -782,7 +782,7 @@ bool AMyActor::ServerRequestPetCat_Validate() { ... }</code></pre>
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">UPROPERTY(Replicated)
 AMyActor* Friend;
 
@@ -804,7 +804,7 @@ void ServerRequestPetCat_Implementatoin() {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">void LetMyFriendPetMyCat() {
     ServerRequestLetMyFriendPetCat();
 }
@@ -877,7 +877,7 @@ void ServerRequestLetMyFriendPetCat_Implementation() {
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">UBar* Parent;
 ...
 UFoo* Child = Cast&lt;UFoo&gt;(Parent);</code></pre>
@@ -897,7 +897,7 @@ UFoo* Child = Cast&lt;UFoo&gt;(Parent);</code></pre>
           </ul>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c++</div>
+              <div class="code_lang rss-ignore">c++</div>
               <pre><code class="language-c++">UPROPERTY()
 UMyClass* ReflectedPtr;
 

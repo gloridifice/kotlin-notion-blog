@@ -61,7 +61,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">#[cfg(test)]
 mod test {
   fn test_reflect() {
@@ -87,7 +87,7 @@ mod test {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">#[cfg(test)]
 mod test {
   #[derive(Reflect, Component)]
@@ -138,7 +138,7 @@ mod test {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">// test_reflect()
 let id = world.spawn(Foo { a: 0, b: 0 });
 if world.entities().contains(id) { // 检查实体存在
@@ -159,7 +159,7 @@ if world.entities().contains(id) { // 检查实体存在
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">// 在 for loop 中
 let component_reflect: &amp;dyn Reflect = world.get_reflect(id, component_info.type_id().unwrap()).unwrap();
 
@@ -194,7 +194,7 @@ println!(&quot;{}&quot;, &amp;str); // Debug</code></pre>
           </h2>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">// 这是 toml 格式的 Table
 let table = toml::from_str::&lt;toml::Table&gt;(&amp;str).unwrap();
 let key = table.iter().last().unzip().0.unwrap().clone();
@@ -234,7 +234,7 @@ assert!(partial_reflect.represents::&lt;Foo&gt;()); // 检查部分反射代表�
           </h1>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">let type_registration: &amp;TypeRegistration = registry.get_with_type_path(&amp;key).unwrap();
 let type_id: TypeId = TypeRegistration::type_id(type_registration);</code></pre>
             </div>
@@ -266,7 +266,7 @@ let type_id: TypeId = TypeRegistration::type_id(type_registration);</code></pre>
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">#[derive(Reflect, Component)]
 #[reflect(Component, from_reflect = true)] // new!
 struct Foo {
@@ -289,7 +289,7 @@ struct Foo {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">if let Some(reflect_component) =
     registry.get_type_data::&lt;ReflectComponent&gt;(type_id) // -&gt; Option&lt;&amp;ReflectComponent&gt;
 {
@@ -314,7 +314,7 @@ struct Foo {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">type_registration.data::&lt;ReflectComponent&gt;(); // -&gt; Option&lt;&amp;ReflectComponent&gt;</code></pre>
             </div>
             <div class="caption"></div>
@@ -333,7 +333,7 @@ struct Foo {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">#[derive(Reflect, Component)]
 #[reflect(FooTrait, Component, from_reflect = true)] // new!
 struct Foo {
@@ -379,7 +379,7 @@ impl FooTrait for Foo {}</code></pre>
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">let is_impl_foo_trait =
   type_registration.data::&lt;ReflectFooTrait&gt;().is_some();
   // or

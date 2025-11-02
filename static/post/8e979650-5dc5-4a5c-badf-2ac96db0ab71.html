@@ -42,7 +42,7 @@
           <h1 class="title">☁️ UI 设计与开发经验 [Unity] 2023.2.8 版</h1>
           <hr>
           <div class="sub_info">
-            <p class="date">2023-12-28</p>
+            <p class="date">2025-06-13</p>
             <div class="type_tags">
               <p class="tag">Unity</p>
               <p class="type">Dev</p>
@@ -218,7 +218,7 @@
             <t class="">写好 UI 脚本后使用 CustomEditor 调整 UI 是十分方便的事。</t>
           </p>
           <div class="caption_block"><a class="bookmark button" href="https://docs.unity3d.com/Manual/UIE-HowTo-CreateCustomInspector.html">
-              <div class="title">Unity - Manual: Create a Custom Inspector</div>
+              <div class="title">https://docs.unity3d.com/Manual/UIE-HowTo-CreateCustomInspector.html</div>
               <div class="url">https://docs.unity3d.com/Manual/UIE-HowTo-CreateCustomInspector.html</div>
             </a>
             <div class="caption"></div>
@@ -228,7 +228,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">private MyUIComponent componetSelf;
 private void OnEnable()
 {
@@ -281,7 +281,7 @@ public override void OnInspectorGUI()
             <t class="">导入资源时设置资源属性可阅读：</t>
           </p>
           <div class="caption_block"><a class="bookmark button" href="https://docs.unity3d.com/ScriptReference/AssetPostprocessor.OnPostprocessTexture.html">
-              <div class="title">Unity - Scripting API: AssetPostprocessor.OnPostprocessTexture(Texture2D)</div>
+              <div class="title">https://docs.unity3d.com/ScriptReference/AssetPostprocessor.OnPostprocessTexture.html</div>
               <div class="url">https://docs.unity3d.com/ScriptReference/AssetPostprocessor.OnPostprocessTexture.html</div>
             </a>
             <div class="caption"></div>
@@ -303,7 +303,7 @@ public override void OnInspectorGUI()
             <t class="">DOTween 的官网：</t>
           </p>
           <div class="caption_block"><a class="bookmark button" href="http://dotween.demigiant.com/">
-              <div class="title">DOTween (HOTween v2)</div>
+              <div class="title">http://dotween.demigiant.com/</div>
               <div class="url">http://dotween.demigiant.com/</div>
             </a>
             <div class="caption"></div>
@@ -349,7 +349,7 @@ public override void OnInspectorGUI()
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">    [Serializable] // 使可以在 Inspector 编辑
     public class SimpleTweener
     {
@@ -401,7 +401,7 @@ public override void OnInspectorGUI()
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">public class AnimationTestBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
         public SimpleTweener tweener;
@@ -488,7 +488,7 @@ public override void OnInspectorGUI()
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">float value = Mathf.Lerp(currentSize, targetSize, speed);</code></pre>
             </div>
             <div class="caption"></div>
@@ -503,7 +503,7 @@ public override void OnInspectorGUI()
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">public void Update(){
   float currentSize = transform.localScale.x;
   currentSize = Mathf.Lerp(currentSize, targetSize, speed * (Time.deltaTime * 50f));

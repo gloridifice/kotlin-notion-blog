@@ -73,7 +73,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c</div>
+              <div class="code_lang rss-ignore">c</div>
               <pre><code class="language-c">int main(){
   //第一个点
   float x1 = 2.0f;
@@ -97,7 +97,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c</div>
+              <div class="code_lang rss-ignore">c</div>
               <pre><code class="language-c">struct Vector3 {
   float x;
   float y;
@@ -145,7 +145,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">public class Vector3 {
   //成员字段
   public float x;
@@ -192,7 +192,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">c#</div>
+              <div class="code_lang rss-ignore">c#</div>
               <pre><code class="language-c#">void Clear(Vector3 self) {
   self.x = 0f;
   self.y = 0f;
@@ -242,7 +242,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">class Block {
   String name;
   float explosionResistance; //爆炸抵挡能力
@@ -262,7 +262,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">Block dirt = new Block(&quot;dirt&quot;,...);</code></pre>
             </div>
             <div class="caption"></div>
@@ -281,7 +281,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">Block dirt = new Block(&quot;dirt&quot;,...);
 Block stone = new Block(&quot;stone&quot;,...);
 Block leaf = new Block(&quot;leaf&quot;,...);
@@ -299,7 +299,7 @@ Block leaf = new Block(&quot;leaf&quot;,...);
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">//Block class  
 void spawnDrops(){
 
@@ -326,7 +326,7 @@ void spawnDrops(){
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">class LeafBlock extends Block {
   void spawnDrops() {
     //有概率掉落树苗的逻辑
@@ -337,7 +337,7 @@ void spawnDrops(){
           </div>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">class DirtBlock extends Block {
   void spawnDrops() {
     //掉落方块物品的逻辑
@@ -378,7 +378,7 @@ void spawnDrops(){
           </div>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">java</div>
+              <div class="code_lang rss-ignore">java</div>
               <pre><code class="language-java">public void aiStep() {
       super.aiStep();
       this.oFlap = this.flap;
@@ -546,7 +546,7 @@ void spawnDrops(){
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">haskell</div>
+              <div class="code_lang rss-ignore">haskell</div>
               <pre><code class="language-haskell">min :: (Ord t) =&gt; t -&gt; t -&gt; t
 min a b = case compare a b of
   LT -&gt; a
@@ -606,7 +606,7 @@ min a b = case compare a b of
             <div class="column">
               <div class="code_block">
                 <div class="code_part">
-                  <div class="code_lang">kotlin</div>
+                  <div class="code_lang rss-ignore">kotlin</div>
                   <pre><code class="language-kotlin">- Transform //位置、旋转、缩放信息
 - ItemTexture //物品的贴图
 - RegistryName //这个物品种类的唯一标识
@@ -672,7 +672,7 @@ min a b = case compare a b of
           </div>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">fn rotate_drops(query: Query&lt;&amp;Transform, With&lt;DroppedItem&gt;&gt;, time: Res&lt;Time&gt;){
     for transform in query{
         rotate_with_time(&amp;mut transform, time.delta());

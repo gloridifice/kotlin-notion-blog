@@ -82,7 +82,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">fn build(&amp;self, app: &amp;mut App) {
   ...
   let render_app = match app.get_sub_app_mut(RenderApp) {
@@ -111,7 +111,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub enum RenderSet {
     ExtractCommands,
     PrepareAssets,
@@ -140,7 +140,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">render_app.add_systems(Render, custom_system.in_set(RenderSet::Queue));</code></pre>
             </div>
             <div class="caption"></div>
@@ -161,7 +161,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub trait Node:
     Downcast
     + Send
@@ -214,7 +214,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">render_app
     // 添加一个子图
     .add_render_sub_graph(Core3d)
@@ -260,7 +260,7 @@
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">// * 实现 RenderLable 需要实现 Debug, Clone, Eq
 #[derive(Debug, Clone, Hash, PartialEq, Eq, RenderLabel)]
 pub struct StartFooPass;</code></pre>
@@ -319,7 +319,7 @@ pub struct StartFooPass;</code></pre>
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub trait ViewNode {
     type ViewQuery: ReadOnlyQueryData;
 
@@ -419,7 +419,7 @@ pub struct StartFooPass;</code></pre>
           </div>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">impl ViewNode for MainOpaquePass3dNode {
     type ViewQuery = (
         Entity,
@@ -488,7 +488,7 @@ pub struct StartFooPass;</code></pre>
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">...
 fn run(...) { // impl ViewNode for MainOpaquePass3dNode
 ...
@@ -509,7 +509,7 @@ fn run(...) { // impl ViewNode for MainOpaquePass3dNode
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">// Item: 需要实现 BinnedPhaseItem
 pub struct Opaque3d {
     ...
@@ -541,7 +541,7 @@ pub struct Opaque3dBinKey { // Key
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub fn add(
     &amp;mut self,
     key: &lt;BPI as BinnedPhaseItem&gt;::BinKey,
@@ -556,7 +556,7 @@ pub struct Opaque3dBinKey { // Key
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub struct MainEntity(Entity);</code></pre>
             </div>
             <div class="caption"><a class="link" href="https://docs.rs/bevy/latest/bevy/render/sync_world/struct.MainEntity.html">https://docs.rs/bevy/latest/bevy/render/sync_world/struct.MainEntity.html</a></div>
@@ -585,7 +585,7 @@ pub struct Opaque3dBinKey { // Key
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub trait Draw&lt;P&gt;:
     Send
     + Sync
@@ -626,7 +626,7 @@ where
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">// 声明一个新的 Command
 struct DrawCustomPhaseItem;
 
@@ -709,7 +709,7 @@ fn main() {
           </p>
           <div class="code_block">
             <div class="code_part">
-              <div class="code_lang">rust</div>
+              <div class="code_lang rss-ignore">rust</div>
               <pre><code class="language-rust">pub fn render&lt;'w&gt;(
     &amp;self,
     render_pass: &amp;mut TrackedRenderPass&lt;'w&gt;,
