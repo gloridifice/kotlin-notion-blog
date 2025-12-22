@@ -5,7 +5,14 @@
 <link>https://blog.koiro.xyz</link>
 <description>这里是宏楼 Koiro 的个人博客。宏楼是人类、学生、平面设计爱好者、图形学爱好者和游戏开发者。</description>
 <language>zh-cn</language>
-<lastBuildDate>周日, 02 11月 2025 14:12:15 +0100</lastBuildDate>
+<lastBuildDate>周一, 22 12月 2025 15:16:49 +0100</lastBuildDate>
+<item>
+<title>优化键盘布局，改善生活福祉</title>
+<link>https://blog.koiro.xyz/post/2d17e342-f5b5-8016-9a57-d8fdca60f744.html</link>
+<guid>2d17e342-f5b5-8016-9a57-d8fdca60f744</guid>
+<pubDate>周一, 22 12月 2025 00:00:00 +0100</pubDate>
+<description><![CDATA[为了改善编码体验，我重新设计了自己键盘布局。摆脱了小拇指的疼痛，你有类似的困扰，欢迎阅读本文。具体来说，我采用了虚拟层和 Home Row Mods 的范式。并在长期使用中得到了一个不错的符号层的设计。最终通过跨平台的开源软件 Kanata 来实现我的设计。 #Dev]]></description>
+</item>
 <item>
 <title>Unreal 5 多人网络同步源码梳理（基础）</title>
 <link>https://blog.koiro.xyz/post/2097e342-f5b5-8049-9be7-c3bffa990712.html</link>
