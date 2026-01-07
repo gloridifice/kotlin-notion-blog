@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .page_content {
   text-align: justify;
 }
@@ -176,6 +177,48 @@
 .page_content .callout .text {
   height: fit-content;
   margin: auto 0;
+}
+.page_content .todo_list {
+  padding: 0;
+}
+.page_content .todo_list .todo_list_item {
+  list-style: none;
+}
+.page_content .todo_list .todo_list_item label {
+  display: inline-flex;
+  align-items: center; /* 关键：和文字垂直居中 */
+  gap: 8px;
+}
+.page_content .todo_list .todo_list_item input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--bg-color-3);
+  place-items: center;
+  display: inline-grid;
+}
+.page_content .todo_list .todo_list_item input:checked {
+  background: var(--theme-color);
+}
+.page_content .todo_list .todo_list_item input:checked::after {
+  content: "";
+  width: 3px;
+  height: 7px;
+  border: 3px solid #fff;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+.page_content .todo_list .todo_list_item input:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+.page_content .todo_list .todo_list_item input:disabled {
+  opacity: 1;
+  cursor: not-allowed;
 }
 .page_content .todo_block {
   display: flex;

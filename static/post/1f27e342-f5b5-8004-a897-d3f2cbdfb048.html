@@ -910,6 +910,33 @@ NotReflectedPtr-&gt;IsValidLowLevel()</code></pre>
             </div>
             <div class="caption"></div>
           </div>
+          <ul>
+            <li>
+              <t class="">指针的可空性：只有被 </t>
+              <t class="code">UPROPERTY()</t>
+              <t class=""> 修饰的 </t>
+              <t class="code">UObject</t>
+              <t class=""> 变量的指针在未初始化的情况下默认为空。但是未被修饰的 </t>
+              <t class="code">UObject</t>
+              <t class=""> 指针不应该为空。要检查没有被 </t>
+              <t class="code">UPROPERTY()</t>
+              <t class=""> 修饰的裸指针的空情况，可以使用 </t>
+              <t class="code">IsValidLowLevel</t>
+              <t class="">。</t>
+            </li>
+            <li>
+              <t class="">强制要求使用子类的变量，可以使用 </t>
+              <t class="code">TSubclassOf&lt;T&gt;</t>
+              <t class=""> </t>
+            </li>
+            <li>
+              <t class="">实例创建，UObject 及其子类只支持无参数的构造函数来创建对象。</t>
+              <t class="code">NewObject&lt;T&gt;(...)</t>
+              <t class=""> 是最简单的工厂方法，用于创建一个 UObject。</t>
+              <t class="code">NewNamedObject&lt;T&gt;(…)</t>
+              <t class=""> 可以指定名称（FName）。</t>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="sidebar_wrapper_right sidebar_wrapper">
