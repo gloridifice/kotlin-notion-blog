@@ -12,15 +12,29 @@
   border-radius: 4px;
   border: solid 1px var(--outline-color);
 }
+.project .info {
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
 .project .info .title {
   color: var(--text-color-0);
-  font-weight: normal;
-  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.project .info .headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.project .info .button {
+  margin: 0;
 }
 .project .info p {
   color: var(--text-color-1);
   font-family: sans-serif;
   font-weight: 200;
+  text-align: left;
+  line-height: 1.5;
 }
 .project .link {
   padding: 4px 10px;
@@ -52,7 +66,7 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .project img {
+  .info, .project img {
     width: 75%;
   }
   .post_preview.devlog {

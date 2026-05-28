@@ -58,7 +58,7 @@ a.post_preview:any-link {
   white-space: nowrap;
   overflow: hidden;
 }
-.post_preview.regular .description h3 {
+.post_preview.regular .description .slug {
   font-size: 12px;
   margin: 0;
   margin-top: 6px;
@@ -115,7 +115,7 @@ a.post_preview:any-link {
   text-align: left;
   margin: 0;
 }
-.blog.large .description h3 {
+.blog.large .description .slug {
   color: var(--text-color-1);
   font-weight: 200;
   font-size: 14px;

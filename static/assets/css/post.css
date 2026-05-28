@@ -57,6 +57,7 @@ body {
   top: 0;
   left: 0;
   transition: 0.5s opacity;
+  opacity: 0.3;
 }
 .post .sidebar_wrapper .catalogue:hover {
   opacity: 1;
@@ -73,6 +74,11 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.post .sidebar_wrapper .catalogue ul li:hover {
+  opacity: 1;
 }
 .post .sidebar_wrapper .catalogue ul li a t {
   overflow: hidden;

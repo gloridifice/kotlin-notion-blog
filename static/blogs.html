@@ -4,7 +4,9 @@
     <link rel="alternate" type="application/rss+xml" title="Koiro's Cat Café" href="/rss.xml">
     <meta http-equiv="Content-Type" content="charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/assets/js/header.js"></script>
+    <script type="module">import init, { init_all } from '/pkg/rs_wasm_script.js';                                                                                                                           
+await init();                                                                                                                                                                      
+init_all();     </script>
     <script src="/assets/katex/katex.js"></script>
 <script defer src="/assets/katex/auto-render.min.js" onload="renderMathInElement(document.body);"></script>    <script>document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
     renderMathInElement(document.body, {
@@ -60,211 +62,205 @@
         <div class="post_previews_wrapper">
           <div>
             <p>最近更新</p>
-            <div><a class="post_preview blog large" href="/post/2dd7e342-f5b5-8058-9cbb-f67d3fbdb672.html">
+            <div><a class="post_preview blog large" href="/pages/blogs/我在 2025 年遇到的好的漫画、动画与音乐专辑EP.html">
                 <div class="description">
                   <div class="title">
                     <h2>我在 2025 年遇到的好的漫画、动画与音乐专辑/EP</h2>
-                    <div class="emoji">📚</div>
+                    <div class="emoji"></div>
                   </div>
-                  <h3 class="slug">我在 2025 年遇到的好的漫画、动画与音乐专辑/EP。</h3>
+                  <p class="slug">我在 2025 年遇到的好的漫画、动画与音乐专辑/EP。</p>
                 </div>
               </a></div>
           </div>
           <div>
             <p>分类</p>
             <div class="post_type_buttons">
-              <div class="post_type_button is_selected" id="dev_type_button">
+              <div class="post_type_button is_selected" id="art_type_button">
+                <h3 class="type_name">ART</h3>
+              </div>
+              <div class="post_type_button" id="dev_type_button">
                 <h3 class="type_name">DEV</h3>
               </div>
               <div class="post_type_button" id="life_type_button">
                 <h3 class="type_name">LIFE</h3>
               </div>
-              <div class="post_type_button" id="art_type_button">
-                <h3 class="type_name">ART</h3>
-              </div>
             </div>
-            <div class="post_type_previews" id="dev_type_previews"><a class="post_preview regular reveal blog" href="/post/2d17e342-f5b5-8016-9a57-d8fdca60f744.html">
-                <div class="emoji">⌨️</div>
-                <div class="description">
-                  <h2 class="title">优化键盘布局，改善生活福祉</h2>
-                  <h3 class="slug">为了改善编码体验，我重新设计了自己键盘布局。摆脱了小拇指的疼痛，如果你有类似的困扰，欢迎阅读本文。具体来说，我采用了虚拟层和 Home Row Mods 的范式。并在长期使用中得到了一个不错的符号层的设计。我使用了跨平台的开源软件 Kanata 来实现我的设计。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-12-22</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/2097e342-f5b5-8049-9be7-c3bffa990712.html">
-                <div class="emoji">👯</div>
-                <div class="description">
-                  <h2 class="title">Unreal 5 多人网络同步源码梳理（基础）</h2>
-                  <h3 class="slug">本文结合 UE 源码与注释梳理了 UE 5 的多人网络同步（服务器-客户端模式）下的网络同步过程。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-06-08</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/2097e342-f5b5-80d7-b619-c9a1ef9ef5f2.html">
-                <div class="emoji">🚯</div>
-                <div class="description">
-                  <h2 class="title">Unreal 5 垃圾回收源码梳理</h2>
-                  <h3 class="slug">UE 5 采用标记清扫的垃圾回收策略，同时支持增量回收和集群优化计数。本文梳理了 UE 5 垃圾回收相关的源码，并总结了其部分编程范式。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-06-05</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/1f27e342-f5b5-8004-a897-d3f2cbdfb048.html">
-                <div class="emoji">🤸</div>
-                <div class="description">
-                  <h2 class="title">Unreal 5 C++ 多人游戏入门资料</h2>
-                  <h3 class="slug">本文为个人笔记，是一篇轻量化的资料类的入门文章，适合非 UE 开发者和无多人游戏开发经验者阅读。包括使用 Rider 开发的注意事项、UE C++ 常用类、垃圾回收、多人网络同步概念与特性等。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-08-26</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/1bf7e342-f5b5-80e4-8282-ed007ecec286.html">
-                <div class="emoji">🔁</div>
-                <div class="description">
-                  <h2 class="title">使用 Bevy 反射序列化组件 </h2>
-                  <h3 class="slug">我们的游戏的场景文件是自定义的，因此涉及到大量场景序列化的工作。本文简单介绍如何使用 bevy_reflect 序列化和反序列化 Component（到 toml 文件）。并且包括如何将反序列化后的反射插入 Entity. 过程中会以猫方块的自定义场景序列化为例解释。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-06-05</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/19f7e342-f5b5-8092-9703-ff182cd5c02c.html">
-                <div class="emoji">👁️‍🗨️</div>
-                <div class="description">
-                  <h2 class="title">Bevy 引擎渲染架构设计概览</h2>
-                  <h3 class="slug">本文简单介绍了 Bevy 的渲染架构设计，包括有管理渲染顺序的向无环图、渲染流程中 System 顺序、不同物体的渲染阶段、主世界和渲染世界的互动等等。以 Bevy Core 3D 的渲染实现为参考。此外还简单介绍了在一般开发中，如何使用 Bevy 渲染相关的 API。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-06-05</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/935d27d8-8e8a-4559-8c56-ee8ed6daf2b4.html">
-                <div class="emoji">💽</div>
-                <div class="description">
-                  <h2 class="title">游戏开发中的编程理论基础</h2>
-                  <h3 class="slug">本篇文章为社团分享。作者为宏楼（我）和拉斯普（Aspirin）两人。本文包含游戏开发中一些重要理论的基本概念，包括编程范式、面向对象、组合与继承、面向数据、ECS 的概念和优点以及一些现在市面上游戏引擎的使用的架构。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2024-04-07</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/6e6d98bd-613b-45f1-afb7-1bb6afb1c3de.html">
-                <div class="emoji">🪵</div>
-                <div class="description">
-                  <h2 class="title">《怪兽远征》的编辑器工具｜随记 ThinkyCon 2024</h2>
-                  <h3 class="slug">本编文章是 ThinkyCon 2024 有关怪兽远征编辑器部分的分享的笔记。其对我们正在开发的解秘游戏的关卡编辑器开发提供了不少启发。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2024-04-05</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/4cc10f21-d5a0-41a9-af7c-03bf157e2789.html">
-                <div class="emoji">🗒️</div>
-                <div class="description">
-                  <h2 class="title">Notion API 小记</h2>
-                  <h3 class="slug">NotionAPI 的一些笔记</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-06-05</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/e35194f0-02fa-41ff-8eaa-331ba3b4b18b.html">
-                <div class="emoji">🪗</div>
-                <div class="description">
-                  <h2 class="title">Kotlin jvm 实现静态博客生成器随记</h2>
-                  <h3 class="slug">用 kotlin-jvm、notion 和 typescript 实现了自己的静态博客生成器，此博客就是用其生成的。写得过程很愉快。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2023-12-28</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/8e979650-5dc5-4a5c-badf-2ac96db0ab71.html">
-                <div class="emoji">☁️</div>
-                <div class="description">
-                  <h2 class="title">UI 设计与开发经验 [Unity] 2023.2.8 版</h2>
-                  <h3 class="slug">自我总结</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2025-06-13</p>
-                  <p class="type">Dev</p>
-                </div>
-              </a></div>
-            <div class="hidden post_type_previews" id="life_type_previews"><a class="post_preview regular reveal blog" href="/post/2dd7e342-f5b5-8058-9cbb-f67d3fbdb672.html">
-                <div class="emoji">📚</div>
-                <div class="description">
-                  <h2 class="title">我在 2025 年遇到的好的漫画、动画与音乐专辑/EP</h2>
-                  <h3 class="slug">我在 2025 年遇到的好的漫画、动画与音乐专辑/EP。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">01-03</p>
-                  <p class="type">Life</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/d7162752-54cd-4fa9-a17f-3af513bdadf7.html">
-                <div class="emoji">⏳</div>
-                <div class="description">
-                  <h2 class="title">GameJam 中的时间管理</h2>
-                  <h3 class="slug">这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2024-05-05</p>
-                  <p class="type">Life</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/0dfb39d7-b496-4048-98c0-b1e503ceab6c.html">
-                <div class="emoji">💡</div>
-                <div class="description">
-                  <h2 class="title">GameJam 中的灵感发现</h2>
-                  <h3 class="slug">这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2023-11-10</p>
-                  <p class="type">Life</p>
-                </div>
-              </a><a class="post_preview regular reveal blog" href="/post/aaaa2dc6-0418-4f70-9e88-9888d8fb9573.html">
-                <div class="emoji">🚈</div>
-                <div class="description">
-                  <h2 class="title">Blog 页面、样式测试</h2>
-                  <h3 class="slug">页面样式测试</h3>
-                </div>
-                <div class="info">
-                  <p class="date">2024-11-13</p>
-                  <p class="type">Life</p>
-                </div>
-              </a></div>
-            <div class="hidden post_type_previews" id="art_type_previews"><a class="post_preview regular reveal blog" href="/post/1387e342-f5b5-80fc-8c1a-e0ed5c9c6e75.html">
-                <div class="emoji">🎨</div>
+            <div class="post_type_previews" id="art_type_previews"><a class="post_preview regular reveal blog" href="/pages/blogs/面向平面设计的色彩知识入门.html">
+                <div class="emoji"></div>
                 <div class="description">
                   <h2 class="title">面向平面设计的色彩知识入门</h2>
-                  <h3 class="slug">这是一篇为社团平面设计 workshop 写的文章，介绍了使用色彩模型、HSB 模型的特点、色彩使用在平面设计工作中的注意事项等</h3>
+                  <p class="slug">这是一篇为社团平面设计 workshop 写的文章，介绍了使用色彩模型、HSB 模型的特点、色彩使用在平面设计工作中的注意事项等</p>
                 </div>
                 <div class="info">
                   <p class="date">2024-12-25</p>
                   <p class="type">Art</p>
                 </div>
-              </a><a class="post_preview regular reveal blog" href="/post/a016f0dd-e3c3-439f-adee-54ecf545368b.html">
-                <div class="emoji">📐</div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/王国之泪 的平面设计.html">
+                <div class="emoji"></div>
                 <div class="description">
                   <h2 class="title">王国之泪 的平面设计</h2>
-                  <h3 class="slug">这是一篇社团分享</h3>
+                  <p class="slug">这是一篇社团分享</p>
                 </div>
                 <div class="info">
-                  <p class="date">2024-11-13</p>
+                  <p class="date">2024-04-27</p>
                   <p class="type">Art</p>
+                </div>
+              </a></div>
+            <div class="hidden post_type_previews" id="dev_type_previews"><a class="post_preview regular reveal blog" href="/pages/blogs/优化键盘布局，改善生活福祉.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">优化键盘布局，改善生活福祉</h2>
+                  <p class="slug">为了改善编码体验，我重新设计了自己键盘布局。摆脱了小拇指的疼痛，如果你有类似的困扰，欢迎阅读本文。具体来说，我采用了虚拟层和 Home Row Mods 的范式。并在长期使用中得到了一个不错的符号层的设计。我使用了跨平台的开源软件 Kanata 来实现我的设计。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2025-12-22</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Unreal 5 多人网络同步源码梳理（基础）.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Unreal 5 多人网络同步源码梳理（基础）</h2>
+                  <p class="slug">本文结合 UE 源码与注释梳理了 UE 5 的多人网络同步（服务器-客户端模式）下的网络同步过程。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2025-05-27</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Unreal 5 垃圾回收源码梳理.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Unreal 5 垃圾回收源码梳理</h2>
+                  <p class="slug">UE 5 采用标记清扫的垃圾回收策略，同时支持增量回收和集群优化计数。本文梳理了 UE 5 垃圾回收相关的源码，并总结了其部分编程范式。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2025-05-22</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Unreal 5 C++ 多人游戏入门资料.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Unreal 5 C++ 多人游戏入门资料</h2>
+                  <p class="slug">本文为个人笔记，是一篇轻量化的资料类的入门文章，适合非 UE 开发者和无多人游戏开发经验者阅读。包括使用 Rider 开发的注意事项、UE C++ 常用类、垃圾回收、多人网络同步概念与特性等。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2025-05-14</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/使用 Bevy 反射序列化组件.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">使用 Bevy 反射序列化组件</h2>
+                  <p class="slug">我们的游戏的场景文件是自定义的，因此涉及到大量场景序列化的工作。本文简单介绍如何使用 bevy_reflect 序列化和反序列化 Component（到 toml 文件）。并且包括如何将反序列化后的反射插入 Entity. 过程中会以猫方块的自定义场景序列化为例解释。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2025-03-26</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Bevy 引擎渲染架构设计概览.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Bevy 引擎渲染架构设计概览</h2>
+                  <p class="slug">本文简单介绍了 Bevy 的渲染架构设计，包括有管理渲染顺序的向无环图、渲染流程中 System 顺序、不同物体的渲染阶段、主世界和渲染世界的互动等等。以 Bevy Core 3D 的渲染实现为参考。此外还简单介绍了在一般开发中，如何使用 Bevy 渲染相关的 API。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2025-02-20</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/游戏开发中的编程理论基础.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">游戏开发中的编程理论基础</h2>
+                  <p class="slug">本篇文章为社团分享。作者为宏楼（我）和拉斯普（Aspirin）两人。本文包含游戏开发中一些重要理论的基本概念，包括编程范式、面向对象、组合与继承、面向数据、ECS 的概念和优点以及一些现在市面上游戏引擎的使用的架构。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2024-04-06</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/《怪兽远征》的编辑器工具｜随记 ThinkyCon 2024.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">《怪兽远征》的编辑器工具｜随记 ThinkyCon 2024</h2>
+                  <p class="slug">本编文章是 ThinkyCon 2024 有关怪兽远征编辑器部分的分享的笔记。其对我们正在开发的解秘游戏的关卡编辑器开发提供了不少启发。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2024-04-05</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Notion API 小记.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Notion API 小记</h2>
+                  <p class="slug">NotionAPI 的一些笔记</p>
+                </div>
+                <div class="info">
+                  <p class="date">2023-10-03</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Kotlin jvm 实现静态博客生成器随记.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Kotlin jvm 实现静态博客生成器随记</h2>
+                  <p class="slug">用 kotlin-jvm、notion 和 typescript 实现了自己的静态博客生成器，此博客就是用其生成的。写得过程很愉快。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2023-10-02</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/UI 设计与开发经验 [Unity] 2023.2.8 版.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">UI 设计与开发经验 [Unity] 2023.2.8 版</h2>
+                  <p class="slug">自我总结</p>
+                </div>
+                <div class="info">
+                  <p class="date">2023-09-23</p>
+                  <p class="type">Dev</p>
+                </div>
+              </a></div>
+            <div class="hidden post_type_previews" id="life_type_previews"><a class="post_preview regular reveal blog" href="/pages/blogs/我在 2025 年遇到的好的漫画、动画与音乐专辑EP.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">我在 2025 年遇到的好的漫画、动画与音乐专辑/EP</h2>
+                  <p class="slug">我在 2025 年遇到的好的漫画、动画与音乐专辑/EP。</p>
+                </div>
+                <div class="info">
+                  <p class="date">01-03</p>
+                  <p class="type">Life</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/GameJam 中的时间管理.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">GameJam 中的时间管理</h2>
+                  <p class="slug">这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2023-11-09</p>
+                  <p class="type">Life</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/GameJam 中的灵感发现.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">GameJam 中的灵感发现</h2>
+                  <p class="slug">这是一些做 GameJam 时时间管理的方法论，希望它们能在你没有头绪或着遇到困难的时候帮到你。它们不对所有项目和所有人适用，请根据实际情况调整。</p>
+                </div>
+                <div class="info">
+                  <p class="date">2023-11-08</p>
+                  <p class="type">Life</p>
+                </div>
+              </a><a class="post_preview regular reveal blog" href="/pages/blogs/Blog 页面、样式测试.html">
+                <div class="emoji"></div>
+                <div class="description">
+                  <h2 class="title">Blog 页面、样式测试</h2>
+                  <p class="slug">页面样式测试</p>
+                </div>
+                <div class="info">
+                  <p class="date">2023-09-30</p>
+                  <p class="type">Life</p>
                 </div>
               </a></div>
           </div>
         </div>
-        <div class="footer">
-          <div>
-            <p>本网站内容遵循协议 CC BY-SA 4.0</p>
-            <div><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://koiro.xyz/">Koiro's Cat Café</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://koiro.xyz/">Koiro</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p></div>
-          </div>
-          <div></div>
-        </div>
+        <footer></footer>
       </div>
     </div>
   </body>
